@@ -21,7 +21,7 @@ const fonts = Barlow({
 
 
 export default function RootLayout({ children }) {
-  const GTM_ID = 'GTM-TSZ27XS5'
+  const GTM_ID = 'GTM-ada'
 
   return (
     <html lang="en" >

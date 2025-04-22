@@ -145,7 +145,6 @@ export default function ContactForm({
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (response) {
-        console.log(response);
         if (response[0].status === 200) {
           setIsLoading(false);
           setIsSuccess(true);

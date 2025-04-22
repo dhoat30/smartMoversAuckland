@@ -14,7 +14,6 @@ import FooterCta from "../CTA/FooterCta";
 import GoogleReviewsCarousel from "../GoogleReviews/GoogleReviewsCarousel";
 export default function Layout({ sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData }) {
   if (!sections) return null;
-  console.log(sections)
   const sectionsJSX = sections.map((section, index) => {
   
    

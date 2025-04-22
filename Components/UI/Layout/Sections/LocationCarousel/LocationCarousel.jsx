@@ -8,7 +8,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 export default function LocationCarousel({ cards }) {
-  console.log(cards)
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start' });
 
   const scrollPrev = useCallback(() => {
