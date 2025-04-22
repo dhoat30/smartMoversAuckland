@@ -127,9 +127,9 @@ function DesktopNavbar() {
             {/* logo  */}
             <Link href="/">
               <Image
-                src="/logo.svg"
-                width={126 /3}
-                height={150/3}
+                src="/logo.png"
+                width={292/1.5 }
+                height={59/1.5  }
                 alt="Logo"
                 style={{ cursor: "pointer" }}
               />

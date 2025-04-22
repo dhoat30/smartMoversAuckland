@@ -33,9 +33,9 @@ export default function Footer({
             <div className={`${styles.logoWrapper}`}>
               <Link href="/" className="mb-16 block mt-8">
                 <Image
-                  src="/fullLogo.png"
-                  width={130*1.5}
-                  height={41*1.5}
+                          src="/logo.png"
+                          width={292/1.3 }
+                          height={59/1.3  }
                   alt="Logo"
                   style={{ cursor: "pointer" }}
                 />

@@ -20,9 +20,9 @@ const nextConfig = {
        
      
         remotePatterns: [{
-            protocol: 'http',
-            hostname: 'localhost',
-            port: '10070',
+            protocol: 'https',
+            hostname: 'cms.smartmovers.co.nz',
+            port: '',
             pathname: '/**',
         },
         {
@@ -35,7 +35,7 @@ const nextConfig = {
     ],
     },
     env: {
-        url: "http://localhost:10070",
+        url: "https://cms.smartmovers.co.nz",
         siteUrl: baseUrl,
         siteName: siteName,
     },
