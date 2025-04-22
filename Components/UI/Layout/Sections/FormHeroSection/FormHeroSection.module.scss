@@ -40,6 +40,9 @@
 
                 .imageWraper1{ 
                     padding-bottom: 150%; 
+                    @media(max-width: 550px) { 
+                        padding-bottom: 100%; 
+                    }
                 }
                 .imageWraper2{ 
                     padding-bottom: 120%; 

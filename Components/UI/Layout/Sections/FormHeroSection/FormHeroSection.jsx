@@ -17,6 +17,7 @@ export default function FormHeroSection({
   graphicData,
   uspData,
 }) {
+  console.log(graphicData)
   let graphic;
   if (graphicType === "new_graphic_type") {
     graphic = (
@@ -28,6 +29,8 @@ export default function FormHeroSection({
               src={graphicData[0].image.sizes.large}
               alt={graphicData[0].image.alt || graphicData[0].token.subtitle + " " + graphicData[0].token.title + " "+ graphicData[0].token.description }
               fill
+              priority={true}
+              sizes =" (max-width: 550px) 100vw, (max-width: 1100px) 50vw, 33vw"
             />
           </div>
           <div className={`${styles.token1}`}>
@@ -45,6 +48,9 @@ export default function FormHeroSection({
               src={graphicData[1].image.sizes.large}
               alt={graphicData[1].image.alt || graphicData[1].token.subtitle + " " + graphicData[1].token.title + " "+ graphicData[1].token.description }
               fill
+              priority={true}
+              sizes =" (max-width: 550px) 100vw, (max-width: 1100px) 50vw, 33vw"
+
             />
           </div>
           <div className={`${styles.token2}`}>
