@@ -1,0 +1,24 @@
+.section{ 
+    padding: 80px 0;
+    background-color: var(--light-surface-container-low);
+    @media (max-width: 900px) {
+      padding: 40px 0;
+    }
+    .gridWrapper{ 
+        grid-template-columns: 500px 1fr;
+     
+        display: grid;
+        align-items: start;
+        @media (max-width: 1100px) {
+          gap: 24px;
+    
+          grid-template-columns: 1fr;
+        }
+        .titleWrapper { 
+            @media (min-width: 1100px) {
+                position: sticky;
+                top: 100px;
+              }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.section{ 
+    backdrop-filter: blur(7.6px);
+   .list{ 
+    margin: 0;
+    padding: 0;
+  
+    
+   }
+   
+
+ 
+}
+
+.parentListItem {
+ 
+    .parentLink{
+      display: block;
+      text-align: left;
+      padding: 16px 16px;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 0.005rem;
+      position: relative;
+      &:hover {
+        color: #ebebeb;
+      }
+      &.active {
+        color: #f0f0f0;
+      }
+    }
+    svg {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      transform: rotate(180deg);
+      path {
+        fill: white !important;
+      }
+    }
+  }
+  .childListItem {
+    .childLink {
+      display: block;
+      text-align: left;
+      padding: 16px 40px;
+      color: #dedede;
+      font-weight: 400;
+      position: relative;
+      &:hover {
+        color: #ebebeb;
+      }
+    }
+  }
+
+  .block {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  .hidden {
+    margin: 0;
+    padding: 0;
+    display: none;
+  }

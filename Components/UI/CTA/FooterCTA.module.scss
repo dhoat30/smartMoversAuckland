@@ -1,0 +1,22 @@
+.section{ 
+    background: var(--light-surface-container-lowest); 
+  padding: 40px 0;
+  @media (max-width: 900px) {
+    padding: 24px 0;
+  }
+  .wrapper{ 
+    padding: 120px 0;
+background: linear-gradient(270deg, #04898E 0%, #073A71 100%);
+
+
+        border-radius: 32px;
+        @media (max-width: 900px) {
+          padding: 56px 16px;
+        }
+
+        .contentWrapper{ 
+            max-width: 900px;
+            margin: 0 auto;
+        }
+  }
+}
