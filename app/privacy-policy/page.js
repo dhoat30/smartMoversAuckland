@@ -1,7 +1,7 @@
 import { getOptions, getSinglePostData } from '@/utils/fetchData'
 
-import Header from '@/components/UI/Header/Header'
-import Footer from '@/components/UI/Footer/Footer'
+import Header from '@/Components/UI/Header/Header'
+import Footer from '@/Components/UI/Footer/Footer'
 import HtmlPageTemplate from '@/Components/Pages/HtmlPageTemplate/HtmlPageTemplate/HtmlPageTemplate'
 import BreadcrumbHero from '@/Components/UI/Hero/BreadcrumbHero'
 
