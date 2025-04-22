@@ -30,7 +30,7 @@ export default function FormHeroSection({
               alt={graphicData[0].image.alt || graphicData[0].token.subtitle + " " + graphicData[0].token.title + " "+ graphicData[0].token.description }
               fill
               priority={true}
-              sizes =" (max-width: 550px) 100vw, (max-width: 1100px) 50vw, 33vw"
+              sizes =" (max-width: 550px) 100vw, (max-width: 1100px) 50vw, 50vw"
             />
           </div>
           <div className={`${styles.token1}`}>
@@ -49,7 +49,7 @@ export default function FormHeroSection({
               alt={graphicData[1].image.alt || graphicData[1].token.subtitle + " " + graphicData[1].token.title + " "+ graphicData[1].token.description }
               fill
               priority={true}
-              sizes =" (max-width: 550px) 100vw, (max-width: 1100px) 50vw, 33vw"
+              sizes =" (max-width: 550px) 100vw, 50vw"
 
             />
           </div>
