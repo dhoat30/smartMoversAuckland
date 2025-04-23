@@ -1,5 +1,5 @@
 export const services = [
-    { label: "Auckland Movers", url: "/removalists/adelaide" },
+    { label: "Auckland Movers", url: "/movers/auckland" },
     
     { label: "Auckland to Hamilton", url: "/intercity-movers/auckland-to-hamilton" },
     { label: "Auckland to Tauranga", url: "/intercity-movers/auckland-to-tauranga" },
