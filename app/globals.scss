@@ -279,6 +279,12 @@ content: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 81 80"
   font-size: 1.1rem;
   font-weight: 400; 
 }
+.body1 { 
+  a{ 
+    color: var(--light-primary);
+    text-decoration: underline;
+  }
+}
 .dark-body1, .dark-body1 p, .dark-body1 strong { 
   color: var(--dark-on-surface);
   ul { 

@@ -1,9 +1,16 @@
 "use client";
 
-import Script from 'next/script';
+import Script from "next/script";
+import { useEffect } from "react";
 
 export default function GoogleMapsLoader({ onLoad }) {
-  const GOOGLE_API_KEY='AIzaSyBfneaVJapdnzhBVxj47xdiqh6-1pfnDOE'
+  const GOOGLE_API_KEY = "AIzaSyBfneaVJapdnzhBVxj47xdiqh6-1pfnDOE";
+
+  useEffect(() => {
+    if (window.google && window.google.maps && window.google.maps.places) {
+      onLoad();
+    }
+  }, [onLoad]);
 
   return (
     <Script

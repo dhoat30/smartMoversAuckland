@@ -26,6 +26,11 @@ export const headerLinks = [
                 { label: "Auckland to Invercargill", url: "/intercity-movers/auckland-to-Invercargill" },
             ]
             },
+            {
+                id: 1,
+                label: "Shared Load Moving",
+                url: "/services/shared-load-moving",
+                },
         
         { label: "Contact us", url: "/contact-us" },
 

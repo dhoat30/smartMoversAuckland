@@ -18,10 +18,14 @@ export default function Layout({ sections, uspData, statsData, locationsCovered,
   
    
     if (section.acf_fc_layout === "row") {
-       const remappedAccordion = section.accordion.map(({ title, value }) => ({
-        question: title,
-        answer: value,
-      }));
+      let remappedAccordion
+      if(section.accordion){ 
+        remappedAccordion = section?.accordion?.map(({ title, value }) => ({
+          question: title,
+          answer: value,
+        }));
+      }
+   
     
       return (
         <RowSection

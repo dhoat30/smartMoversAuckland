@@ -1,24 +1,24 @@
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
+import styles from "./HeroUSP.module.scss";
 export default function HeroUSP({ data, className }) {
   if (!data) return;
   return (
-    <div className={`${className} mt-16` }>
+    <div className={`${className} ${styles.textUspContainer} mt-16` }>
       {( data.text_usp && data?.text_usp?.length > 0 )
       
       && 
-      <div className="usp-wrapper mb-16">
-      {data.text_usp.map((item, index) => {
+      <div className={`${styles.textUspWrapper} usp-wrapper mb-16 grid`}>
+      {data.text_usp.map((item, index) => { 
 
         return (
           <Typography
             variant="subtitle2"
             component="div"
-            className="text-usp flex align-center mb-8 gap-4"
+            className={`flex align-center mb-8 gap-4 ${styles.textUSP}`}
             key={index}
-            color="#232e85"
+
           >
             <CheckCircleIcon />
             <span> {item.value}</span>

@@ -90,16 +90,16 @@ export default function GoogleReviewsCarousel({ data }) {
       </div>
       </Container>
 
-      <Container maxWidth="xl" className="cta-wrapper mt-16 flex justify-center flex-wrap gap-16">
+      {/* <Container maxWidth="xl" className="cta-wrapper mt-16 flex justify-center flex-wrap gap-16">
         <Link href={"https://g.page/r/CRY0fyyR4ApsEBM/review"} target="_blank">
           <Button variant={`contained`} endIcon={<CallMadeOutlinedIcon />}>
             Leave a Review
           </Button>
         </Link>
-        {/* <Link href="/customer-reviews">
+        <Link href="/customer-reviews">
           <Button variant={`outlined`}>Read All Reviews</Button>
-        </Link> */}
-      </Container>
+        </Link>
+      </Container> */}
     </section>
   );
 }

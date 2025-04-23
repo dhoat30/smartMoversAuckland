@@ -17,6 +17,13 @@ import Chip from "@mui/material/Chip";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import styles from "./Input.module.scss";
+import DateInput from "./DateInput";
+
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from "dayjs";
+
 // styling for select
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -243,7 +250,35 @@ export default function Input({
         </FormHelperText>
       </FormControl>
     );
-  } else if (
+  } 
+  else if(type==="datePicker"){
+    return       <FormControl
+    fullWidth
+    required={required}
+    error={required ? isInvalid : null}
+    sx={{ marginTop: "24px" }}
+  >
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker
+        label={label}
+        value={value ?? null} // ✅ convert undefined to null
+        onChange={onChange}
+       
+        format="DD/MM/YYYY" 
+        minDate={dayjs()} 
+        slotProps={{
+          textField: {
+            variant: "outlined",
+            fullWidth: true,
+            helperText: isInvalid ? errorMessage : "",
+            error: isInvalid,
+          },
+        }}
+      />
+    </LocalizationProvider>
+  </FormControl>
+  } 
+  else if (
     type === "text" ||
     type === "email" ||
     type === "tel" ||

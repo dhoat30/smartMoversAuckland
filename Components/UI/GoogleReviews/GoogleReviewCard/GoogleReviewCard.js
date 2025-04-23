@@ -22,7 +22,7 @@ export default function GoogleReviewCard({ name, description, customerPic, class
       : description;
 let sourceLogo = showFacebookLogo ? <Image src="/facebook-reviews.png" alt="facebook page" width={96} height={24}/> :   <GoogleIcon />;
   return (
-    <div className={`${className} ${styles.slide} embla__slide`}>
+    <div className={`${className} ${styles.slide} embla__slide border-radius-8`}>
       <div className={`${styles.profileWrapper}`}>
         <Image
           src={customerPic}

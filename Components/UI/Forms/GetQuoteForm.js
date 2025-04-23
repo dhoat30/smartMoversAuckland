@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./InputFields/Input";
 import { getQuoteFormData } from "@/utils/getQuoteFormData";
 import { servicePropertyMap } from "@/utils/getQuoteFormData"; // Import the service mapping
@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import GoogleMapsLoader from "@/Components/GoogleMaps/GoogleMapsLoader";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
+import dayjs from "dayjs";
+
 export default function GetQuoteForm({
   className,
   formName = "Get a Quote Form",
@@ -21,7 +23,6 @@ export default function GetQuoteForm({
   hideTitle = false,
 }) {
   const router = useRouter();
-
   const [formData, setFormData] = useState({
     firstname: "", // Default empty string to make it controlled
     email: "",
@@ -30,6 +31,7 @@ export default function GetQuoteForm({
     pickUpAddress: "",
     dropOffAddress: "",
     propertyType: "",
+    date: null,
     service: [],
     message: "",
   });
@@ -39,6 +41,8 @@ export default function GetQuoteForm({
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
+
+console.log(formData)
 
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
@@ -90,6 +94,8 @@ export default function GetQuoteForm({
     if (!allFieldsValid) {
       return; // Stop the function if any field is invalid o  r empty
     }
+    let formattedDate = dayjs(formData.datePicker).valueOf() 
+
 
     const dataPayload = {
       email: formData.email,
@@ -103,11 +109,15 @@ export default function GetQuoteForm({
       }
       \nProperty Type: ${
         formData.propertyType
-      } \nServices Required: ${formData["service"].join(", ")} \n Message: ${
+      }
+       \nMove Date: ${
+        formattedDate
+      }
+       \nServices Required: ${formData["service"].join(", ")} \n Message: ${
         formData.message
       } `,
-      portalID: "242297103",
-      hubspotFormID: "b19434de-3a23-496c-bb9b-260ff424bf98",
+      portalID: "49166221",
+      hubspotFormID: "e5261de6-f0a5-4071-99e7-a95890d23d08",
       hubspotFormObject: [
         { name: "firstname", value: formData.firstname },
         { name: "email", value: formData.email },
@@ -115,11 +125,13 @@ export default function GetQuoteForm({
         { name: "pick_up_address", value: formData.pickUpAddress },
         { name: "drop_off_address", value: formData.dropOffAddress },
         { name: "property_type", value: formData.propertyType },
+        { name: "move_date", value: formattedDate }, 
         { name: "services_required", value: formData["service"].join(", ") },
         { name: "message", value: formData.message },
       ],
     };
-
+    console.log("Date: ", formattedDate);
+console.log(dataPayload)
     setIsLoading(true);
   
     // Hubspot config
@@ -300,6 +312,7 @@ export default function GetQuoteForm({
               )}
 
               {formInputs}
+            
               <Button
                 // newSubmission={newSubmission}
                 onClick={submitHandler}

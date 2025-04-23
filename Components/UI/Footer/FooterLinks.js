@@ -24,8 +24,11 @@ export const informationLinks = [
         url: "/"
     },
     { label: "Contact us", url: "/contact-us" },
-
-  
+    {
+        id: 1,
+        label: "Shared Load Moving",
+        url: "/services/shared-load-moving",
+        },
     { label: "Get a free quote", url: "/get-free-quote" },
     { label: "Get intercity quote", url: "/get-intercity-quote" },
     { label: "Privacy policy", url: "/privacy-policy" },

@@ -186,7 +186,7 @@ export default function MobileNavbar() {
             </IconButton>
           </DrawerHeader>
           <ul className={`${styles.list}`}>{menuItems}</ul>
-          <Link href="/get-free-quot" style={{ margin: "16px" }}>
+          <Link href="/get-free-quote" style={{ margin: "16px" }}>
             <Button
               size="large"
               variant="outlined"
