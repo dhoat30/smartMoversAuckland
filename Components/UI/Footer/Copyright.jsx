@@ -9,7 +9,7 @@ export default function Copyright() {
       <Container maxWidth="lg" className="content-wrapper">
         <div className="copyright-wrapper flex space-between flex-wrap gap-16">
         <Typography variant="body1" component="span" className="center-align">
-            © {new Date().getFullYear()} Lift & Shift Movers. All Rights Reserved. 
+            © {new Date().getFullYear()} Smart Movers. All Rights Reserved. 
             </Typography>
           <a href="https://webduel.co.nz" rel="nofollow" target="_blank">
             <Typography variant="body1" component="div" className="center-align">
