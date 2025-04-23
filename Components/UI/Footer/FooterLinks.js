@@ -4,7 +4,7 @@ export const services = [
     { label: "Auckland to Hamilton", url: "/intercity-movers/auckland-to-hamilton" },
     { label: "Auckland to Tauranga", url: "/intercity-movers/auckland-to-tauranga" },
     { label: "Auckland to Rotorua", url: "/intercity-movers/auckland-to-rotorua" },
-    { label: "Auckland to Whangārei", url: "/intercity-movers/auckland-to-whangārei" },
+    { label: "Auckland to Whangārei", url: "/intercity-movers/auckland-to-whangarei" },
     { label: "Auckland to Christchurch", url: "/intercity-movers/auckland-to-Christchurch" },
     { label: "Auckland to Wellington", url: "/intercity-movers/auckland-to-Wellington" },
     { label: "Auckland to Hastings", url: "/intercity-movers/auckland-to-Hastings" },
