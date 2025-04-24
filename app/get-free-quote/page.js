@@ -61,7 +61,7 @@ export async function generateMetadata(props, parent) {
                  {/* <GoogleReviewsCarousel data={googleReviews} /> */}
 
             </main>
-            <Footer showFooterCta={true} className="mt-32" footerCtaData={options.footer_cta} contactInfo={options.contact_info} socialData={options.social_links}/>
+            <Footer showFooterCta={false} className="mt-32" footerCtaData={options.footer_cta} contactInfo={options.contact_info} socialData={options.social_links}/>
         </>
     )
 }
