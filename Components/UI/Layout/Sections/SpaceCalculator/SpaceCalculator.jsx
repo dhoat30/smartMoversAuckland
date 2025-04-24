@@ -12,7 +12,7 @@ export default function SpaceCalculator({
   price
 }) {
   return (
-    <section className={`${styles.section}`}>
+    <section className={`${styles.section}`} id="space-calculator">
       <Container className={`${styles.container} grid align-center gap-40` } maxWidth="xl">
         <div className={`${styles.contentWrapper}`}>
           <Typography variant="h4" component="h2" className={`${styles.title}`}>

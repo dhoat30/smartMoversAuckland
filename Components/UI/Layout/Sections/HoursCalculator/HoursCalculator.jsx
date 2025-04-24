@@ -13,7 +13,7 @@ export default function HoursCalculator({
 }) {
 
   return (
-    <section className={`${styles.section}`}>
+    <section className={`${styles.section}`} id="hours-calculator">
       <Container className={`${styles.container} grid align-center gap-40` } maxWidth="xl">
         <div className={`${styles.contentWrapper}`}>
           <Typography variant="h4" component="h2" className={`${styles.title}`}>
