@@ -13,7 +13,7 @@ export default function FormSection({ title, description, usp, graphic }) {
   if(graphic.graphic_type === "image" &&  graphic.image ){ 
     const paddingBottom = graphic.image.height/graphic.image.width * 100
     graphicComponent = <div className="image-wrapper border-radius-12" style={{paddingBottom: `${paddingBottom}%`}}>
-      <Image src={graphic.image.url} alt={graphic.image.alt} fill sizes="(max-width: 1000px) 100vw, 50vw"/>
+      <Image src={graphic.image.url} alt={graphic.image.alt} fill sizes="(max-width: 1000px) 100vw, 50vw" priority/>
     </div>
   }
   if(graphic.graphic_type === "before_after"){ 
