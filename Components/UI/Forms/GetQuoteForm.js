@@ -125,7 +125,7 @@ console.log(formData)
         { name: "pick_up_address", value: formData.pickUpAddress },
         { name: "drop_off_address", value: formData.dropOffAddress },
         { name: "property_type", value: formData.propertyType },
-        { name: "move_date", value: formattedDate }, 
+        { name: "move_date", value: "null" }, 
         { name: "services_required", value: formData["service"].join(", ") },
         { name: "message", value: formData.message },
       ],

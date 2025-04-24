@@ -91,12 +91,12 @@ export const getQuoteFormData = [
         options: [], // Will be populated dynamically
         required: false, // Make it required if necessary
     },
-    {
-        id: 'date',
-        label: 'Select Date',
-        type: 'datePicker',
-        required: false,
-    },
+    // {
+    //     id: 'date',
+    //     label: 'Select Date',
+    //     type: 'datePicker',
+    //     required: false,
+    // },
     {
         id: 'message',
         label: 'Message',
