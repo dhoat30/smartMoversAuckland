@@ -94,7 +94,7 @@ export default function FormHeroSection({
                 <div className={`${styles.input} flex align-center gap-8`}>
                   <HomeOutlinedIcon className={`${styles.icon}`} />
                   <Typography variant="body1" components="span">
-                    3 Bedrooms
+                    Number of bedrooms
                   </Typography>
                 </div>
                 <div className={`${styles.input} flex align-center gap-8`}>
