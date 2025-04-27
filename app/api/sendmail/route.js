@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 const API_KEY = process.env.MAILGUN_API_KEY;
-
+const EMAIL_TO = process.env.EMAIL_TO;
 export async function GET(req, res) {
   const response = await res.json();
 
@@ -18,7 +18,7 @@ export async function POST(req, res) {
   // Prepare the form data as URL encoded
   const formData = new URLSearchParams();
   formData.append('from', email);
-  formData.append('to', 'bestnzmovers@gmail.com');
+  formData.append('to', EMAIL_TO );
   formData.append('subject', formName);
   formData.append('text', `${message}`);
 
