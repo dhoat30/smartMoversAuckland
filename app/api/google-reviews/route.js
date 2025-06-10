@@ -1,39 +1,54 @@
-import { NextResponse } from "next/server";
-import { ApifyClient } from "apify-client";
-
+import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const client = new ApifyClient({
-      token: process.env.APIFY_API,
-    });
+    const placeId = process.env.GOOGLE_PLACE_ID;
+    const apiKey = process.env.SERPAPI_API_KEY;
 
-    const input = {
-      startUrls: [
-        {
-          url: process.env.GOOGLE_LOCATION_URL,
-        },
-      ],
-      maxReviews: 50,
-      reviewsSort: "newest",
-      language: "en",
-      reviewsOrigin: "all",
-      personalData: true,
-    };
+    if (!placeId || !apiKey) {
+      return NextResponse.json(
+        { error: 'Missing SERPAPI_API_KEY or GOOGLE_PLACE_ID' },
+        { status: 400 }
+      );
+    }
 
-    const run = await client.actor("Xb8osYTtOjlsgI6k9").call(input);
-    const { items } = await client.dataset(run.defaultDatasetId).listItems();
+    let allReviews = [];
+    let pageToken = null;
+    let pageCount = 0;
+    const maxPages = 5;
 
-    return NextResponse.json(items, { status: 200 });
+    while (pageCount < maxPages) {
+      let apiUrl = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&api_key=${apiKey}&hl=en`;
+      if (pageToken) {
+        apiUrl += `&next_page_token=${pageToken}`;
+      }
+      
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`SerpApi request failed: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+      if (Array.isArray(data.reviews)) {
+        allReviews = allReviews.concat(data.reviews);
+      }
+
+      // Check for next page token
+      if (
+        data.serpapi_pagination &&
+        data.serpapi_pagination.next_page_token
+      ) {
+        pageToken = data.serpapi_pagination.next_page_token;
+        pageCount++;
+      } else {
+        break; // No more pages
+      }
+    }
+
+    return NextResponse.json(allReviews, { status: 200 });
   } catch (error) {
-    console.error("Error fetching Google reviews:", error);
-    return NextResponse.json({ error: "Failed to fetch reviews" }, { status: 500 });
+    console.error('Error fetching Google reviews:', error);
+    return NextResponse.json({ error: 'Failed to fetch reviews' }, { status: 500 });
   }
-}
-
-
-export async function Post(req, res) {
-  const response = await res.json();
-
-  return NextResponse.json(response)
 }

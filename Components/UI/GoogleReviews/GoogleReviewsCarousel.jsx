@@ -12,6 +12,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 export default function GoogleReviewsCarousel({ data }) {
+  console.log(data)
   if (!data && data.length === 0) return null;
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
 
@@ -25,19 +26,19 @@ export default function GoogleReviewsCarousel({ data }) {
 
   // filter review comment
   const filteredReviewData = data.filter((item) => {
-    return item.stars === 5 && typeof item.text === "string";
+    return item.rating === 5 && typeof item.snippet === "string";
   });
 
   const testimonialCardsJSX = filteredReviewData.map((item, index) => {
     if (index > 10) return null;
     return (
       <GoogleReviewCard
-        key={index}
-        name={item.name}
-        description={item.text}
-        customerPic={item.reviewerPhotoUrl}
-        characterLimit={80}
-      />
+      key={index}
+      name={item.user.name}
+      description={item.snippet}
+      customerPic={item.user.thumbnail}
+      characterLimit={80}
+    />
     );
   });
 

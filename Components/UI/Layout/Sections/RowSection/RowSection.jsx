@@ -21,7 +21,6 @@ export default function RowSection({
   afterImage,
   accordionData
 }) {
-  console.log(imageAlignment)
   const imgPadding = (image.height / image.width) * 100;
   const contentAlignment = imageAlignment === "left" ? "2 / 3" : "1 / 2";
   return (

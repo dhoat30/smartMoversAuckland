@@ -3,6 +3,7 @@ import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
+import GoogleReviewsCarousel from '@/Components/UI/GoogleReviews/GoogleReviewsCarousel'
 
 
 export async function generateMetadata(props, parent) {
@@ -55,8 +56,7 @@ export async function generateMetadata(props, parent) {
             <main>
             <Layout sections={sections} googleReviewsData={googleReviews} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>
         
-
-                {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
+            {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
                 
 
             </main>

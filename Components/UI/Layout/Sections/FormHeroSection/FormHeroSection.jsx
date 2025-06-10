@@ -17,7 +17,6 @@ export default function FormHeroSection({
   graphicData,
   uspData,
 }) {
-  console.log(graphicData)
   let graphic;
   if (graphicType === "new_graphic_type") {
     graphic = (
