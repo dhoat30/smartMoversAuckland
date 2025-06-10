@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3000</loc><lastmod>2025-04-20T07:38:28.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/get-interstate-quote</loc><lastmod>2025-04-20T07:38:28.710Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/contact-us</loc><lastmod>2025-04-20T07:38:28.710Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/get-free-quote</loc><lastmod>2025-04-20T07:38:28.710Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/local-removalists/adelaide</loc><lastmod>2025-04-20T07:38:29.085Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/interstate-removalists/melbourne-to-adelaide</loc><lastmod>2025-04-20T07:38:29.085Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/interstate-removalists/adelaide-to-melbourne</loc><lastmod>2025-04-20T07:38:29.085Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/get-intercity-quote</loc><lastmod>2025-06-10T04:40:17.900Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/terms-and-conditions</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/privacy-policy</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/intercity-movers</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/get-free-quote</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/contact-us</loc><lastmod>2025-06-10T04:40:17.901Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/local-removalists/palmerston-north</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/local-removalists/wellington</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/local-removalists/nelson</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/local-removalists/northland</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/local-removalists/auckland</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-rotorua</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-dunedin</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-invercargill</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-queenstown</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-hastings</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-wellington</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-christchurch</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-whangarei</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-tauranga</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/interstate-removalists/auckland-to-hamilton</loc><lastmod>2025-06-10T04:40:18.767Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
