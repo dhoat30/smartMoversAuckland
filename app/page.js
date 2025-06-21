@@ -54,7 +54,7 @@ export async function generateMetadata(props, parent) {
         <>
             <Header />
             <main>
-            <Layout sections={sections} googleReviewsData={googleReviews} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>
+            <Layout uspTable={options.usp_table} sections={sections} googleReviewsData={googleReviews} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>
         
             {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
                 

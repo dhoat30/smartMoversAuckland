@@ -12,7 +12,9 @@ import ContactSection from "./Sections/ContactSection/ContactSection";
 import SpaceCalculator from "./Sections/SpaceCalculator/SpaceCalculator";
 import FooterCta from "../CTA/FooterCta";
 import GoogleReviewsCarousel from "../GoogleReviews/GoogleReviewsCarousel";
-export default function Layout({ sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData }) {
+import UspTable from "./Sections/UspTable/UspTable";
+
+export default function Layout({uspTable, sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData }) {
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {
   
@@ -202,6 +204,11 @@ if(section.acf_fc_layout === "cta_section" )
     { 
       return <GoogleReviewsCarousel key={index} data={googleReviewsData}/> 
     }
+
+    if(section.acf_fc_layout === "show_usp_table" )  
+      { 
+        return <UspTable key={index} uspTableData={uspTable} /> 
+      }
   });
 
   return <section>{sectionsJSX} </section>;
