@@ -47,6 +47,7 @@ export async function generateMetadata(props, parent) {
     const data = await getSinglePostData( 'home', '/wp-json/wp/v2/pages')
     const googleReviews = await getGoogleReviews()
     const options= await getOptions()
+    console.log(googleReviews)
     // const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.sections
@@ -54,8 +55,8 @@ export async function generateMetadata(props, parent) {
         <>
             <Header />
             <main>
-            <Layout uspTable={options.usp_table} sections={sections} googleReviewsData={googleReviews} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>
-        
+            <Layout googleReviewsData={googleReviews} uspTable={options.usp_table} sections={sections}  uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>
+    
             {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
                 
 

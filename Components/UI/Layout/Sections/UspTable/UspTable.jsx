@@ -12,7 +12,6 @@ export default function UspTable({ uspTableData }) {
   const trueIcon = uspTableData.image_group.true_icon;
   const secondaryTrueIcon = uspTableData.image_group.secondary_true_icon;
   const falseIcon = uspTableData.image_group.false_icon;
-   console.log(uspTableData)
   return (
     <section className={`${styles.section}`}>
       <Container className={`${styles.container}`} maxWidth="lg">
