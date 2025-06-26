@@ -544,3 +544,9 @@ strong {
   }
 }
 
+/* Force move HubSpot chat widget */
+.widget-align-right {
+  right: auto !important;
+  left: 20px !important; /* Or whatever position you want */
+  bottom: 88px !important; /* Adjust vertical position */
+}

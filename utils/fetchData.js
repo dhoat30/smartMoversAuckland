@@ -1,12 +1,30 @@
 //get single post with slug 
 export const getSinglePostData = async (slug, apiRoute) => {
-    let response = await fetch(`${process.env.url}/${apiRoute}?slug=${slug}&acf_format=standard`, {
-        next: { revalidate: 60 },
-    });
-    let data = await response.json();
-    return data
-}
-
+    try {
+      const url = `${process.env.url}/${apiRoute}?slug=${slug}&acf_format=standard`;
+      console.log("Fetching:", url);
+  
+      const response = await fetch(url, 
+        {
+            headers: {
+              'User-Agent': 'Mozilla/5.0',
+              'Accept': 'application/json',
+            },
+            next: { revalidate: 60*60*48 },
+          }
+    );
+  
+      if (!response.ok) {
+        throw new Error(`Fetch failed with status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.error("Error in getSinglePostData:", err);
+      return null;
+    }
+  };
 
 // get single post data using post id 
 export const getSinglePostDataWithID = async (id, apiRoute) => {
@@ -42,9 +60,7 @@ export const getOptions = async () => {
   // get reivews
   export const getGoogleReviews = async () => {
     const baseUrl = process.env.siteUrl; // Change this in production
-    console.log("base url")
 
-    console.log(baseUrl)
     const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 30 * 86400 } });
 
     if (!res.ok) { 

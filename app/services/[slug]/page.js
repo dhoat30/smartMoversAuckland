@@ -7,7 +7,7 @@ import Layout from '@/Components/UI/Layout/Layout'
 export async function generateMetadata({ params }, parent) {
     const param = await params
     const slug = param.slug
-    const data = await getSinglePostData(slug, '/wp-json/wp/v2/services');
+    const data = await getSinglePostData(slug, 'wp-json/wp/v2/services');
   
     const previousImages = (await parent).openGraph?.images || [];
   
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }, parent) {
   export default async function Home({params}) {
     const param = await params
     const slug = param.slug
-    const data = await getSinglePostData( slug, '/wp-json/wp/v2/services')
+    const data = await getSinglePostData( slug, 'wp-json/wp/v2/services')
    
     const options= await getOptions()
     const googleReviews = await getGoogleReviews()

@@ -7,6 +7,8 @@ import Link from "next/link";
 // import LocationCircleIcon from "../Icons/LocationCircleIcon";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
+import Fab from '@mui/material/Fab';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 export default function ContactInfo({ contactInfo, className }) {
   
   if (contactInfo?.info?.length === 0) return null;
@@ -23,12 +25,18 @@ export default function ContactInfo({ contactInfo, className }) {
     );
   });
   return (
+    <>
     <div className={`${className} ${styles.contactInfoWrapper} footer-contact-wrapper flex flex-column gap-8`}>
       <Typography variant="h6" component="div" sx={{ marginBottom: "8px" }}>
         Contact
       </Typography>
       {infoComponent}
     </div>
+
+
+      <Fab className={styles.fabPhone} href={contactInfo.info[0].url} aria-label="Phone" > <LocalPhoneIcon color="white" sx={{fontSize: "2rem", color: "white"}}/> </Fab>
+
+    </>
   );
 }
 

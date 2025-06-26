@@ -10,7 +10,7 @@ export async function generateMetadata(props, parent) {
     // read route params
 
     // fetch data
-    const data = await getSinglePostData( 'home', '/wp-json/wp/v2/pages')
+    const data = await getSinglePostData( 'home', 'wp-json/wp/v2/pages')
 
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
@@ -44,10 +44,9 @@ export async function generateMetadata(props, parent) {
 }
 
   export default async function Home() {
-    const data = await getSinglePostData( 'home', '/wp-json/wp/v2/pages')
+    const data = await getSinglePostData( 'home', 'wp-json/wp/v2/pages')
     const googleReviews = await getGoogleReviews()
     const options= await getOptions()
-    console.log(googleReviews)
     // const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.sections
