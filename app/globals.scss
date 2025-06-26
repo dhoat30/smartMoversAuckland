@@ -545,7 +545,7 @@ strong {
 }
 
 /* Force move HubSpot chat widget */
-.widget-align-right {
+#hubspot-messages-iframe-container{
   right: 16px !important;
-  bottom: 120px !important; /* Adjust vertical position */
+  bottom: 80px !important; /* Adjust vertical position */
 }
