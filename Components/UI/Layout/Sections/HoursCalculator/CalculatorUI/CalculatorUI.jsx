@@ -19,12 +19,13 @@ export default function CalculatorUI({
   furnishedLevelData,
   calculatedValueLabel,
 }) {
-  const [brSize, setBrSize] = React.useState("");
+  const [brSize, setBrSize] = React.useState("3br");
   const [furnishedLevel, setFurnishedLevel] = React.useState(
     "moderatelyFurnished"
   );
   const [sliderValue, setSliderValue] = React.useState(20);
-  const [hoursNeeded, setHoursNeeded] = React.useState(6.7);
+  const [hoursNeeded, setHoursNeeded] = React.useState(6.5);
+  console.log(hoursNeeded); 
   React.useEffect(() => {
     if (sliderValue === 10) {
       setFurnishedLevel("lightlyFurnished");
@@ -50,6 +51,8 @@ export default function CalculatorUI({
   }, [furnishedLevel]);
 
   React.useEffect(() => {
+    console.log("brSize", brSize);
+    console.log("furnishedLevel", furnishedLevel);
     const calculatedHours = calculateHoursNeeded(brSize, furnishedLevel);
     setHoursNeeded(calculatedHours);
   }, [brSize, furnishedLevel]);
