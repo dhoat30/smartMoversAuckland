@@ -20,7 +20,7 @@ export default function CalculatorUI({
   calculatedValueLabel,
   
 }) {
-  const [brSize, setBrSize] = React.useState("");
+  const [brSize, setBrSize] = React.useState("3br");
   const [furnishedLevel, setFurnishedLevel] = React.useState(
     "moderatelyFurnished"
   );
