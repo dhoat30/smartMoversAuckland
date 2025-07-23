@@ -7,7 +7,7 @@ import styles from "./HtmlPageTemplate.module.scss";
 export default function HtmlPageTemplate({ pageData }) {
   return (
     <Paper elevation={1}>
-      <Container maxWidth="xl" className={`${styles.section}`}>
+      <Container maxWidth="md" className={`${styles.section}`}>
         {/* <Box className="title">
           <Typography variant="h2" component="h1" >
             {pageData.title.rendered}
