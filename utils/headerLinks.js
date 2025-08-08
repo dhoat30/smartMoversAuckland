@@ -14,6 +14,8 @@ export const headerLinks = [
         { label: "Palmerston North Movers", url: "/movers/palmerston-north" },
         { label: "Wellington Movers", url: "/movers/wellington" },
         { label: "Nelson Movers", url: "/movers/nelson" },
+        { label: "Christchurch Movers", url: "/movers/christchurch" },
+
 
 
     ],
