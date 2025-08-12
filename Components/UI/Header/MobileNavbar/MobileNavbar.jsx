@@ -141,9 +141,9 @@ export default function MobileNavbar() {
                 </IconButton>
                 <Link href="/" className="logo-wrapper">
                   <Image
-                         src="/logo.png"
-                         width={292/2 }
-                         height={59/2  }
+                         src="/logo.svg"
+                         width={300/1.8 }
+                         height={74/1.8  }
                     alt=" Logo"
                     quality={100}
                   />

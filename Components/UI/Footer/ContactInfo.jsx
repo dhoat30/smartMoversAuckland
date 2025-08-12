@@ -13,6 +13,7 @@ export default function ContactInfo({ contactInfo, className }) {
   
   if (contactInfo?.info?.length === 0) return null;
   const infoComponent = contactInfo?.info?.map((info, index) => {
+    console.log("info", info)
     return (
       <Link href={info.url} key={index} className={`${styles.infoWrapper} flex gap-8 align-center mb-8`}>
    

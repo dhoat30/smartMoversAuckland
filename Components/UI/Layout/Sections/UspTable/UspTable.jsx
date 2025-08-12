@@ -79,7 +79,7 @@ export default function UspTable({ uspTableData }) {
                     }
                     return (
                       <div
-                        key={Math.floor(Math.random() * 140000000)}
+                        key={valIndex}
                         className={`${styles.rowValueIcon} ${valueBackground} pt-24 pb-24 flex align-center justify-center`}
                       >
                         <Image
