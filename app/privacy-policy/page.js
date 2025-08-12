@@ -1,3 +1,5 @@
+export const revalidate = 2592000; // applies to both page and metadata
+
 import { getOptions, getSinglePostData } from '@/utils/fetchData'
 
 import Header from '@/Components/UI/Header/Header'

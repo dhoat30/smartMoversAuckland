@@ -1,5 +1,7 @@
 //get single post with slug 
 export const getSinglePostData = async (slug, apiRoute) => {
+  console.log("Fetching from API:", url);
+
     try {
       const url = `${process.env.url}/${apiRoute}?slug=${slug}&acf_format=standard`;
       console.log("Fetching:", url);
@@ -10,7 +12,7 @@ export const getSinglePostData = async (slug, apiRoute) => {
               'User-Agent': 'Mozilla/5.0',
               'Accept': 'application/json',
             },
-            next: { revalidate: 60*60*720 },
+            next: { revalidate: 2592000 },
           }
     );
   
@@ -29,7 +31,7 @@ export const getSinglePostData = async (slug, apiRoute) => {
 // get single post data using post id 
 export const getSinglePostDataWithID = async (id, apiRoute) => {
     let response = await fetch(`${process.env.url}/${apiRoute}/${id}?acf_format=standard`, {
-        next: { revalidate: 60*60*720 },
+        next: { revalidate: 2592000 },
     });
     let data = await response.json();
     return data
@@ -38,7 +40,7 @@ export const getSinglePostDataWithID = async (id, apiRoute) => {
 //get all posts 
 export const getAllPosts = async (apiRoute) => {
     let response = await fetch(`${process.env.url}/${apiRoute}?acf_format=standard&per_page=100`, {
-        next: { revalidate: 60*60*720 },
+        next: { revalidate: 2592000 },
     });
     let data = await response.json();
     return data
@@ -47,7 +49,7 @@ export const getAllPosts = async (apiRoute) => {
 
 export const getOptions = async () => {
     let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {
-        next: { revalidate: 60*60*720 },
+        next: { revalidate: 2592000 },
     });
     let data = await fetchData.json();
     return data
@@ -61,7 +63,7 @@ export const getOptions = async () => {
   export const getGoogleReviews = async () => {
     const baseUrl = process.env.siteUrl; // Change this in production
 
-    const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 60*60*720 } });
+    const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 2592000 } });
 
     if (!res.ok) { 
         console.log("failed to retch")

@@ -1,3 +1,5 @@
+export const revalidate = 2592000; // applies to both page and metadata
+
 import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
