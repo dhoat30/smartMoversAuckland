@@ -1,3 +1,5 @@
+export const revalidate = 2592000; // 30 days
+
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -22,23 +24,24 @@ export async function GET() {
       if (pageToken) {
         apiUrl += `&next_page_token=${pageToken}`;
       }
-      
-      const response = await fetch(apiUrl);
+
+      // ✅ Cache the SerpAPI request for 30 days
+      const response = await fetch(apiUrl, {
+        cache: "force-cache",
+        next: { revalidate: 2592000 }
+      });
+
       if (!response.ok) {
         throw new Error(`SerpApi request failed: ${response.statusText}`);
       }
 
       const data = await response.json();
-      console.log(data);
       if (Array.isArray(data.reviews)) {
         allReviews = allReviews.concat(data.reviews);
       }
 
       // Check for next page token
-      if (
-        data.serpapi_pagination &&
-        data.serpapi_pagination.next_page_token
-      ) {
+      if (data.serpapi_pagination?.next_page_token) {
         pageToken = data.serpapi_pagination.next_page_token;
         pageCount++;
       } else {
