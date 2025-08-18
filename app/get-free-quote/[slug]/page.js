@@ -46,7 +46,7 @@ export async function generateMetadata({ params }, parent) {
     const param = await params
     const slug = param.slug
     const data = await getSinglePostData( slug, '/wp-json/wp/v2/quote-pages')
-   
+   console.log(data)
     const options= await getOptions()
     const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
