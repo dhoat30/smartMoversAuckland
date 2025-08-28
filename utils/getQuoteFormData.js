@@ -3,6 +3,7 @@ export const servicePropertyMap = {
 
         { value: "2 Men + Truck", label: "2 Men + Truck", price: 0 },
         { value: "3 Men + Truck", label: "3 Men + Truck", price: 0 },
+        { value: "Last-Minute Movers", label: "Last-Minute Movers", price: 0 },
         { value: "Shared Load", label: "Shared Load", price: 0 },
         { value: "Storage Move", label: "Storage Move", price: 0 },
         { value: "Piano Move", label: "Piano Move", price: 0 },

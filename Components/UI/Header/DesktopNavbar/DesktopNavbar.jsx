@@ -149,7 +149,7 @@ function DesktopNavbar() {
               </Box>
               <Link href="/get-free-quote">
                 <Button size="large" variant="contained">
-                  Get a quote
+                  Get free quote
                 </Button>
               </Link>
             </div>

@@ -6,16 +6,16 @@ export default function calculateHoursNeeded(propertySize, furnishingLevel) {
       baseTime = 1;
       break;
     case '2br':
-      baseTime = 2.5;
+      baseTime = 1.5;
       break;
     case '3br':
-      baseTime = 3.2;
+      baseTime = 2.2;
       break;
     case '4br':
-      baseTime = 4;
+      baseTime = 2.8;
       break;
     default:
-      baseTime = 5.5; // fallback
+      baseTime = 3.2; // fallback
   }
 
   const furnishingMultipliers = {

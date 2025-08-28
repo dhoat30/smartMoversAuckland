@@ -1,4 +1,9 @@
 .section{ 
+  position: fixed;
+  top:0; 
+  left: 0; 
+width: 100%; 
+z-index:100; 
     backdrop-filter: blur(7.6px);
    .list{ 
     margin: 0;

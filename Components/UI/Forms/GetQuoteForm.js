@@ -43,7 +43,6 @@ export default function GetQuoteForm({
   const [mapsLoaded, setMapsLoaded] = useState(false);
   const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
 
-console.log(formData)
 
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
@@ -137,8 +136,6 @@ console.log(formData)
         { name: "message", value: formData.message },
       ],
     };
-    console.log("Date: ", formattedDate);
-console.log(dataPayload)
     setIsLoading(true);
   
     // Hubspot config
