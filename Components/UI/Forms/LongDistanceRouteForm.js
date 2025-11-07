@@ -366,8 +366,8 @@ Get my quote
    <Button
               
               variant="text"
-              className="mt-8 flex align-center"
-              style={{width: "100%", display:"flex !important", justifyContent: "center"}}
+              className="mt-8  align-center"
+              style={{width: "100%", display:"flex", justifyContent: "center"}}
              href="tel:020 4086 7643"
               startIcon={<LocalPhoneIcon />}
               >
