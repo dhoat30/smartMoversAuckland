@@ -80,7 +80,7 @@ export async function generateMetadata(props, parent) {
    initialFilters={{ from, to, date }} 
  longDistanceRoutesData={longDistanceRoutes?.cards} />
             </main>
-            <Footer showFooterCta={true} className="mt-32" footerCtaData={options.footer_cta} contactInfo={options.contact_info} socialData={options.social_links}/>
+            <Footer showFooterCta={true} className="mt-32" footerCtaData={{title: "No routes found", description: "We might still be able to help! Smart Movers runs nationwide routes on request.", cta_link:{ url:"/get-intercity-quote", title: "Request a custom quote"} }} contactInfo={options.contact_info} socialData={options.social_links}/>
         </>
     )
 }

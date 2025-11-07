@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "./FooterCTA.module.scss";
 export default function FooterCta({ title, description, cta }) {
+  console.log({ title, description, cta });
   return (
   <section className={`${styles.section}`}>
       <Container maxWidth="lg">
@@ -23,12 +24,11 @@ export default function FooterCta({ title, description, cta }) {
               
             </Typography>
             <Typography
-              component="div"
-              variant="h2"
-              sx={{ fontWeight: 700 }}
+              variant="h5"
               align="center"
               color="white"
-              className="title"
+              style={{fontWeight: 500}}
+              className=" mt-16 description"
             >
               {description}              
             </Typography>
@@ -41,7 +41,9 @@ export default function FooterCta({ title, description, cta }) {
             >
             
             </Typography> */}
-            <div className="button-wrapper flex justify-center mt-24 gap-16 flex-wrap">
+            {cta &&
+          
+              <div className="button-wrapper flex justify-center mt-24 gap-16 flex-wrap">
               <Link href={cta.url}>
                 <Button
                   size="large"
@@ -73,7 +75,8 @@ export default function FooterCta({ title, description, cta }) {
                 {cta.label}
               </Button>
             </Link> */}
-            </div>
+            </div>}
+          
           </div>
         </div>
       </Container>
