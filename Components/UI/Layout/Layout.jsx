@@ -17,7 +17,6 @@ import MovingCardFormSection from "./Sections/MovingCardFormSection/MovingCardFo
 
 export default function Layout({uspTable, sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData, routeId }) {
   if (!sections) return null;
-  console.log(sections)
   const sectionsJSX = sections.map((section, index) => {
   
    
@@ -121,7 +120,6 @@ export default function Layout({uspTable, sections, uspData, statsData, location
     }
   
     if (section.acf_fc_layout === "moving_card_form_section") {
-      console.log(section)
       return (
         <MovingCardFormSection 
         key={index}

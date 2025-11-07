@@ -13,7 +13,6 @@ export async function GET(req, res) {
 
   export async function POST(req, res) {
     const { data } = await req.json();
-    console.log(data)
   // Basic validation
   if (!data) {
     return NextResponse.json({ message: "Missing required fields", success: false, data: data }, {status: 400});

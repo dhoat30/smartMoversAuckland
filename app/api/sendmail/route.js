@@ -32,7 +32,6 @@ export async function POST(req, res) {
       },
       body: formData
     });
-console.log(response)
 const data = await response.json();
 
     // Check if the request was successful

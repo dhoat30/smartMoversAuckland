@@ -9,15 +9,9 @@ import Layout from '@/Components/UI/Layout/Layout'
 
 
 export async function generateMetadata(props, parent) {
-    // read route params
-
-    // fetch data
-    const data = await getSinglePostData( 'intercity-move-routes-cta', '/wp-json/wp/v2/pages')
 
     // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent).openGraph?.images || []
-    if (data.length > 0) {
-        const seoData = data[0].yoast_head_json
+
         return {
             title: "Intercity Moving Routes Across NZ | Smart Movers",
             description: "Compare available long-distance moving routes across New Zealand. Find shared loads, save up to 40%, and book affordable Auckland–Christchurch moves and more.",
@@ -27,22 +21,11 @@ export async function generateMetadata(props, parent) {
                 description: "Compare available long-distance moving routes across New Zealand. Find shared loads, save up to 40%, and book affordable Auckland–Christchurch moves and more.",
                 url: process.env.siteUrl,
                 siteName: process.env.siteName,
-                images: [
-                    {
-                        url: seoData?.og_image && seoData?.og_image[0]?.url,
-                        width: 800,
-                        height: 600,
-                    }, {
-                        url: seoData?.og_image && seoData?.og_image[0].url,
-                        width: 1800,
-                        height: 1600,
-                    },
-
-                ],
+               
                 type: 'website',
             },
         }
-    }
+    
 }
 
   export default async function Home({searchParams }) {

@@ -1,21 +1,30 @@
 export const servicePropertyMap = {
-    Residential: [
-
-        { value: "Apartment", label: "Apartment", price: 0 },
-        { value: "3 Bedroom House", label: "3 Bedroom", price: 0 },
-        { value: "4+ Bedroom House", label: "Last-Minute Movers", price: 0 },
-        { value: "Storage Move", label: "Storage Move", price: 0 },
-        { value: "Piano", label: "Piano", price: 0 },
-        
-        { value: "Senior Citizen Move", label: "Senior Citizen Move", price: 0 },
-    ],
-    Commercial: [
-               { value: "Small Office Move", label: "Small Office Move", price: 0 },
-               { value: "Large Office Move", label: "Large Office Move", price: 0 },
-               { value: "Warehouse Move", label: "Warehouse Move", price: 0 },
-                { value: "Inventory Move", label: "Inventory Move", price: 0 },
-        // Add more commercial services as needed
-    ],
+   Residential: [
+    { value: "Apartment",            label: "Apartment",                          price: 0 },
+    { value: "Studio / 1 Bedroom",           label: "Studio / 1 Bedroom",                 price: 0 },
+    { value: "2 Bedroom House",            label: "2 Bedroom House",                    price: 0 },
+    { value: "3 Bedroom House",            label: "3 Bedroom House",                    price: 0 },
+    { value: "4+ Bedroom House",       label: "4+ Bedroom House",                   price: 0 },
+    { value: "Single Item",     label: "Single Item",            price: 0 },
+    { value: "Storage Move",         label: "Storage Move",                        price: 0 },
+    { value: "Piano Move",           label: "Piano Move",                          price: 0 },
+    { value: "Pool Table Move",      label: "Pool Table Move",                     price: 0 },
+    { value: "Senior Citizen Move",  label: "Senior Citizen Move",                 price: 0 },
+    { value: "Partial Load / Backload",     label: "Partial Load / Backload",             price: 0 },
+  ],
+  Commercial: [
+    { value: "Small Office (≤5 staff)",         label: "Small Office (≤5 staff)",             price: 0 },
+    { value: "Medium Office (6–20 staff)",        label: "Medium Office (6–20 staff)",          price: 0 },
+    { value: "Large Office (20+ staff)",         label: "Large Office (20+ staff)",            price: 0 },
+    { value: "Retail / Shop Relocation",          label: "Retail / Shop Relocation",            price: 0 },
+    { value: "Hospitality (Café/Restaurant/Bar)",          label: "Hospitality (Café/Restaurant/Bar)",   price: 0 },
+    { value: "Medical / Clinic",       label: "Medical / Clinic",                    price: 0 },
+    { value: "Warehouse / Distribution",            label: "Warehouse / Distribution",            price: 0 },
+    { value: "Inventory Transfer",                  label: "Inventory Transfer",                  price: 0 },
+    { value: "IT & Server Move",                    label: "IT & Server Move",                    price: 0 },
+    { value: "Events / Trade Show Logistics",       label: "Events / Trade Show Logistics",       price: 0 },
+    { value: "Storage Unit Relocation",             label: "Storage Unit Relocation",             price: 0 },
+  ],
  
 };
 

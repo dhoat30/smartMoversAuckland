@@ -61,7 +61,7 @@ export default function UspTable({ uspTableData }) {
                   </Typography>
                 </div>
                 <div
-                  className={`${styles.rowValue} flex align-center justify-center`}
+                  className={`${styles.rowValue}  align-center justify-center`}
                 >
                   {item.value.map((val, valIndex) => {
                     let icon = null;
@@ -96,13 +96,13 @@ export default function UspTable({ uspTableData }) {
             );
           })}
         </div>
-        <div className={`${styles.buttonWrapper} flex justify-center mt-40`}>
+        {/* <div className={`${styles.buttonWrapper} flex justify-center mt-40`}>
           <Link href="/get-free-quote">
             <Button variant="contained" size="large">
               Get free quote
             </Button>
           </Link>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

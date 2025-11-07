@@ -226,7 +226,6 @@ export default function GetQuoteForm({
   const isAddressField = (id) => {
     return ["address", "pickUpAddress", "dropOffAddress"].includes(id);
   };
-console.log(formData)
   const formInputs = getQuoteFormData.map((field, index) => {
     if (field.id === "service") {
       const filteredOptions = getFilteredServiceOptions();

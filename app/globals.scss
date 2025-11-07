@@ -371,7 +371,7 @@ strong {
 // general padding 
 
 .grid{ 
-  display: grid; 
+  display: grid !important; 
 }
 .flex {
   display: flex !important;

@@ -24,9 +24,11 @@ export default function LongDistanceRouteForm({
   formName = "Get a Quote Form",
   title = "Please fill out a form",
   hideTitle = false,
+   routeId
 }) {
 
-    const { data, fromLabel, toLabel } = useRouteCard();
+    const { data, fromLabel, toLabel } = useRouteCard(routeId);
+    console.log(data)
   const router = useRouter();
   const [formData, setFormData] = useState({
     firstname: "", // Default empty string to make it controlled
@@ -48,7 +50,6 @@ export default function LongDistanceRouteForm({
   const [mapsLoaded, setMapsLoaded] = useState(false);
   const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
 
-console.log("formData:", formData);
 
   // Handle input changes
   const handleChange = (id, value, isSelectMultiple) => {
@@ -145,12 +146,11 @@ console.log("formData:", formData);
         { name: "date_listed_on_move_card", value: movingCardDate },
         { name: "truck_size_listed_on_move_card", value: `${data?.attributes?.truck_size}` },
         { name: "number_of_movers_listed_on_move_card", value: data?.attributes?.number_of_movers },
-        { name: "description_on_move_card", value: data.description },
+        { name: "description_on_move_card", value: data?.description },
         { name: "status_listed_on_move_card", value: data?.status },
       ],
     };
     setIsLoading(true);
-    console.log("Submitting form with data:", dataPayload);
     // Hubspot config
     var configHubspot = {
       method: "post",

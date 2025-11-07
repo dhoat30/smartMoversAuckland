@@ -31,7 +31,7 @@ export default function MovingCardFormSection({ title, description, usp, graphic
             <Typography component="h1" variant="h4" className="title">{title}</Typography>
             <Typography component="div" variant="body1" className="description mt-16">{description}</Typography>
             <HeroUSP data={usp} className="mb-16" />
-            <LongDistanceRouteForm hideTitle className={styles.formWrapper} />
+            <LongDistanceRouteForm hideTitle className={styles.formWrapper}   routeId={routeId}/>
           </Paper>
         </div>
       </Container>

@@ -47,7 +47,6 @@ export async function generateMetadata(props, parent) {
   export default async function Home() {
     const data = await getSinglePostData( 'home', 'wp-json/wp/v2/pages')
     const googleReviews = await getGoogleReviews()
-    console.log("Google Reviews Data:", googleReviews);
     const options= await getOptions()
     // const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
