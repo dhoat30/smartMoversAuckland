@@ -3,6 +3,7 @@ import Image from "next/image";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import styles from "./HeroUSP.module.scss";
 export default function HeroUSP({ data, className }) {
+  console.log(data)
   if (!data) return;
   return (
     <div className={`${className} ${styles.textUspContainer} mt-16` }>

@@ -13,8 +13,7 @@ export default function ContactInfo({ contactInfo, className }) {
   
   if (contactInfo?.info?.length === 0) return null;
   const infoComponent = contactInfo?.info?.map((info, index) => {
-    console.log("info", info)
-    return (
+  return (
       <Link href={info.url} key={index} className={`${styles.infoWrapper} flex gap-8 align-center mb-8`}>
    
           <Image src={info.icon.url} alt={info.icon.alt} width={info.icon.width} height={info.icon.height} />

@@ -14,10 +14,12 @@ export const commercialLinks = [
 ]
 
 export const informationLinks = [
-    {
-        label: "Home",
-        url: "/"
-    },
+      {
+    id: 1,
+    label: "Available Long Distance Routes",
+    url: "/intercity-movers/long-distance-routes"
+  
+  },
     { label: "Contact us", url: "/contact-us" },
     {
         id: 1,

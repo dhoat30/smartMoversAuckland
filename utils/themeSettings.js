@@ -29,7 +29,7 @@ export const lightTheme = createTheme({
     h2: {
       fontWeight: 800,
       fontSize: "3rem",
-      lineHeight: "3.4rem",
+      lineHeight: "100%",
       color: "var(--light-secondary)",
 
       "@media (max-width:600px)": {
@@ -38,7 +38,7 @@ export const lightTheme = createTheme({
       }
     },
     h3: {
-      fontWeight: 600,
+      fontWeight: 900,
       letterSpacing: "0.05rem",
       color: "var(--light-on-surface)",
       "@media (max-width:600px)": {
@@ -88,6 +88,11 @@ export const lightTheme = createTheme({
           border: "1px solid var(--light-primary)",
           color: "var(--light-primary)",
         },
+        text: { 
+          color: "var(--light-primary)",
+          display: "inline-block",
+          padding: "12px 0",
+        }
       },
     },
   },

@@ -1,0 +1,37 @@
+.section { 
+   
+padding: 40px 0 40px 0; 
+@media(max-width: 1200px){ 
+  padding-top: 100px; 
+}
+.container{ 
+  @media (max-width: 600px) {
+      padding:0; 
+  }
+  .grid{ 
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    @media(max-width: 1000px){ 
+      grid-template-columns: 1fr; 
+    }
+    .contentWrapper{ 
+      
+      padding: 24px; 
+      @media(max-width: 600px){ 
+        padding:  16px; 
+      }
+    @media(min-width: 1000px){ 
+        position: sticky; 
+        top: 0;  
+    }
+    }
+    .formWrapper{ 
+      padding: 8px 24px 24px 24px; 
+      @media(max-width: 600px){ 
+        padding: 8px 16px 16px 8px; 
+      }
+    
+    }
+  }
+} 
+}

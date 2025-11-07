@@ -16,12 +16,19 @@ export const headerLinks = [
 
     ],
   },
-  {
+  
+    {
     id: 1,
-    label: "Long Distance Moves",
-    url: "/intercity-movers"
+    label: "Long Distance Routes",
+    url: "/intercity-movers/long-distance-routes"
   
   },
+  // {
+  //   id: 1,
+  //   label: "Long Distance Moves",
+  //   url: "/intercity-movers"
+  
+  // },
   {
     id: 1,
     label: "Last Minute Movers",

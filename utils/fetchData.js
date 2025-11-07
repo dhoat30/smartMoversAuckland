@@ -54,6 +54,13 @@ export const getOptions = async () => {
     let data = await fetchData.json();
     return data
 }
+export const getLongDistanceRoutes = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/smart/v1/long-distance-moves`, {
+        next: { revalidate: 2592000 },
+    });
+    let data = await fetchData.json();
+    return data
+}
 
 
 
@@ -76,21 +83,21 @@ export const getOptions = async () => {
 
 
 
-const axios = require("axios");
+// const axios = require("axios");
 
-const data = JSON.stringify([
-	{"url":"https://www.google.com/maps/place/Best+NZ+Movers/@-37.0505295,174.8591432,12z/data=!4m6!3m5!1s0x6d72ad599064635b:0x6c0ae0912c7f3416!8m2!3d-37.050558!4d174.9415442!16s%2Fg%2F11ybzp6jf6?hl=en-GB&authuser=0&entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D","days_limit":18},
-]);
+// const data = JSON.stringify([
+// 	{"url":"https://www.google.com/maps/place/Best+NZ+Movers/@-37.0505295,174.8591432,12z/data=!4m6!3m5!1s0x6d72ad599064635b:0x6c0ae0912c7f3416!8m2!3d-37.050558!4d174.9415442!16s%2Fg%2F11ybzp6jf6?hl=en-GB&authuser=0&entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D","days_limit":18},
+// ]);
 
-axios
-    .post("https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_luzfs1dn2oa0teb81&include_errors=true",
-		data,
-        {
-            headers: {
-				"Authorization": "Bearer d5991053-4d54-4922-9482-5bab1d20f59c",
-				"Content-Type": "application/json",
-			},
-        }
-    )
-    .then((response) => console.log(response.data))
-    .catch((error) => console.error(error));
+// axios
+//     .post("https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_luzfs1dn2oa0teb81&include_errors=true",
+// 		data,
+//         {
+//             headers: {
+// 				"Authorization": "Bearer d5991053-4d54-4922-9482-5bab1d20f59c",
+// 				"Content-Type": "application/json",
+// 			},
+//         }
+//     )
+//     .then((response) => console.log(response.data))
+//     .catch((error) => console.error(error));

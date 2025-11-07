@@ -10,7 +10,6 @@ import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
 import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
-import GoogleMapsLoader from "@/Components/GoogleMaps/GoogleMapsLoader";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 export default function ContactForm({
@@ -211,8 +210,7 @@ export default function ContactForm({
     } else if (isAddressField(field.id)) {
       return (
         <React.Fragment key={field.id}>
-          {!mapsLoaded && <GoogleMapsLoader onLoad={handleLoad} />}
-          {mapsLoaded && (
+        
             <GoogleAutocomplete
               className="mt-16"
               label={field.label}
@@ -236,7 +234,7 @@ export default function ContactForm({
                 errors[field.id] ? "Please enter a valid address" : ""
               }
             />
-          )}
+         
         </React.Fragment>
       );
     } else {

@@ -18,12 +18,14 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import styles from "./Input.module.scss";
 import DateInput from "./DateInput";
-
+import { useState } from "react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from "dayjs";
-
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import ClearIcon from "@mui/icons-material/Close";
 // styling for select
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -53,8 +55,12 @@ export default function Input({
   max,
   note,
   id, 
+  removeMargin = false, 
   ...props
 }) {
+
+    const [open, setOpen] = useState(false);
+
   if (type === "radio") {
     return (
       <FormControl
@@ -252,31 +258,58 @@ export default function Input({
     );
   } 
   else if(type==="datePicker"){
-    return       <FormControl
-    fullWidth
-    required={required}
-    error={required ? isInvalid : null}
-    sx={{ marginTop: "24px" }}
-  >
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label={label}
-        value={value ?? null} // ✅ convert undefined to null
-        onChange={onChange}
-       
-        format="DD/MM/YYYY" 
-        minDate={dayjs()} 
-        slotProps={{
-          textField: {
-            variant: "outlined",
-            fullWidth: true,
-            helperText: isInvalid ? errorMessage : "",
-            error: isInvalid,
-          },
-        }}
-      />
-    </LocalizationProvider>
-  </FormControl>
+    return           <FormControl
+      fullWidth
+      required={required}
+      error={required ? isInvalid : null}
+      sx={{ marginTop: removeMargin ? "0" : "24px", position: "relative" }}
+    >
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          label={label}
+          value={value ?? null}
+          onChange={onChange}
+          format="DD/MM/YYYY"
+          minDate={dayjs()}
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
+          slotProps={{
+            textField: {
+              variant: "outlined",
+              fullWidth: true,
+              helperText: isInvalid ? errorMessage : "",
+              error: isInvalid,
+              inputProps: { readOnly: true },
+              onClick: () => setOpen(true),
+              onKeyDown: (e) => {
+                if (e.key === "Enter" || e.key === " ") setOpen(true);
+              },
+            },
+          }}
+        />
+      </LocalizationProvider>
+
+      {value ? (
+        <IconButton
+          aria-label="Clear date"
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            onChange(null);
+          }}
+          sx={{
+            position: "absolute",
+            right: 44,         // leave space for the calendar icon (~48px)
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <ClearIcon fontSize="small" />
+        </IconButton>
+      ) : null}
+    </FormControl>
   } 
   else if (
     type === "text" ||
@@ -287,7 +320,7 @@ export default function Input({
     return (
       <TextField
         sx={{
-          marginTop: "24px",
+          marginTop: "16px",
         }}
         label={label}
         type={type}

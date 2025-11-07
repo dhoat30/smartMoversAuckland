@@ -55,6 +55,8 @@ export default function RootLayout({ children }) {
           {children}
         </ClientProvider>
         {/* </AppRouterCacheProvider> */}
+            {/* Load ONCE after hydration */}
+
       </body>
     </html>
   )

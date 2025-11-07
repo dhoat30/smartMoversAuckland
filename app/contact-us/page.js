@@ -53,7 +53,7 @@ export async function generateMetadata(props, parent) {
     return (
         <>
             <Header />
-            <main>
+            <main style={{background: "var(--light-surface-container-low)"}}>
             <Layout sections={sections} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} contactInfo={options.contact_info} socialData={options.social_links}/>
                 {/* <Layout sections={postData[0]?.acf?.sections} /> */}
                 {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}

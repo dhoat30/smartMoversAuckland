@@ -2,8 +2,10 @@
 
 import { NextResponse } from 'next/server'
 const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
+const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
+
 export async function POST(req, res) {
-    const { hubspotFormObject, hubspotFormID, portalID } = await req.json();
+    const { hubspotFormObject, hubspotFormID } = await req.json();
 
 
     var payload = JSON.stringify({
@@ -38,7 +40,7 @@ export async function POST(req, res) {
 
     try {
         // submit form
-        let response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalID}/${hubspotFormID}`, postOptions)
+        let response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${HUBSPOT_PORTAL_ID}/${hubspotFormID}`, postOptions)
         response = await response.json();
 
         return NextResponse.json({ message: "This Worked", success: true, data: response });

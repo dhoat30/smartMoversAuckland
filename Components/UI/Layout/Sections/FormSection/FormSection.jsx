@@ -30,10 +30,10 @@ export default function FormSection({ title, description, usp, graphic }) {
       <Container maxWidth="lg" className={`${styles.container}`}>
         <div className={`${styles.grid} grid gap-24`}>
           <Paper className={`${styles.contentWrapper} border-radius-12`} variant="outlined" >
-            <Typography component={"h1"} variant={"h4"} className="title">
+            <Typography component={"h1"} variant={"h3"} className="title">
               {title} 
             </Typography>
-            <Typography component={"div"} variant={"body1"} className="description mt-16">
+            <Typography component={"div"} variant={"body1"} className="description mt-8">
               {description} 
             </Typography>
             <HeroUSP data={usp} className="mb-16"/> 

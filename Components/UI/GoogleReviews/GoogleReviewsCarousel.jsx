@@ -12,6 +12,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 export default function GoogleReviewsCarousel({ data }) {
+  console.log("Google Reviews Carousel Data:", data);
   if (!data && data.length === 0) return null;
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
 
@@ -40,6 +41,7 @@ export default function GoogleReviewsCarousel({ data }) {
     />
     );
   });
+
 
   return (
     <section className={`${styles.section}`}>

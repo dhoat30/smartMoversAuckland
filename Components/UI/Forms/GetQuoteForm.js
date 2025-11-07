@@ -11,7 +11,6 @@ import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
 import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
-import GoogleMapsLoader from "@/Components/GoogleMaps/GoogleMapsLoader";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
@@ -122,8 +121,7 @@ export default function GetQuoteForm({
        \nServices Required: ${formData["service"].join(", ")} \n Message: ${
         formData.message
       } `,
-      portalID: "49166221",
-      hubspotFormID: "e5261de6-f0a5-4071-99e7-a95890d23d08",
+      hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_GET_QUOTE_FORM_ID, 
       hubspotFormObject: [
         { name: "firstname", value: formData.firstname },
         { name: "email", value: formData.email },
@@ -256,8 +254,7 @@ console.log(formData)
     } else if (isAddressField(field.id)) {
       return (
         <React.Fragment key={field.id}>
-          {!mapsLoaded && <GoogleMapsLoader onLoad={handleLoad} />}
-          {mapsLoaded && (
+       
             <GoogleAutocomplete
               className="mt-16"
               label={field.label}
@@ -285,7 +282,7 @@ console.log(formData)
                 errors[field.id] ? "Please enter a valid address" : ""
               }
             />
-          )}
+         
         </React.Fragment>
       );
     } else {

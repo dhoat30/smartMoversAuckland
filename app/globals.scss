@@ -374,7 +374,7 @@ strong {
   display: grid; 
 }
 .flex {
-  display: flex;
+  display: flex !important;
 }
 .flex-column{ 
   flex-direction: column; 
@@ -384,7 +384,7 @@ strong {
   width: 100%; 
 }
 .align-center {
-  align-items: center;
+  align-items: center !important;
 }
 .justify-center {
   justify-content: center;

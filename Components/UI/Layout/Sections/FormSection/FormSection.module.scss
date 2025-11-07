@@ -15,10 +15,8 @@ padding: 40px 0 40px 0;
       grid-template-columns: 1fr; 
     }
     .contentWrapper{ 
-      padding: 24px; 
-      @media(max-width: 600px){ 
-        padding:  16px; 
-      }
+      padding: 16px; 
+  
   
     }
     .formWrapper{ 

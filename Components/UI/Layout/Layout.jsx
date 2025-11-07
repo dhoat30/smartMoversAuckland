@@ -13,9 +13,11 @@ import SpaceCalculator from "./Sections/SpaceCalculator/SpaceCalculator";
 import FooterCta from "../CTA/FooterCta";
 import GoogleReviewsCarousel from "../GoogleReviews/GoogleReviewsCarousel";
 import UspTable from "./Sections/UspTable/UspTable";
+import MovingCardFormSection from "./Sections/MovingCardFormSection/MovingCardFormSection";
 
-export default function Layout({uspTable, sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData }) {
+export default function Layout({uspTable, sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData, routeId }) {
   if (!sections) return null;
+  console.log(sections)
   const sectionsJSX = sections.map((section, index) => {
   
    
@@ -118,6 +120,19 @@ export default function Layout({uspTable, sections, uspData, statsData, location
       )
     }
   
+    if (section.acf_fc_layout === "moving_card_form_section") {
+      console.log(section)
+      return (
+        <MovingCardFormSection 
+        key={index}
+        title={section.title}
+        description={section.description} 
+        usp={{text_usp: section.usp.text_usp, image_usp: section.usp.image_usp}}
+        graphic={section.graphic}
+        routeId={routeId}
+        />
+      )
+    }
   if(section.acf_fc_layout === "form_hero_section") { 
     let graphicData 
     if(section.graphic_type === "new_graphic_type") { 

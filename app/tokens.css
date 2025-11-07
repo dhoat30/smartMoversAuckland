@@ -2,18 +2,20 @@
   /* Color styles */
   --material-theme--white: rgba(255, 255, 255, 1);
   --material-theme--black: rgba(0, 0, 0, 1);
-  --light-primary: rgb(0, 54, 113);
+  --light-primary: #003671;
+    --light-primary-hover: #002955;
+
   --light-surface-tint: rgb(42 94 167);
   --light-on-primary: rgb(255 255 255);
   --light-primary-container: rgb(17 77 150);
   --light-on-primary-container: rgb(159 192 255);
-  --light-secondary: rgb(60 86 97);
+  --light-secondary: #0B6780;
   --light-on-secondary: rgb(255 255 255);
   --light-secondary-container: rgb(84 110 122);
   --light-on-secondary-container: rgb(212 240 254);
   --light-tertiary: #835500;
   --light-on-tertiary: rgb(255 255 255);
-  --light-tertiary-container: rgb(255 183 77);
+  --light-tertiary-container: rgb(255, 212, 148);
   --light-on-tertiary-container: rgb(113 73 0);
   --light-error: rgb(186 26 26);
   --light-on-error: rgb(255 255 255);
@@ -59,8 +61,8 @@
   --dark-on-primary-container: rgb(159 192 255);
   --dark-secondary: rgb(175 203 216);
   --dark-on-secondary: rgb(25 52 62);
-  --dark-secondary-container: rgb(84 110 122);
-  --dark-on-secondary-container: rgb(212 240 254);
+  --dark-secondary-container: #004D62;
+  --dark-on-secondary-container: rgb(234, 248, 255);
   --dark-tertiary: rgb(255 219 175);
   --dark-on-tertiary: rgb(69 43 0);
   --dark-tertiary-container: rgb(255 183 77);

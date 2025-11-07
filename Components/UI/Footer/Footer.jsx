@@ -33,24 +33,20 @@ export default function Footer({
             <div className={`${styles.logoWrapper}`}>
               <Link href="/" className="mb-16 block mt-8">
                 <Image
-                          src="/logo.png"
-                          width={292/1.3 }
-                          height={59/1.3  }
+                  src="/logo.png"
+                  width={292 / 1.3}
+                  height={59 / 1.3}
                   alt="Logo"
                   style={{ cursor: "pointer" }}
                 />
               </Link>
               <div className={`${styles.contactWrapper}`}>
-              {contactInfo && contactInfo.info && (
-                <div className="contact-section">
-                  <ContactInfo contactInfo={contactInfo} />
-                </div>
-              )}
+             
 
-              {socialData && socialData.length > 0 && 
-              <SocialWrapper socialData={socialData}/> 
-              }
-            </div>
+                {socialData && socialData.length > 0 && (
+                  <SocialWrapper socialData={socialData} />
+                )}
+              </div>
               {certifications && (
                 <div className="certification-wrapper">
                   <Typography
@@ -73,11 +69,18 @@ export default function Footer({
                       );
                     })}
                   </div>
-               
                 </div>
               )}
             </div>
+   <div className={`${styles.contactWrapper}`}>
+                {contactInfo && contactInfo.info && (
+                  <div className="contact-section">
+                    <ContactInfo contactInfo={contactInfo} />
+                  </div>
+                )}
 
+             
+              </div>
             <div className={`${styles.linksContainer}`}>
               <Typography
                 variant="h6"
@@ -101,33 +104,34 @@ export default function Footer({
                 })}
               </ul>
             </div>
-            {(commercialLinks && commercialLinks.length > 0) && 
-        
-            <div className={`${styles.linksContainer}`}>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ marginBottom: "8px" }}
-              >
-                Commercial
-              </Typography>
-              <ul
-                className={`${styles.menuList}`}
-                sx={{ margin: 0, padding: 0 }}
-              >
-                {commercialLinks.map((link, index) => {
-                  return (
-                    <li key={index}>
-                      <Link href={link.url} className={`${styles.link} body2`}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-                }
-
+            {commercialLinks && commercialLinks.length > 0 && (
+              <div className={`${styles.linksContainer}`}>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ marginBottom: "8px" }}
+                >
+                  Commercial
+                </Typography>
+                <ul
+                  className={`${styles.menuList}`}
+                  sx={{ margin: 0, padding: 0 }}
+                >
+                  {commercialLinks.map((link, index) => {
+                    return (
+                      <li key={index}>
+                        <Link
+                          href={link.url}
+                          className={`${styles.link} body2`}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
 
             <div className={`${styles.linksContainer}`}>
               <Typography
@@ -152,7 +156,6 @@ export default function Footer({
                 })}
               </ul>
             </div>
-            
           </div>
         </Container>
       </div>
