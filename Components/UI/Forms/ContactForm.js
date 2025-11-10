@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
+import { useClickIds } from "@/hooks/useClickIds";
+
 export default function ContactForm({
   className,
   formName = "Get a Quote Form",
@@ -37,7 +39,8 @@ export default function ContactForm({
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
-
+// click id 
+ const { clickIds } = useClickIds();
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
 
@@ -100,6 +103,12 @@ export default function ContactForm({
       portalID: "49166221",
       hubspotFormID: "91574d10-b31a-405a-80bb-180e0ec8d859",
       hubspotFormObject: [
+          { name: "hs_google_click_id", value: clickIds.gclid || "" },
+          { name: "gbraid", value: clickIds.gbraid || "" }, 
+           { name: "wbraid", value: clickIds.wbraid || "" }, 
+            { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
+            { name: "fbc", value: clickIds.fbc || "" },
+            { name: "fbp", value: clickIds.fbp || "" },
         { name: "firstname", value: formData.firstname },
         { name: "email", value: formData.email },
         { name: "phone", value: formData.phone },
@@ -149,6 +158,29 @@ export default function ContactForm({
           setIsSuccess(true);
           setNewSubmission(false);
           setError(false);
+          if (typeof window !== "undefined" && window.dataLayer) {
+            window.dataLayer.push({
+              event: "quote_form_submission",
+              formName: "Moving Quote",
+              formData: {
+                firstName: firstName,
+         
+                email: formData.email,
+                phone: formData.phone,
+                street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
+                city: googleAdsAddress.pickUpAddress.city,
+                region: googleAdsAddress.pickUpAddress.region,
+                postCode: googleAdsAddress.pickUpAddress.postalCode,
+                 gclid: clickIds.gclid,
+                gbraid: clickIds.gbraid,
+               wbraid: clickIds.wbraid,
+               fbclid: clickIds.fbclid,
+               fbc: clickIds.fbc,
+               fbp: clickIds.fbp,
+
+              },
+            });
+          }
           router.push("/form-submitted/thank-you");
         } else {
           setIsLoading(false);

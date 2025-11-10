@@ -18,6 +18,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Link from "next/link";
 import formatDate from "@/utils/formatDate";
 import { useRouteCard } from "@/hooks/useRouteCard";
+import { useClickIds } from "@/hooks/useClickIds";
 
 export default function LongDistanceRouteForm({
   className,
@@ -49,6 +50,8 @@ export default function LongDistanceRouteForm({
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
   const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
+ // click id 
+  const { clickIds } = useClickIds();
 
 
   // Handle input changes
@@ -134,6 +137,12 @@ export default function LongDistanceRouteForm({
       } `,
       hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_LONG_DISTANCE_ROUTE_FORM_ID, 
       hubspotFormObject: [
+         { name: "hs_google_click_id", value: clickIds.gclid || "" },
+          { name: "gbraid", value: clickIds.gbraid || "" }, 
+           { name: "wbraid", value: clickIds.wbraid || "" }, 
+            { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
+            { name: "fbc", value: clickIds.fbc || "" },
+            { name: "fbp", value: clickIds.fbp || "" },
         { name: "firstname", value: formData.firstname },
         { name: "email", value: formData.email },
         { name: "phone", value: formData.phone },
@@ -198,13 +207,18 @@ export default function LongDistanceRouteForm({
               formName: "Moving Quote",
               formData: {
                 firstName: firstName,
-                lastName: lastName,
                 email: formData.email,
                 phone: formData.phone,
-                street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
-                city: googleAdsAddress.pickUpAddress.city,
-                region: googleAdsAddress.pickUpAddress.region,
-                postCode: googleAdsAddress.pickUpAddress.postalCode,
+                   gclid: clickIds.gclid,
+                gbraid: clickIds.gbraid,
+               wbraid: clickIds.wbraid,
+               fbclid: clickIds.fbclid,
+               fbc: clickIds.fbc,
+               fbp: clickIds.fbp,
+                // street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
+                // city: googleAdsAddress.pickUpAddress.city,
+                // region: googleAdsAddress.pickUpAddress.region,
+                // postCode: googleAdsAddress.pickUpAddress.postalCode,
               },
             });
           }
