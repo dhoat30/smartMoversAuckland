@@ -100,8 +100,7 @@ export default function ContactForm({
       } \nPhone Number: ${formData.phone} \n Message: ${
         formData.message
       } `,
-      portalID: "49166221",
-      hubspotFormID: "91574d10-b31a-405a-80bb-180e0ec8d859",
+      hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_CONTACT_US, 
       hubspotFormObject: [
           { name: "hs_google_click_id", value: clickIds.gclid || "" },
           { name: "gbraid", value: clickIds.gbraid || "" }, 
