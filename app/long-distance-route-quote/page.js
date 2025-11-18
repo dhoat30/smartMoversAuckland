@@ -29,13 +29,14 @@ export async function generateMetadata(props, parent) {
 }
 
   export default async function Home({searchParams }) {
+      const { routeId: rawRouteId } = await searchParams;
+  const routeId =
+    (typeof rawRouteId === "string" && rawRouteId.trim()) || null;
+
     const data = await getSinglePostData( 'intercity-move-routes-cta', '/wp-json/wp/v2/pages')
     const options= await getOptions()
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.sections
-
-      const routeId =
-    (typeof searchParams?.routeId === "string" && searchParams.routeId.trim()) || null;
 
     return (
         <>
