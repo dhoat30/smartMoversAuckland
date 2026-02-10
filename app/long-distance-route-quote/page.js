@@ -25,7 +25,6 @@ export async function generateMetadata(props, parent) {
                 type: 'website',
             },
         }
-    
 }
 
   export default async function Home({searchParams }) {

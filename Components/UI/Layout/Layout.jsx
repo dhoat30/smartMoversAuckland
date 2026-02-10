@@ -15,21 +15,31 @@ import GoogleReviewsCarousel from "../GoogleReviews/GoogleReviewsCarousel";
 import UspTable from "./Sections/UspTable/UspTable";
 import MovingCardFormSection from "./Sections/MovingCardFormSection/MovingCardFormSection";
 
-export default function Layout({uspTable, sections, uspData, statsData, locationsCovered, hoursCalculatorData,spaceCalculatorData,  contactInfo, socialData, servicesData, googleReviewsData, routeId }) {
+export default function Layout({
+  uspTable,
+  sections,
+  uspData,
+  statsData,
+  locationsCovered,
+  hoursCalculatorData,
+  spaceCalculatorData,
+  contactInfo,
+  socialData,
+  servicesData,
+  googleReviewsData,
+  routeId,
+}) {
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {
-  
-   
     if (section.acf_fc_layout === "row") {
-      let remappedAccordion
-      if(section.accordion){ 
+      let remappedAccordion;
+      if (section.accordion) {
         remappedAccordion = section?.accordion?.map(({ title, value }) => ({
           question: title,
           answer: value,
         }));
       }
-   
-    
+
       return (
         <RowSection
           key={index}
@@ -40,7 +50,7 @@ export default function Layout({uspTable, sections, uspData, statsData, location
           image={section.image}
           ctaGroup={section.cta_group}
           bulletPoints={section.bullet_points}
-          accordionData = {remappedAccordion}
+          accordionData={remappedAccordion}
           showBeforeAfterImages={section.show_before_after_images}
           beforeImage={
             section.show_before_after_images &&
@@ -67,24 +77,21 @@ export default function Layout({uspTable, sections, uspData, statsData, location
     if (section.acf_fc_layout === "process") {
       return (
         <RegularProcess
-        key={index}
-        title={section.title}
-        description={section.description}
-        cards={section.cards}
-        /> 
-    
+          key={index}
+          title={section.title}
+          description={section.description}
+          cards={section.cards}
+        />
       );
     }
 
-  
- 
     // if (section.acf_fc_layout === "tabs_section") {
     //   return    <GradientTabs   key={index}
     //   title={section.section_title}
     //   description={section.section_description}
     //   cards={section.tabs}/>
     // }
-    
+
     // if (section.acf_fc_layout === "packages") {
     //   return (
     //     <Packages
@@ -109,119 +116,157 @@ export default function Layout({uspTable, sections, uspData, statsData, location
 
     if (section.acf_fc_layout === "form_section") {
       return (
-        <FormSection 
-        key={index}
-        title={section.title}
-        description={section.description} 
-        usp={{text_usp: section.text_usp, image_usp: section.image_usp}}
-        graphic={section.graphic}
+        <FormSection
+          key={index}
+          title={section.title}
+          description={section.description}
+          usp={{ text_usp: section.text_usp, image_usp: section.image_usp }}
+          graphic={section.graphic}
         />
-      )
+      );
     }
-  
+
     if (section.acf_fc_layout === "moving_card_form_section") {
       return (
-        <MovingCardFormSection 
-        key={index}
-        title={section.title}
-        description={section.description} 
-        usp={{text_usp: section.usp.text_usp, image_usp: section.usp.image_usp}}
-        graphic={section.graphic}
-        routeId={routeId}
+        <MovingCardFormSection
+          key={index}
+          title={section.title}
+          description={section.description}
+          usp={{
+            text_usp: section.usp.text_usp,
+            image_usp: section.usp.image_usp,
+          }}
+          graphic={section.graphic}
+          routeId={routeId}
         />
-      )
+      );
     }
-  if(section.acf_fc_layout === "form_hero_section") { 
-    let graphicData 
-    if(section.graphic_type === "new_graphic_type") { 
-      graphicData = section.new_graphic_type
+    if (section.acf_fc_layout === "form_hero_section") {
+      let graphicData;
+      if (section.graphic_type === "new_graphic_type") {
+        graphicData = section.new_graphic_type;
+      }
+      if (section.graphic_type === "image") {
+        graphicData = section.image;
+      }
+      return (
+        <FormHeroSection
+          key={index}
+          title={section.title}
+          subtitle={section.subtitle}
+          description={section.description}
+          cta={section.cta}
+          graphicType={section.graphic_type}
+          graphicData={graphicData}
+          uspData={section.usp}
+        />
+      );
     }
-    if(section.graphic_type === "image") { 
-      graphicData = section.image
+
+    if (section.acf_fc_layout === "show_usp" && section.show_usp) {
+      return (
+        <USP
+          key={index}
+          title={uspData.section_title}
+          description={uspData.section_description}
+          cards={uspData.items}
+          showTitle={true}
+        />
+      );
     }
-    return <FormHeroSection key={index}  title={section.title}
-    subtitle={section.subtitle}
-    description={section.description}
-    cta={section.cta}
-    graphicType={section.graphic_type}
-    graphicData= {graphicData}
-    uspData={section.usp}
-    /> 
-  }
+    if (section.acf_fc_layout === "show_stats" && section.show_stats) {
+      return <Stats key={index} statsData={statsData} />;
+    }
+    if (section.acf_fc_layout === "show_locations" && section.show_locations) {
+      return (
+        <LocationsCovered
+          key={index}
+          title={locationsCovered.title}
+          description={locationsCovered.description}
+          locations={locationsCovered.locations}
+          image={locationsCovered.image}
+        />
+      );
+    }
 
-  if(section.acf_fc_layout === "show_usp" && section.show_usp){ 
-      return <USP key={index } 
-      title={uspData.section_title}
-      description={uspData.section_description}
-      cards={uspData.items}
-      showTitle={true}
-      /> 
-  }
-  if(section.acf_fc_layout === "show_stats" && section.show_stats){ 
-
-    return <Stats key={index} 
-      statsData = {statsData}
-    /> 
-}
-if(section.acf_fc_layout === "show_locations" && section.show_locations){ 
-
-  return <LocationsCovered key={index}
-    title={locationsCovered.title}
-    description={locationsCovered.description}
-    locations={locationsCovered.locations}
-    image={locationsCovered.image}
-  /> 
-}
-
-if(section.acf_fc_layout === "show_hours_calculator" && section.show_hours_calculator){ 
-  
-if(!hoursCalculatorData) return null;
-  return <HoursCalculator key ={index} 
-    title={hoursCalculatorData.title}
-    description={hoursCalculatorData.description}
-    calculatedValueLabel={hoursCalculatorData.calculated_value_label}
-    furnishedLevelData = {hoursCalculatorData.furnished_level}
-    price={section.price}
-  /> 
-}
-if(section.acf_fc_layout === "show_space_calculator" && section.show_space_calculator){ 
-  if(!spaceCalculatorData) return null;
-    return <SpaceCalculator key={index} 
-    title={spaceCalculatorData.title}
-    description={spaceCalculatorData.description}
-    calculatedValueLabel={spaceCalculatorData.calculated_value_label}
-    furnishedLevelData = {spaceCalculatorData.furnished_level}
-    price={section.price}
-    /> 
-  }
-  if(section.acf_fc_layout === "show_services" && section.show_services){ 
-    if(servicesData === undefined) return null;
-   return ( <ServicesSection
+    if (
+      section.acf_fc_layout === "show_hours_calculator" &&
+      section.show_hours_calculator
+    ) {
+      if (!hoursCalculatorData) return null;
+      return (
+        <HoursCalculator
+          key={index}
+          title={hoursCalculatorData.title}
+          description={hoursCalculatorData.description}
+          calculatedValueLabel={hoursCalculatorData.calculated_value_label}
+          furnishedLevelData={hoursCalculatorData.furnished_level}
+          price={section.price}
+        />
+      );
+    }
+    if (
+      section.acf_fc_layout === "show_space_calculator" &&
+      section.show_space_calculator
+    ) {
+      if (!spaceCalculatorData) return null;
+      return (
+        <SpaceCalculator
+          key={index}
+          title={spaceCalculatorData.title}
+          description={spaceCalculatorData.description}
+          calculatedValueLabel={spaceCalculatorData.calculated_value_label}
+          furnishedLevelData={spaceCalculatorData.furnished_level}
+          price={section.price}
+        />
+      );
+    }
+    if (section.acf_fc_layout === "show_services" && section.show_services) {
+      if (servicesData === undefined) return null;
+      return (
+        <ServicesSection
           key={index}
           title={servicesData.title}
           subtitle={servicesData.subtitle}
           description={servicesData.description}
           cards={servicesData.cards}
         />
-      )
-     }
-if(section.acf_fc_layout === "contact" )
-{ 
-  return <ContactSection key={index} title={section.title} description={section.description} map={section.map} uspData={section.usp} contactInfo={contactInfo} socialData={socialData}></ContactSection>
-}
-if(section.acf_fc_layout === "cta_section" )
-  { 
-    return <FooterCta key={index} title={section.title} description={section.description} cta={section.cta_link} />
-  }
-  if(section.acf_fc_layout === "show_reviews" && section.show_reviews && googleReviewsData)  
-    { 
-      return <GoogleReviewsCarousel key={index} data={googleReviewsData}/> 
+      );
+    }
+    if (section.acf_fc_layout === "contact") {
+      return (
+        <ContactSection
+          key={index}
+          title={section.title}
+          description={section.description}
+          map={section.map}
+          uspData={section.usp}
+          contactInfo={contactInfo}
+          socialData={socialData}
+        ></ContactSection>
+      );
+    }
+    if (section.acf_fc_layout === "cta_section") {
+      return (
+        <FooterCta
+          key={index}
+          title={section.title}
+          description={section.description}
+          cta={section.cta_link}
+        />
+      );
+    }
+    if (
+      section.acf_fc_layout === "show_reviews" &&
+      section.show_reviews &&
+      googleReviewsData
+    ) {
+      return <GoogleReviewsCarousel key={index} data={googleReviewsData} />;
     }
 
-    if(section.acf_fc_layout === "show_usp_table" )  
-      { 
-        return <UspTable key={index} uspTableData={uspTable} /> 
-      }
+    if (section.acf_fc_layout === "show_usp_table") {
+      return <UspTable key={index} uspTableData={uspTable} />;
+    }
   });
 
   return <section>{sectionsJSX} </section>;
