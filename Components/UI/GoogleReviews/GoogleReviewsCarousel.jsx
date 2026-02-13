@@ -12,6 +12,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 export default function GoogleReviewsCarousel({ data }) {
+  console.log("google reviews data ", data);
+  if (4 === 4) return;
+  console.log(!data && data.length === 0);
+  // if data doesn't exisit then return and don't show the section
   if (!data && data.length === 0) return null;
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
 
@@ -32,15 +36,14 @@ export default function GoogleReviewsCarousel({ data }) {
     if (index > 10) return null;
     return (
       <GoogleReviewCard
-      key={index}
-      name={item.user.name}
-      description={item.snippet}
-      customerPic={item.user.thumbnail}
-      characterLimit={80}
-    />
+        key={index}
+        name={item.user.name}
+        description={item.snippet}
+        customerPic={item.user.thumbnail}
+        characterLimit={80}
+      />
     );
   });
-
 
   return (
     <section className={`${styles.section}`}>
@@ -66,29 +69,29 @@ export default function GoogleReviewsCarousel({ data }) {
           </Typography>
         </div>
         <div className="carousel-wrapper embla mt-32">
-        <div className="embla__viewport" ref={emblaRef}>
-          <div className="embla__container">{testimonialCardsJSX}</div>
-        </div>
+          <div className="embla__viewport" ref={emblaRef}>
+            <div className="embla__container">{testimonialCardsJSX}</div>
+          </div>
 
-        <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
-          <button
-            className="embla__prev"
-            onClick={scrollPrev}
-            aria-label="Previous slide"
-            data-direction="prev"
-          >
-            <PrevIcon />
-          </button>
-          <button
-            className="embla__next"
-            onClick={scrollNext}
-            aria-label="Next slide"
-            data-direction="next"
-          >
-            <NextIcon />
-          </button>
+          <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
+            <button
+              className="embla__prev"
+              onClick={scrollPrev}
+              aria-label="Previous slide"
+              data-direction="prev"
+            >
+              <PrevIcon />
+            </button>
+            <button
+              className="embla__next"
+              onClick={scrollNext}
+              aria-label="Next slide"
+              data-direction="next"
+            >
+              <NextIcon />
+            </button>
+          </div>
         </div>
-      </div>
       </Container>
 
       {/* <Container maxWidth="xl" className="cta-wrapper mt-16 flex justify-center flex-wrap gap-16">
@@ -104,5 +107,3 @@ export default function GoogleReviewsCarousel({ data }) {
     </section>
   );
 }
-
-
