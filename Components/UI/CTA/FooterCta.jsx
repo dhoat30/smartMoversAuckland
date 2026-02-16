@@ -6,12 +6,11 @@ import Link from "next/link";
 import React from "react";
 import styles from "./FooterCTA.module.scss";
 export default function FooterCta({ title, description, cta }) {
-  console.log({ title, description, cta });
   return (
-  <section className={`${styles.section}`}>
+    <section className={`${styles.section}`}>
       <Container maxWidth="lg">
-        <div className={ `${styles.wrapper}`}>
-          <div className={ `${styles.contentWrapper}`}>
+        <div className={`${styles.wrapper}`}>
+          <div className={`${styles.contentWrapper}`}>
             <Typography
               component="h2"
               variant="h2"
@@ -21,16 +20,15 @@ export default function FooterCta({ title, description, cta }) {
               className="title"
             >
               {title}
-              
             </Typography>
             <Typography
               variant="h5"
               align="center"
               color="white"
-              style={{fontWeight: 500}}
+              style={{ fontWeight: 500 }}
               className=" mt-16 description"
             >
-              {description}              
+              {description}
             </Typography>
             {/* <Typography
               component="p"
@@ -41,26 +39,25 @@ export default function FooterCta({ title, description, cta }) {
             >
             
             </Typography> */}
-            {cta &&
-          
+            {cta && (
               <div className="button-wrapper flex justify-center mt-24 gap-16 flex-wrap">
-              <Link href={cta.url}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  sx={{
-                    background: "white",
-                    color: "var(--dark-on-primary)",
-                    "&:hover": {
-                      background: "#eaeaea",
-                    },
-                  }}
-                >
-                  {cta.title}
-                </Button>
-              </Link>
+                <Link href={cta.url}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    sx={{
+                      background: "white",
+                      color: "var(--dark-on-primary)",
+                      "&:hover": {
+                        background: "#eaeaea",
+                      },
+                    }}
+                  >
+                    {cta.title}
+                  </Button>
+                </Link>
 
-              {/* <Link href="/get-free-quote">
+                {/* <Link href="/get-free-quote">
               <Button
                 size="large"
                 variant="outlined"
@@ -75,12 +72,11 @@ export default function FooterCta({ title, description, cta }) {
                 {cta.label}
               </Button>
             </Link> */}
-            </div>}
-          
+              </div>
+            )}
           </div>
         </div>
       </Container>
     </section>
   );
 }
-

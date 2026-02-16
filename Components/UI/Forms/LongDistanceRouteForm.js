@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Link from "next/link";
 import formatDate from "@/utils/formatDate";
 import { useRouteCard } from "@/hooks/useRouteCard";
@@ -25,11 +25,9 @@ export default function LongDistanceRouteForm({
   formName = "Get a Quote Form",
   title = "Please fill out a form",
   hideTitle = false,
-   routeId
+  routeId,
 }) {
-
-    const { data, fromLabel, toLabel } = useRouteCard(routeId);
-    console.log(data)
+  const { data, fromLabel, toLabel } = useRouteCard(routeId);
   const router = useRouter();
   const [formData, setFormData] = useState({
     firstname: "", // Default empty string to make it controlled
@@ -49,10 +47,12 @@ export default function LongDistanceRouteForm({
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
-  const[googleAdsAddress, setGoogleAdsAddress] = useState({pickUpAddress: {}, dropOffAddress:{}}); // For Google Ads conversion tracking
- // click id 
+  const [googleAdsAddress, setGoogleAdsAddress] = useState({
+    pickUpAddress: {},
+    dropOffAddress: {},
+  }); // For Google Ads conversion tracking
+  // click id
   const { clickIds } = useClickIds();
-
 
   // Handle input changes
   const handleChange = (id, value, isSelectMultiple) => {
@@ -110,34 +110,29 @@ export default function LongDistanceRouteForm({
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
 
-    
-    let formattedDate = dayjs(formData.datePicker).valueOf() 
+    let formattedDate = dayjs(formData.datePicker).valueOf();
     let movingCardDate;
-    // date formatting logic for card date 
-        if (data?.attributes?.date_type === "fixed") {
-           movingCardDate = formatDate(data?.attributes.fixed_date);
-        } 
-        else  if (data?.attributes?.date_type === "date_range") {
-           movingCardDate = `${formatDate(data?.attributes.start_date)} to ${formatDate(data?.attributes.end_date)}`;
-        } 
+    // date formatting logic for card date
+    if (data?.attributes?.date_type === "fixed") {
+      movingCardDate = formatDate(data?.attributes.fixed_date);
+    } else if (data?.attributes?.date_type === "date_range") {
+      movingCardDate = `${formatDate(data?.attributes.start_date)} to ${formatDate(data?.attributes.end_date)}`;
+    }
     const dataPayload = {
       email: formData.email,
       formName: formName,
       message: `First Name: ${formData.firstname} \nEmail: ${
         formData.email
       } \nPhone Number: ${formData.phone} 
-      \nProperty Type: ${
-        formData.propertyType
-      }
-       \nMove Date: ${
-        formattedDate
-      }
+      \nProperty Type: ${formData.propertyType}
+       \nMove Date: ${formattedDate}
        \nServices Required: ${formData["moveType"].join(", ")} \n Message: ${
-        formData.message
-      } `,
-      hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_LONG_DISTANCE_ROUTE_FORM_ID, 
+         formData.message
+       } `,
+      hubspotFormID:
+        process.env.NEXT_PUBLIC_HUBSPOT_LONG_DISTANCE_ROUTE_FORM_ID,
       hubspotFormObject: [
-      { name: "hs_google_click_id", value: clickIds.gclid || "" },
+        { name: "hs_google_click_id", value: clickIds.gclid || "" },
         { name: "gbraid", value: clickIds.gbraid || "" },
         { name: "wbraid", value: clickIds.wbraid || "" },
         { name: "gads_campaign_id", value: clickIds.gads_campaign_id || "" },
@@ -166,13 +161,22 @@ export default function LongDistanceRouteForm({
         { name: "phone", value: formData.phone },
         { name: "property_type", value: formData.propertyType },
         { name: "move_type", value: formData["moveType"].join(", ") },
-        { name: "move_date", value: formattedDate }, 
+        { name: "move_date", value: formattedDate },
         { name: "message", value: formData.message },
-         { name: "route", value: `${data?.movingFrom?.label} to ${data?.movingTo?.label}` },
+        {
+          name: "route",
+          value: `${data?.movingFrom?.label} to ${data?.movingTo?.label}`,
+        },
         { name: "truck_space_left", value: data?.spareCapacity },
         { name: "date_listed_on_move_card", value: movingCardDate },
-        { name: "truck_size_listed_on_move_card", value: `${data?.attributes?.truck_size}` },
-        { name: "number_of_movers_listed_on_move_card", value: data?.attributes?.number_of_movers },
+        {
+          name: "truck_size_listed_on_move_card",
+          value: `${data?.attributes?.truck_size}`,
+        },
+        {
+          name: "number_of_movers_listed_on_move_card",
+          value: data?.attributes?.number_of_movers,
+        },
         { name: "description_on_move_card", value: data?.description },
         { name: "status_listed_on_move_card", value: data?.status },
       ],
@@ -227,12 +231,12 @@ export default function LongDistanceRouteForm({
                 firstName: firstName,
                 email: formData.email,
                 phone: formData.phone,
-                   gclid: clickIds.gclid,
+                gclid: clickIds.gclid,
                 gbraid: clickIds.gbraid,
-               wbraid: clickIds.wbraid,
-               fbclid: clickIds.fbclid,
-               fbc: clickIds.fbc,
-               fbp: clickIds.fbp,
+                wbraid: clickIds.wbraid,
+                fbclid: clickIds.fbclid,
+                fbc: clickIds.fbc,
+                fbp: clickIds.fbp,
                 // street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
                 // city: googleAdsAddress.pickUpAddress.city,
                 // region: googleAdsAddress.pickUpAddress.region,
@@ -300,38 +304,31 @@ export default function LongDistanceRouteForm({
     } else if (isAddressField(field.id)) {
       return (
         <React.Fragment key={field.id}>
-        
-          
-            <GoogleAutocomplete
-              className={className}
-              label={field.label}
-              value={formData[field.id]} // pickUpAddress / dropOffAddress / address
-              onChange={(value) => handleChange(field.id, value, false)}
-              onSelect={(selectedAddress) => {
-                // When user selects an address from suggestions
-                setFormData((prevData) => ({
-                  ...prevData,
-                  [field.id]: selectedAddress.formattedAddress
-                }));
-                setGoogleAdsAddress((prevData=> ({ 
-                  ...prevData, 
-                  [field.id]: selectedAddress.unformattedAddress
-                }))); // Set the address for Google Ads conversion tracking
-                // Reset errors if any
-                if (errors[field.id]) {
-                  setErrors({ ...errors, [field.id]: false });
-                }
-              }}
-              required={field.required}
-              autoComplete={field.autoComplete}
-              error={errors[field.id]}
-              helperText={
-                errors[field.id] ? "Please enter a valid address" : ""
+          <GoogleAutocomplete
+            className={className}
+            label={field.label}
+            value={formData[field.id]} // pickUpAddress / dropOffAddress / address
+            onChange={(value) => handleChange(field.id, value, false)}
+            onSelect={(selectedAddress) => {
+              // When user selects an address from suggestions
+              setFormData((prevData) => ({
+                ...prevData,
+                [field.id]: selectedAddress.formattedAddress,
+              }));
+              setGoogleAdsAddress((prevData) => ({
+                ...prevData,
+                [field.id]: selectedAddress.unformattedAddress,
+              })); // Set the address for Google Ads conversion tracking
+              // Reset errors if any
+              if (errors[field.id]) {
+                setErrors({ ...errors, [field.id]: false });
               }
-            />
-         
-          
-          
+            }}
+            required={field.required}
+            autoComplete={field.autoComplete}
+            error={errors[field.id]}
+            helperText={errors[field.id] ? "Please enter a valid address" : ""}
+          />
         </React.Fragment>
       );
     } else {
@@ -373,38 +370,45 @@ export default function LongDistanceRouteForm({
       >
         <Box sx={{ width: "100%" }}>
           <React.Fragment>
-            <div className={ `${styles.inputWrapper}`}>
+            <div className={`${styles.inputWrapper}`}>
               {!hideTitle && (
-                <Typography variant="h4" component="h1" className="title mt-8 mb-8">
+                <Typography
+                  variant="h4"
+                  component="h1"
+                  className="title mt-8 mb-8"
+                >
                   {title}
                 </Typography>
               )}
 
               {formInputs}
-            
+
               <Button
                 // newSubmission={newSubmission}
                 onClick={submitHandler}
                 loading={isLoading}
                 // isSuccess={isSuccess}
-              
-              variant="contained"
-              className="mt-16"
-              style={{width: "100%"}}
-              >
-Get my quote              
-</Button>
 
-   <Button
-              
-              variant="text"
-              className="mt-8  align-center"
-              style={{width: "100%", display:"flex", justifyContent: "center"}}
-             href="tel:020 4086 7643"
-              startIcon={<LocalPhoneIcon />}
+                variant="contained"
+                className="mt-16"
+                style={{ width: "100%" }}
               >
-Prefer to talk? 020 4086 7643         
-</Button>
+                Get my quote
+              </Button>
+
+              <Button
+                variant="text"
+                className="mt-8  align-center"
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+                href="tel:020 4086 7643"
+                startIcon={<LocalPhoneIcon />}
+              >
+                Prefer to talk? 020 4086 7643
+              </Button>
 
               {error && (
                 <Alert sx={{ margin: "8px 0" }} severity="error">

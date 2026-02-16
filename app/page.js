@@ -1,4 +1,4 @@
-export const revalidate = 2592000; // applies to both page and metadata
+// export const revalidate = 2592000; // applies to both page and metadata
 
 import Header from "@/Components/UI/Header/Header";
 import {
@@ -54,7 +54,7 @@ export default async function Home() {
   // const googleReviews = await getGoogleReviews()
   if (!data) return { notFound: true };
   const sections = data[0]?.acf?.sections;
-
+  console.log("google reviews page" + googleReviews);
   return (
     <>
       <Header />

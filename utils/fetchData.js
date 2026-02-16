@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 //get single post with slug
 export const getSinglePostData = async (slug, apiRoute) => {
   console.log("Fetching from API:", slug);
@@ -70,17 +72,16 @@ export const getLongDistanceRoutes = async () => {
 
 // get reivews
 export const getGoogleReviews = async () => {
-  const baseUrl = process.env.siteUrl; // Change this in production
-  console.log(baseUrl);
-  const res = await fetch(`${baseUrl}/api/google-reviews`, {
-    next: { revalidate: 2592000 },
-  });
+  const h = await headers();
+  const host = h.get("host");
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
 
-  if (!res.ok) {
-    console.log("failed to retch");
-    return [];
-  }
-  return res.json();
+  const url = `${protocol}://${host}/api/google-reviews`;
+
+  const res = await fetch(url, { cache: "no-store" });
+  const data = await res.json();
+
+  return data;
 };
 
 // const axios = require("axios");

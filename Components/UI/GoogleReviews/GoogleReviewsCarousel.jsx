@@ -1,23 +1,45 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import Container from "@mui/material/Container";
-import Link from "next/link";
-import Button from "@mui/material/Button";
-import CallMadeOutlinedIcon from "@mui/icons-material/CallMadeOutlined";
-import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
 import Typography from "@mui/material/Typography";
 import styles from "./GoogleReviewsCarousle.module.scss";
+
 import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
+
+import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
 import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
+
 export default function GoogleReviewsCarousel({ data }) {
-  console.log("google reviews data ", data);
-  if (4 === 4) return;
-  console.log(!data && data.length === 0);
-  // if data doesn't exisit then return and don't show the section
-  if (!data && data.length === 0) return null;
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
+  // ✅ proper empty check
+  if (!data?.reviews?.length) return null;
+
+  // filter review comment
+  const filteredReviewData = useMemo(() => {
+    return data.reviews
+      .filter((item) => item?.rating === 5 && typeof item?.snippet === "string")
+      .slice(0, 10);
+  }, [data]);
+
+  // ✅ AutoScroll plugin
+  const autoScroll = useMemo(
+    () =>
+      AutoScroll({
+        speed: 0.6, // increase for faster
+        startDelay: 0,
+        stopOnInteraction: false, // keep moving after button clicks / drag
+        stopOnMouseEnter: false, // IMPORTANT: do NOT pause on carousel hover
+        // If your users drag, Embla will stop momentarily then continue
+      }),
+    [],
+  );
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { align: "start", loop: true },
+    [autoScroll],
+  );
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -27,28 +49,41 @@ export default function GoogleReviewsCarousel({ data }) {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  // filter review comment
-  const filteredReviewData = data.filter((item) => {
-    return item.rating === 5 && typeof item.snippet === "string";
-  });
+  // ✅ Pause ONLY when hovering a card
+  const handleCardMouseEnter = useCallback(() => {
+    if (!emblaApi) return;
+    const plugin = emblaApi.plugins()?.autoScroll;
+    plugin?.stop?.();
+  }, [emblaApi]);
+
+  const handleCardMouseLeave = useCallback(() => {
+    if (!emblaApi) return;
+    const plugin = emblaApi.plugins()?.autoScroll;
+    plugin?.play?.();
+  }, [emblaApi]);
 
   const testimonialCardsJSX = filteredReviewData.map((item, index) => {
-    if (index > 10) return null;
     return (
-      <GoogleReviewCard
+      <div
         key={index}
-        name={item.user.name}
-        description={item.snippet}
-        customerPic={item.user.thumbnail}
-        characterLimit={80}
-      />
+        className="embla__slide" // ensure your CSS sets slide width
+        onMouseEnter={handleCardMouseEnter}
+        onMouseLeave={handleCardMouseLeave}
+      >
+        <GoogleReviewCard
+          name={item?.user?.name}
+          description={item?.snippet}
+          customerPic={item?.user?.thumbnail}
+          characterLimit={80}
+        />
+      </div>
     );
   });
 
   return (
-    <section className={`${styles.section}`}>
-      <Container maxWidth="xl" className={`${styles.container}`}>
-        <div className={`${styles.titleRow}`}>
+    <section className={styles.section}>
+      <Container maxWidth="xl" className={styles.container}>
+        <div className={styles.titleRow}>
           <Typography
             variant="h2"
             component="h2"
@@ -68,17 +103,19 @@ export default function GoogleReviewsCarousel({ data }) {
             service we provide.
           </Typography>
         </div>
+
         <div className="carousel-wrapper embla mt-32">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">{testimonialCardsJSX}</div>
           </div>
 
-          <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
+          {/* <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
             <button
               className="embla__prev"
               onClick={scrollPrev}
               aria-label="Previous slide"
               data-direction="prev"
+              type="button"
             >
               <PrevIcon />
             </button>
@@ -87,23 +124,13 @@ export default function GoogleReviewsCarousel({ data }) {
               onClick={scrollNext}
               aria-label="Next slide"
               data-direction="next"
+              type="button"
             >
               <NextIcon />
             </button>
-          </div>
+          </div> */}
         </div>
       </Container>
-
-      {/* <Container maxWidth="xl" className="cta-wrapper mt-16 flex justify-center flex-wrap gap-16">
-        <Link href={"https://g.page/r/CRY0fyyR4ApsEBM/review"} target="_blank">
-          <Button variant={`contained`} endIcon={<CallMadeOutlinedIcon />}>
-            Leave a Review
-          </Button>
-        </Link>
-        <Link href="/customer-reviews">
-          <Button variant={`outlined`}>Read All Reviews</Button>
-        </Link>
-      </Container> */}
     </section>
   );
 }

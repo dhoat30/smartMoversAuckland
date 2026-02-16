@@ -1,5 +1,3 @@
-const { siteUrl } = require("./next-sitemap.config");
-
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.NODE_ENV === "production"

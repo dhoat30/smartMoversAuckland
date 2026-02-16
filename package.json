@@ -19,6 +19,7 @@
     "axios": "^1.8.4",
     "dayjs": "^1.11.13",
     "ddev": "^0.0.10",
+    "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "lift-and-shift-movers": "file:",
     "next": "15.3.8",

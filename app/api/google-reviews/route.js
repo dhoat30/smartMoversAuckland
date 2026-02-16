@@ -1,57 +1,134 @@
+import { NextResponse } from "next/server";
+
+export const runtime = "nodejs";
 export const revalidate = 2592000; // 30 days
 
-import { NextResponse } from 'next/server';
+const THIRTY_DAYS = 2592000;
 
-export async function GET() {
+function buildSerpUrl({ placeId, apiKey, pageToken, forceNoCache }) {
+  // SerpAPI docs: no_cache=true bypasses SerpAPI cache (which is ~1h). :contentReference[oaicite:1]{index=1}
+  const params = new URLSearchParams({
+    engine: "google_maps_reviews",
+    place_id: placeId,
+    api_key: apiKey,
+    hl: "en",
+    gl: "nz",
+    reviews_sort: "newest", // SerpAPI param is sort_by in docs; keeping your working behavior
+  });
+
+  if (pageToken) params.set("next_page_token", pageToken);
+  if (forceNoCache) params.set("no_cache", "true");
+
+  return `https://serpapi.com/search.json?${params.toString()}`;
+}
+
+async function fetchAllReviews({ placeId, apiKey, forceNoCache }) {
+  let allReviews = [];
+  let pageToken = null;
+  let pageCount = 0;
+  const maxPages = 5;
+
+  while (pageCount < maxPages) {
+    const apiUrl = buildSerpUrl({ placeId, apiKey, pageToken, forceNoCache });
+
+    // IMPORTANT:
+    // - When Next is caching this route (revalidate), the route output is cached.
+    // - This fetch can be cached too, but we don't need "force-cache".
+    // - Use Next revalidate for long caching; use no-store when forcing fresh fetch.
+    const response = await fetch(
+      apiUrl,
+      forceNoCache
+        ? { cache: "no-store" }
+        : { next: { revalidate: THIRTY_DAYS } },
+    );
+
+    if (!response.ok) {
+      const preview = (await response.text()).slice(0, 300);
+      throw new Error(`SerpAPI HTTP ${response.status}: ${preview}`);
+    }
+
+    const data = await response.json();
+
+    const reviewsArr =
+      data.reviews ||
+      data.place_reviews ||
+      data.reviews_results ||
+      data.user_reviews ||
+      data.local_reviews ||
+      [];
+
+    if (Array.isArray(reviewsArr)) allReviews = allReviews.concat(reviewsArr);
+
+    const nextToken = data.serpapi_pagination?.next_page_token;
+    if (nextToken) {
+      pageToken = nextToken;
+      pageCount++;
+    } else {
+      break;
+    }
+  }
+
+  return allReviews;
+}
+
+export async function GET(req) {
   try {
     const placeId = process.env.GOOGLE_PLACE_ID;
     const apiKey = process.env.SERPAPI_API_KEY;
 
     if (!placeId || !apiKey) {
       return NextResponse.json(
-        { error: 'Missing SERPAPI_API_KEY or GOOGLE_PLACE_ID' },
-        { status: 400 }
+        {
+          success: false,
+          error: "Missing SERPAPI_API_KEY or GOOGLE_PLACE_ID",
+          reviews: [],
+        },
+        { status: 400 },
       );
     }
 
-    let allReviews = [];
-    let pageToken = null;
-    let pageCount = 0;
-    const maxPages = 5;
+    // Manual refresh: /api/google-reviews?refresh=true
+    const url = new URL(req.url);
+    const refresh = url.searchParams.get("refresh") === "true";
 
-    while (pageCount < maxPages) {
-      let apiUrl = `https://serpapi.com/search.json?engine=google_maps_reviews&place_id=${placeId}&api_key=${apiKey}&hl=en`;
-      if (pageToken) {
-        apiUrl += `&next_page_token=${pageToken}`;
-      }
+    // If refresh=true, we bypass SerpAPI cache.
+    let reviews = await fetchAllReviews({
+      placeId,
+      apiKey,
+      forceNoCache: refresh,
+    });
 
-      // ✅ Cache the SerpAPI request for 30 days
-      const response = await fetch(apiUrl, {
-        cache: "force-cache",
-        next: { revalidate: 2592000 }
-      });
-
-      if (!response.ok) {
-        throw new Error(`SerpApi request failed: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      if (Array.isArray(data.reviews)) {
-        allReviews = allReviews.concat(data.reviews);
-      }
-
-      // Check for next page token
-      if (data.serpapi_pagination?.next_page_token) {
-        pageToken = data.serpapi_pagination.next_page_token;
-        pageCount++;
-      } else {
-        break; // No more pages
-      }
+    // If we got 0 reviews on a normal run, retry once bypassing SerpAPI cache.
+    // This addresses SerpAPI cached "no reviews" edge cases. :contentReference[oaicite:2]{index=2}
+    if (!refresh && reviews.length === 0) {
+      reviews = await fetchAllReviews({ placeId, apiKey, forceNoCache: true });
     }
 
-    return NextResponse.json(allReviews, { status: 200 });
-  } catch (error) {
-    console.error('Error fetching Google reviews:', error);
-    return NextResponse.json({ error: 'Failed to fetch reviews' }, { status: 500 });
+    // Prevent caching an empty response for 30 days:
+    if (reviews.length === 0) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "SerpAPI returned 0 reviews (not caching empty)",
+          reviews: [],
+        },
+        { status: 503 },
+      );
+    }
+
+    return NextResponse.json(
+      { success: true, totalReviews: reviews.length, reviews },
+      { status: 200 },
+    );
+  } catch (err) {
+    console.error("google-reviews route error:", err);
+    return NextResponse.json(
+      {
+        success: false,
+        error: err.message || "Failed to fetch reviews",
+        reviews: [],
+      },
+      { status: 503 },
+    );
   }
 }

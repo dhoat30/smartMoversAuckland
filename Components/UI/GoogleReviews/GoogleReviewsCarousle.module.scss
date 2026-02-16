@@ -20,7 +20,8 @@
     background: var(--light-surface-container-lowest);
     padding: 16px;
     border: 1px solid var(--light-outline-variant);
-    max-width: calc(100% - 16px);
+    max-width: calc(100%);
+    cursor: pointer;
     .profileWrapper {
         display: flex;
         flex-wrap: wrap;
