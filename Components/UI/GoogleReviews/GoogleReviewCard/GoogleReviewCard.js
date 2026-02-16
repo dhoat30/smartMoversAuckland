@@ -3,8 +3,15 @@ import Image from "next/image";
 import Typography from "@mui/material/Typography";
 import StarIcon from "@mui/icons-material/Star";
 import GoogleIcon from "../../Icons/GoogleIcon";
-import styles from '../GoogleReviewsCarousle.module.scss'
-export default function GoogleReviewCard({ name, description, customerPic, className, showFacebookLogo, characterLimit = 180 }) {
+import styles from "../GoogleReviewsCarousle.module.scss";
+export default function GoogleReviewCard({
+  name,
+  description,
+  customerPic,
+  className,
+  showFacebookLogo,
+  characterLimit = 180,
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const numberOfStars = 5;
   const starsJSX = Array.from({ length: numberOfStars }, (_, index) => (
@@ -20,9 +27,20 @@ export default function GoogleReviewCard({ name, description, customerPic, class
     description.length > characterLimit
       ? description.slice(0, characterLimit) + "..."
       : description;
-let sourceLogo = showFacebookLogo ? <Image src="/facebook-reviews.png" alt="facebook page" width={96} height={24}/> :   <GoogleIcon />;
+  let sourceLogo = showFacebookLogo ? (
+    <Image
+      src="/facebook-reviews.png"
+      alt="facebook page"
+      width={96}
+      height={24}
+    />
+  ) : (
+    <GoogleIcon />
+  );
   return (
-    <div className={`${className} ${styles.slide} embla__slide border-radius-8`}>
+    <div
+      className={`${className} ${styles.slide} google_embla__slide embla__slide border-radius-8`}
+    >
       <div className={`${styles.profileWrapper}`}>
         <Image
           src={customerPic}
@@ -47,9 +65,7 @@ let sourceLogo = showFacebookLogo ? <Image src="/facebook-reviews.png" alt="face
           </button>
         )}
       </div>
-        {sourceLogo}
+      {sourceLogo}
     </div>
   );
 }
-
-

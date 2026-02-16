@@ -9,6 +9,7 @@ import {
 import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
+import reviewsData from "@/data/google-reviews.json";
 
 export async function generateMetadata(props, parent) {
   // read route params
@@ -49,18 +50,16 @@ export async function generateMetadata(props, parent) {
 
 export default async function Home() {
   const data = await getSinglePostData("home", "wp-json/wp/v2/pages");
-  const googleReviews = await getGoogleReviews();
   const options = await getOptions();
   // const googleReviews = await getGoogleReviews()
   if (!data) return { notFound: true };
   const sections = data[0]?.acf?.sections;
-  console.log("google reviews page" + googleReviews);
   return (
     <>
       <Header />
       <main>
         <Layout
-          googleReviewsData={googleReviews}
+          googleReviewsData={reviewsData}
           uspTable={options.usp_table}
           sections={sections}
           uspData={options.usp}

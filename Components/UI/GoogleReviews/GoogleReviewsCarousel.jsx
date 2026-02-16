@@ -13,6 +13,7 @@ import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 
 export default function GoogleReviewsCarousel({ data }) {
+  console.log(data);
   // ✅ proper empty check
   if (!data?.reviews?.length) return null;
 
@@ -103,13 +104,14 @@ export default function GoogleReviewsCarousel({ data }) {
             service we provide.
           </Typography>
         </div>
+      </Container>
 
-        <div className="carousel-wrapper embla mt-32">
-          <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container">{testimonialCardsJSX}</div>
-          </div>
+      <div className="carousel-wrapper embla mt-32">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">{testimonialCardsJSX}</div>
+        </div>
 
-          {/* <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
+        {/* <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">
             <button
               className="embla__prev"
               onClick={scrollPrev}
@@ -129,8 +131,7 @@ export default function GoogleReviewsCarousel({ data }) {
               <NextIcon />
             </button>
           </div> */}
-        </div>
-      </Container>
+      </div>
     </section>
   );
 }
