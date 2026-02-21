@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-     "sync:reviews": "node scripts/sync-google-reviews.mjs"
+     "sync:reviews": "node scripts/sync-google-reviews.mjs" 
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

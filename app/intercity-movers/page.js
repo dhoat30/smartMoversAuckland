@@ -7,6 +7,7 @@ import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 import LocationCarouselSection from '@/Components/UI/Layout/Sections/LocationCarousel/LocationCarouselSection'
 
+import reviewsData from "@/data/google-reviews.json";
 
 
 export async function generateMetadata(props, parent) {

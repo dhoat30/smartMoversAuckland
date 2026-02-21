@@ -6,6 +6,7 @@ import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData
 import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 
+import reviewsData from "@/data/google-reviews.json";
 
 
 export async function generateMetadata(props, parent) {

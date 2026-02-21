@@ -108,7 +108,9 @@ export default function GoogleReviewsCarousel({ data }) {
 
       <div className="carousel-wrapper embla mt-32">
         <div className="embla__viewport" ref={emblaRef}>
-          <div className="embla__container">{testimonialCardsJSX}</div>
+          <div className="embla__container google_embla__container">
+            {testimonialCardsJSX}
+          </div>
         </div>
 
         {/* <div className="embla__buttons_wrapper flex gap-8 justify-end mt-16">

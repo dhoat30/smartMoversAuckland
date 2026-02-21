@@ -8,6 +8,7 @@ import LocationCarouselSection from '@/Components/UI/Layout/Sections/LocationCar
 import LongDistanceRoutes from '@/Components/UI/LongDistanceRoutes/LongDistanceRoutes';
 import { nzCitiesData } from '@/utils/staticData/nzCitiesData';
 import dayjs from "@/utils/dayjs-setup"; // with customParseFormat extended
+import reviewsData from "@/data/google-reviews.json";
 
 
 export async function generateMetadata(props, parent) {

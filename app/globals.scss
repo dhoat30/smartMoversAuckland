@@ -125,6 +125,12 @@ ul {
   line-height: 1.167;
   color: var(--white);
 }
+.regular{
+  font-weight: 400 !important;
+}
+.medium{
+  font-weight: 500 !important;
+}
 .semi-bold {
   font-weight: 600;
 }
@@ -168,6 +174,9 @@ ul {
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+.full-width{ 
+  width:100%; 
 }
 /* margin  */
 .mt-16 {
@@ -502,6 +511,9 @@ strong {
 }
 
 // google embla slide 
+.google_embla__container{ 
+  align-items: flex-start;
+}
 .google_embla__slide{ 
   margin-right: 0; 
 }

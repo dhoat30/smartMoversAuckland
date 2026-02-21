@@ -10,6 +10,7 @@ import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
 import reviewsData from "@/data/google-reviews.json";
+// run to get reviews GOOGLE_PLACE_ID="..." SERPAPI_API_KEY="..." npm run sync:reviews
 
 export async function generateMetadata(props, parent) {
   // read route params
