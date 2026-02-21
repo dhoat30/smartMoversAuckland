@@ -16,7 +16,7 @@ import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
 import { useClickIds } from "@/hooks/useClickIds";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-
+import Script from "next/script";
 export default function GetQuoteForm({
   className,
   formName = "Get a Quote Form",
@@ -340,6 +340,15 @@ export default function GetQuoteForm({
 
   return (
     <>
+      <Script
+        id="google-maps"
+        strategy="afterInteractive"
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&libraries=places`}
+        onLoad={() => {
+          // signal to the app that maps is ready
+          window.dispatchEvent(new Event("gmaps-ready"));
+        }}
+      />
       <Container
         variant="div"
         className={`${className} ${styles.container}`}

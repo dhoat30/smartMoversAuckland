@@ -25,6 +25,7 @@ export default function FooterCta({ title, description, cta }) {
               variant="h5"
               align="center"
               color="white"
+              component="h3"
               style={{ fontWeight: 500 }}
               className=" mt-16 description"
             >
