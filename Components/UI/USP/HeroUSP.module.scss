@@ -4,9 +4,14 @@
         @media(max-width: 1300px){ 
             grid-template-columns: 1fr;
         }
+             @media(max-width: 1200px){ 
+        grid-template-columns: 1fr 1fr;
+
+        }
         .textUSP{ 
             align-items: start ;
             color: var(--light-primary); 
+            text-align: left;
         }
     }
 }
