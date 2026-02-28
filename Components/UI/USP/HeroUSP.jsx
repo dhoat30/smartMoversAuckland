@@ -13,7 +13,7 @@ export default function HeroUSP({ data, className }) {
               <Typography
                 variant="subtitle2"
                 component="div"
-                className={`flex align-center mb-8 gap-4 ${styles.textUSP}`}
+                className={`flex mb-8 gap-4 ${styles.textUSP}`}
                 key={index}
               >
                 <CheckCircleIcon />

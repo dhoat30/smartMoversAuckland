@@ -55,6 +55,8 @@ export default async function Home({ params }) {
   // const googleReviews = await getGoogleReviews()
   if (!data) return { notFound: true };
   const sections = data[0]?.acf?.sections;
+  const reviewerPics = options?.reviewer_pics;
+
   return (
     <>
       <Header />
@@ -68,6 +70,7 @@ export default async function Home({ params }) {
           hoursCalculatorData={options.hours_calculator}
           spaceCalculatorData={options.cubic_meter_calculator}
           servicesData={options.services}
+          reviewerPics={reviewerPics}
         />
         {/* <Layout sections={postData[0]?.acf?.sections} /> */}
         {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}

@@ -398,8 +398,9 @@ export default function GetQuoteForm({
               <Typography
                 variant="body1"
                 component="div"
-                className="center-align"
+                className="center-align pt-16"
                 color="primary"
+                style={{ borderTop: "1px solid var(--light-outline-variant)" }}
               >
                 Honest advice • Free Quote • No obligation
               </Typography>

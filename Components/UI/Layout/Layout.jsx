@@ -28,6 +28,7 @@ export default function Layout({
   servicesData,
   googleReviewsData,
   routeId,
+  reviewerPics,
 }) {
   if (!sections) return null;
   const sectionsJSX = sections.map((section, index) => {
@@ -122,6 +123,8 @@ export default function Layout({
           description={section.description}
           usp={{ text_usp: section.text_usp, image_usp: section.image_usp }}
           graphic={section.graphic}
+          reviewerPics={reviewerPics}
+          googleReviewSnippetText={section.google_review_snippet_text}
         />
       );
     }

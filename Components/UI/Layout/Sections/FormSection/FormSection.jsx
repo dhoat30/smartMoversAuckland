@@ -7,7 +7,15 @@ import BeforeAfter from "../../../BeforeAfterSlider/BeforeAfter";
 import GetQuoteForm from "@/Components/UI/Forms/GetQuoteForm";
 import Video from "@/Components/UI/Video/Video";
 import styles from "./FormSection.module.scss";
-export default function FormSection({ title, description, usp, graphic }) {
+import GoogleReviewSnippet from "@/Components/UI/GoogleReviews/GoogleReviewCard/GoogleReviewSnippet";
+export default function FormSection({
+  title,
+  description,
+  usp,
+  graphic,
+  googleReviewSnippetText,
+  reviewerPics,
+}) {
   let graphicComponent = null;
 
   if (graphic.graphic_type === "image" && graphic.image) {
@@ -63,15 +71,29 @@ export default function FormSection({ title, description, usp, graphic }) {
     <section className={`${styles.section}`}>
       <Container maxWidth="lg" className={`${styles.container}`}>
         <div className={`${styles.grid} grid gap-24`}>
-          <Paper
-            className={`${styles.contentWrapper} border-radius-12`}
-            variant="outlined"
-          >
+          <div className={`${styles.contentWrapper}`}>
+            <GoogleReviewSnippet
+              reviewTitle={googleReviewSnippetText}
+              reviewerPics={reviewerPics}
+              leftAligned={true}
+            />
+            <div
+              className={`${styles.guaranteeBadgeWrapper} flex gap-8 mt-16 mb-16`}
+            >
+              <div className={styles.dot}></div>
+              <Typography
+                variant="subtitle1"
+                component="span"
+                className={styles.badge}
+              >
+                Price Beat Guarantee — We'll Beat Any Quote by 10%
+              </Typography>
+            </div>
             <Typography
               component={"h1"}
               variant={"h3"}
               className="title"
-              color="var(--light-secondary)"
+              color="var(--light-primary)"
             >
               {title}
             </Typography>
@@ -83,14 +105,46 @@ export default function FormSection({ title, description, usp, graphic }) {
             >
               {description}
             </Typography>
+
             <HeroUSP data={usp} className="mb-16" />
+
             {graphicComponent}
-          </Paper>
+          </div>
           <Paper
             className={`${styles.formWrapper} border-radius-12`}
             variant="outlined"
           >
-            <GetQuoteForm hideTitle={true} />
+            <div className={`${styles.titleWrapper}`}>
+              <Typography
+                variant="h4"
+                component={"h2"}
+                color={"var(--dark-on-surface)"}
+                className="center-align"
+              >
+                Get Your Free Quote
+              </Typography>
+              <Typography
+                variant="body1"
+                component="p"
+                color={"var(--dark-on-surface-variant)"}
+                className="center-align"
+              >
+                Takes 60 seconds. No obligation whatsoever.
+              </Typography>
+            </div>
+            <div
+              className={`${styles.formGuaranteeWrapper} flex justify-center align-center gap-4`}
+            >
+              <svg viewBox="0 0 24 24" width="18px" height="18px">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"></path>
+              </svg>
+              <Typography variant="subtitle1" component={"span"} color="white">
+                Efficient Stacking, Fewer Trips
+              </Typography>
+            </div>
+            <div className={`${styles.form}`}>
+              <GetQuoteForm hideTitle={true} />
+            </div>
           </Paper>
         </div>
       </Container>

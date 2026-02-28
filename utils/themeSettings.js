@@ -16,8 +16,10 @@ export const lightTheme = createTheme({
     contrastThreshold: 3.1,
   },
   typography: {
-    fontFamily: ["var(--font-barlow)", "Segoe UI", "sans-serif"].join(","),
+    fontFamily: ["--font-work-sans", "Segoe UI", "sans-serif"].join(","),
     h1: {
+      fontFamily: ["var(--font-barlow)", "Segoe UI", "sans-serif"].join(","),
+
       fontSize: "4rem",
       fontWeight: 800,
       color: "var(--light-secondary)",
@@ -27,6 +29,8 @@ export const lightTheme = createTheme({
       },
     },
     h2: {
+      fontFamily: ["var(--font-barlow)", "Segoe UI", "sans-serif"].join(","),
+
       fontWeight: 800,
       fontSize: "3rem",
       lineHeight: "100%",
@@ -38,6 +42,8 @@ export const lightTheme = createTheme({
       },
     },
     h3: {
+      fontFamily: ["var(--font-barlow)", "Segoe UI", "sans-serif"].join(","),
+
       fontWeight: 900,
       letterSpacing: "0.05rem",
       color: "var(--light-on-surface)",
@@ -47,6 +53,8 @@ export const lightTheme = createTheme({
       },
     },
     h4: {
+      fontFamily: ["var(--font-barlow)", "Segoe UI", "sans-serif"].join(","),
+
       fontWeight: 700,
       color: "var(--light-on-surface-variant)",
     },
@@ -67,6 +75,7 @@ export const lightTheme = createTheme({
     },
     body1: {
       color: "var( --light-on-surface-variant)",
+      fontWeight: 400,
     },
     body2: {},
     subtitle1: {
