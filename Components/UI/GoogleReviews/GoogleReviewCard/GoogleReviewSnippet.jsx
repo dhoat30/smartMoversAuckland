@@ -9,7 +9,6 @@ function GoogleReviewSnippet({
   reviewTitle,
   leftAligned = false,
 }) {
-  console.log(reviewerPics);
   if (!reviewerPics || reviewerPics.length === 0) return;
 
   const alignment = leftAligned ? "" : "0 auto";

@@ -126,66 +126,60 @@ export default function LongDistanceRouteForm({
       } \nPhone Number: ${formData.phone} 
       \nProperty Type: ${formData.propertyType}
        \nMove Date: ${formattedDate}
-       \nServices Required: ${formData["moveType"].join(", ")} \n Message: ${
-         formData.message
-       } `,
+      \nMove Type: ${formData["moveType"].join(", ")}
+       \nRoute: ${data?.movingFrom?.label} to ${data?.movingTo?.label}
+        \nTruck Space Left: ${data?.spareCapacity}
+         \nDate Listed on Move Card: ${movingCardDate}
+                \nTruck Size: ${data?.attributes?.truck_size}
+       \nNumber of Movers: ${data?.attributes?.number_of_movers}
+       \nDescription: ${data?.description}
+       \nStatus: ${data?.status}
+
+       \nServices Required: ${formData["moveType"].join(", ")} 
+       \n Message: ${formData.message} `,
       hubspotFormID:
         process.env.NEXT_PUBLIC_HUBSPOT_LONG_DISTANCE_ROUTE_FORM_ID,
-      hubspotFormObject: [
-        { name: "hs_google_click_id", value: clickIds.gclid || "" },
-        { name: "gbraid", value: clickIds.gbraid || "" },
-        { name: "wbraid", value: clickIds.wbraid || "" },
-        { name: "gads_campaign_id", value: clickIds.gads_campaign_id || "" },
-        { name: "gads_adgroup_id", value: clickIds.gads_adgroup_id || "" },
-        { name: "gads_ad_id", value: clickIds.gads_ad_id || "" },
-        { name: "campaign_name", value: clickIds.campaign_name || "" },
-        { name: "adgroup_name", value: clickIds.adgroup_name || "" },
-        { name: "ad_name", value: clickIds.ad_name || "" },
-        { name: "utm_term", value: clickIds.utm_term || "" },
-        { name: "utm_matchtype", value: clickIds.utm_matchtype || "" },
-        { name: "utm_network", value: clickIds.utm_network || "" },
-        { name: "utm_device", value: clickIds.utm_device || "" },
-        { name: "utm_content", value: clickIds.utm_content || "" },
-        { name: "utm_source", value: clickIds.utm_source || "" },
-        { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
-        { name: "fbp", value: clickIds.fbp || "" },
-        { name: "fbc", value: clickIds.fbc || "" },
-        { name: "fb_campaign_id", value: clickIds.fb_campaign_id || "" },
-        { name: "fb_platform", value: clickIds.fb_platform || "" },
-        { name: "fb_ad_id", value: clickIds.fb_ad_id || "" },
-        { name: "fb_adset_id", value: clickIds.fb_adset_id || "" },
-        { name: "fb_site_source", value: clickIds.fb_site_source || "" },
-
-        { name: "firstname", value: formData.firstname },
-        { name: "email", value: formData.email },
-        { name: "phone", value: formData.phone },
-        { name: "property_type", value: formData.propertyType },
-        { name: "move_type", value: formData["moveType"].join(", ") },
-        { name: "move_date", value: formattedDate },
-        { name: "message", value: formData.message },
-        {
-          name: "route",
-          value: `${data?.movingFrom?.label} to ${data?.movingTo?.label}`,
-        },
-        { name: "truck_space_left", value: data?.spareCapacity },
-        { name: "date_listed_on_move_card", value: movingCardDate },
-        {
-          name: "truck_size_listed_on_move_card",
-          value: `${data?.attributes?.truck_size}`,
-        },
-        {
-          name: "number_of_movers_listed_on_move_card",
-          value: data?.attributes?.number_of_movers,
-        },
-        { name: "description_on_move_card", value: data?.description },
-        { name: "status_listed_on_move_card", value: data?.status },
-      ],
+      body: {
+        // { name: "hs_google_click_id", value: clickIds.gclid || "" },
+        // { name: "gbraid", value: clickIds.gbraid || "" },
+        // { name: "wbraid", value: clickIds.wbraid || "" },
+        // { name: "gads_campaign_id", value: clickIds.gads_campaign_id || "" },
+        // { name: "gads_adgroup_id", value: clickIds.gads_adgroup_id || "" },
+        // { name: "gads_ad_id", value: clickIds.gads_ad_id || "" },
+        // { name: "campaign_name", value: clickIds.campaign_name || "" },
+        // { name: "adgroup_name", value: clickIds.adgroup_name || "" },
+        // { name: "ad_name", value: clickIds.ad_name || "" },
+        // { name: "utm_term", value: clickIds.utm_term || "" },
+        // { name: "utm_matchtype", value: clickIds.utm_matchtype || "" },
+        // { name: "utm_network", value: clickIds.utm_network || "" },
+        // { name: "utm_device", value: clickIds.utm_device || "" },
+        // { name: "utm_content", value: clickIds.utm_content || "" },
+        // { name: "utm_source", value: clickIds.utm_source || "" },
+        // { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
+        // { name: "fbp", value: clickIds.fbp || "" },
+        // { name: "fbc", value: clickIds.fbc || "" },
+        // { name: "fb_campaign_id", value: clickIds.fb_campaign_id || "" },
+        // { name: "fb_platform", value: clickIds.fb_platform || "" },
+        // { name: "fb_ad_id", value: clickIds.fb_ad_id || "" },
+        // { name: "fb_adset_id", value: clickIds.fb_adset_id || "" },
+        // { name: "fb_site_source", value: clickIds.fb_site_source || "" },
+        firstName: formData.firstname,
+        email: formData.email,
+        phone: formData.phone,
+        pickup: data?.movingFrom?.label,
+        dropoff: data?.movingTo?.label,
+        propertyType: formData.propertyType,
+        sendInventoryLink: true,
+        // name: "services_required", value: formData["service"].join(", ") ,
+        note: formData.message,
+        date: formattedDate,
+      },
     };
     setIsLoading(true);
     // Hubspot config
     var configHubspot = {
       method: "post",
-      url: "/api/submit-hubspot-form",
+      url: "/api/movermate",
       headers: { "Content-Type": "application/json" },
       data: dataPayload,
     };

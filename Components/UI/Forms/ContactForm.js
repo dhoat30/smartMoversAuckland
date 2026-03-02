@@ -39,8 +39,8 @@ export default function ContactForm({
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
   const [mapsLoaded, setMapsLoaded] = useState(false);
-// click id 
- const { clickIds } = useClickIds();
+  // click id
+  const { clickIds } = useClickIds();
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
 
@@ -97,30 +97,23 @@ export default function ContactForm({
       formName: formName,
       message: `First Name: ${formData.firstname} \nEmail: ${
         formData.email
-      } \nPhone Number: ${formData.phone} \n Message: ${
-        formData.message
-      } `,
-      hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_CONTACT_US, 
-      hubspotFormObject: [
-          { name: "hs_google_click_id", value: clickIds.gclid || "" },
-          { name: "gbraid", value: clickIds.gbraid || "" }, 
-           { name: "wbraid", value: clickIds.wbraid || "" }, 
-            { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
-            { name: "fbc", value: clickIds.fbc || "" },
-            { name: "fbp", value: clickIds.fbp || "" },
-        { name: "firstname", value: formData.firstname },
-        { name: "email", value: formData.email },
-        { name: "phone", value: formData.phone },
-        { name: "message", value: formData.message },
-      ],
+      } \nPhone Number: ${formData.phone} \n Message: ${formData.message} `,
+      hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_CONTACT_US,
+      body: {
+        firstName: formData.firstname,
+        email: formData.email,
+        phone: formData.phone,
+        // name: "services_required", value: formData["service"].join(", ") ,
+        note: formData.message,
+      },
     };
 
     setIsLoading(true);
-  
+
     // Hubspot config
     var configHubspot = {
       method: "post",
-      url: "/api/submit-hubspot-form",
+      url: "/api/movermate",
       headers: { "Content-Type": "application/json" },
       data: dataPayload,
     };
@@ -162,21 +155,17 @@ export default function ContactForm({
               event: "quote_form_submission",
               formName: "Moving Quote",
               formData: {
-                firstName: firstName,
-         
+                firstName: formData.firstname,
+
                 email: formData.email,
                 phone: formData.phone,
-                street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
-                city: googleAdsAddress.pickUpAddress.city,
-                region: googleAdsAddress.pickUpAddress.region,
-                postCode: googleAdsAddress.pickUpAddress.postalCode,
-                 gclid: clickIds.gclid,
-                gbraid: clickIds.gbraid,
-               wbraid: clickIds.wbraid,
-               fbclid: clickIds.fbclid,
-               fbc: clickIds.fbc,
-               fbp: clickIds.fbp,
 
+                gclid: clickIds.gclid,
+                gbraid: clickIds.gbraid,
+                wbraid: clickIds.wbraid,
+                fbclid: clickIds.fbclid,
+                fbc: clickIds.fbc,
+                fbp: clickIds.fbp,
               },
             });
           }
@@ -241,31 +230,27 @@ export default function ContactForm({
     } else if (isAddressField(field.id)) {
       return (
         <React.Fragment key={field.id}>
-        
-            <GoogleAutocomplete
-              className="mt-16"
-              label={field.label}
-              value={formData[field.id]} // pickUpAddress / dropOffAddress / address
-              onChange={(value) => handleChange(field.id, value, false)}
-              onSelect={(selectedAddress) => {
-                // When user selects an address from suggestions
-                setFormData((prevData) => ({
-                  ...prevData,
-                  [field.id]: selectedAddress,
-                }));
-                // Reset errors if any
-                if (errors[field.id]) {
-                  setErrors({ ...errors, [field.id]: false });
-                }
-              }}
-              required={field.required}
-              autoComplete={field.autoComplete}
-              error={errors[field.id]}
-              helperText={
-                errors[field.id] ? "Please enter a valid address" : ""
+          <GoogleAutocomplete
+            className="mt-16"
+            label={field.label}
+            value={formData[field.id]} // pickUpAddress / dropOffAddress / address
+            onChange={(value) => handleChange(field.id, value, false)}
+            onSelect={(selectedAddress) => {
+              // When user selects an address from suggestions
+              setFormData((prevData) => ({
+                ...prevData,
+                [field.id]: selectedAddress,
+              }));
+              // Reset errors if any
+              if (errors[field.id]) {
+                setErrors({ ...errors, [field.id]: false });
               }
-            />
-         
+            }}
+            required={field.required}
+            autoComplete={field.autoComplete}
+            error={errors[field.id]}
+            helperText={errors[field.id] ? "Please enter a valid address" : ""}
+          />
         </React.Fragment>
       );
     } else {
@@ -308,9 +293,13 @@ export default function ContactForm({
       >
         <Box sx={{ width: "100%" }}>
           <React.Fragment>
-            <div className={ `${styles.inputWrapper}`}>
+            <div className={`${styles.inputWrapper}`}>
               {!hideTitle && (
-                <Typography variant="h4" component="h1" className="title mt-8 mb-8">
+                <Typography
+                  variant="h4"
+                  component="h1"
+                  className="title mt-8 mb-8"
+                >
                   {title}
                 </Typography>
               )}
@@ -321,8 +310,8 @@ export default function ContactForm({
                 onClick={submitHandler}
                 loading={isLoading}
                 // isSuccess={isSuccess}
-              variant="contained"
-              className="mt-16"
+                variant="contained"
+                className="mt-16"
               >
                 Submit now
               </Button>

@@ -48,7 +48,6 @@ export default function GetQuoteForm({
   }); // For Google Ads conversion tracking
   // click id
   const { clickIds } = useClickIds();
-  console.log(clickIds);
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
 
@@ -120,48 +119,49 @@ export default function GetQuoteForm({
          formData.message
        } `,
       hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_GET_QUOTE_FORM_ID,
-      hubspotFormObject: [
-        { name: "hs_google_click_id", value: clickIds.gclid || "" },
-        { name: "gbraid", value: clickIds.gbraid || "" },
-        { name: "wbraid", value: clickIds.wbraid || "" },
-        { name: "gads_campaign_id", value: clickIds.gads_campaign_id || "" },
-        { name: "gads_adgroup_id", value: clickIds.gads_adgroup_id || "" },
-        { name: "gads_ad_id", value: clickIds.gads_ad_id || "" },
-        { name: "campaign_name", value: clickIds.campaign_name || "" },
-        { name: "adgroup_name", value: clickIds.adgroup_name || "" },
-        { name: "ad_name", value: clickIds.ad_name || "" },
-        { name: "utm_term", value: clickIds.utm_term || "" },
-        { name: "utm_matchtype", value: clickIds.utm_matchtype || "" },
-        { name: "utm_network", value: clickIds.utm_network || "" },
-        { name: "utm_device", value: clickIds.utm_device || "" },
-        { name: "utm_content", value: clickIds.utm_content || "" },
-        { name: "utm_source", value: clickIds.utm_source || "" },
-        { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
-        { name: "fbp", value: clickIds.fbp || "" },
-        { name: "fbc", value: clickIds.fbc || "" },
-        { name: "fb_campaign_id", value: clickIds.fb_campaign_id || "" },
-        { name: "fb_platform", value: clickIds.fb_platform || "" },
-        { name: "fb_ad_id", value: clickIds.fb_ad_id || "" },
-        { name: "fb_adset_id", value: clickIds.fb_adset_id || "" },
-        { name: "fb_site_source", value: clickIds.fb_site_source || "" },
+      body: {
+        // { name: "hs_google_click_id", value: clickIds.gclid || "" },
+        // { name: "gbraid", value: clickIds.gbraid || "" },
+        // { name: "wbraid", value: clickIds.wbraid || "" },
+        // { name: "gads_campaign_id", value: clickIds.gads_campaign_id || "" },
+        // { name: "gads_adgroup_id", value: clickIds.gads_adgroup_id || "" },
+        // { name: "gads_ad_id", value: clickIds.gads_ad_id || "" },
+        // { name: "campaign_name", value: clickIds.campaign_name || "" },
+        // { name: "adgroup_name", value: clickIds.adgroup_name || "" },
+        // { name: "ad_name", value: clickIds.ad_name || "" },
+        // { name: "utm_term", value: clickIds.utm_term || "" },
+        // { name: "utm_matchtype", value: clickIds.utm_matchtype || "" },
+        // { name: "utm_network", value: clickIds.utm_network || "" },
+        // { name: "utm_device", value: clickIds.utm_device || "" },
+        // { name: "utm_content", value: clickIds.utm_content || "" },
+        // { name: "utm_source", value: clickIds.utm_source || "" },
+        // { name: "hs_facebook_click_id", value: clickIds.fbclid || "" },
+        // { name: "fbp", value: clickIds.fbp || "" },
+        // { name: "fbc", value: clickIds.fbc || "" },
+        // { name: "fb_campaign_id", value: clickIds.fb_campaign_id || "" },
+        // { name: "fb_platform", value: clickIds.fb_platform || "" },
+        // { name: "fb_ad_id", value: clickIds.fb_ad_id || "" },
+        // { name: "fb_adset_id", value: clickIds.fb_adset_id || "" },
+        // { name: "fb_site_source", value: clickIds.fb_site_source || "" },
 
-        { name: "firstname", value: formData.firstname },
-        { name: "email", value: formData.email },
-        { name: "phone", value: formData.phone },
-        { name: "pick_up_address", value: formData.pickUpAddress },
-        { name: "drop_off_address", value: formData.dropOffAddress },
-        { name: "property_type", value: formData.propertyType },
-        { name: "move_date", value: "null" },
-        { name: "services_required", value: formData["service"].join(", ") },
-        { name: "message", value: formData.message },
-      ],
+        firstName: formData.firstname,
+        email: formData.email,
+        phone: formData.phone,
+        pickup: formData.pickUpAddress,
+        dropoff: formData.dropOffAddress,
+        propertyType: formData.propertyType,
+        sendInventoryLink: true,
+        date: formattedDate,
+        // name: "services_required", value: formData["service"].join(", ") ,
+        note: formData.message,
+      },
     };
     setIsLoading(true);
-
+    console.log(dataPayload);
     // Hubspot config
     var configHubspot = {
       method: "post",
-      url: "/api/submit-hubspot-form",
+      url: "/api/movermate",
       headers: { "Content-Type": "application/json" },
       data: dataPayload,
     };

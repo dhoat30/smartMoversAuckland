@@ -13,7 +13,6 @@ import PrevIcon from "@/Components/UI/Icons/PrevIcon";
 import NextIcon from "@/Components/UI/Icons/NextIcon";
 
 export default function GoogleReviewsCarousel({ data }) {
-  console.log(data);
   // ✅ proper empty check
   if (!data?.reviews?.length) return null;
 
