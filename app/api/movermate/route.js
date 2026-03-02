@@ -50,7 +50,7 @@ export async function POST(req) {
       phone: body.phone,
       pickup: body.pickup,
       dropoff: body.dropoff,
-      date: body.date,
+      date: body.date ? body.date : null,
       Source: body.source ?? body.Source, // accept either casing from frontend
       note: body.note,
       // if their API supports extra keys you can keep adding here
