@@ -151,7 +151,6 @@ export default function GetQuoteForm({
         dropoff: formData.dropOffAddress,
         propertyType: formData.propertyType,
         sendInventoryLink: true,
-        date: formattedDate,
         // name: "services_required", value: formData["service"].join(", ") ,
         note: formData.message,
       },
