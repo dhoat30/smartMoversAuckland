@@ -52,8 +52,7 @@ export async function POST(req) {
       dropoff: body.dropoff,
       date: body.date,
       Source: body.source ?? body.Source, // accept either casing from frontend
-      notes: body.notes,
-      message: body.message,
+      note: body.note,
       // if their API supports extra keys you can keep adding here
     });
 

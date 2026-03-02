@@ -41,6 +41,7 @@ export default function LongDistanceRouteForm({
     moveType: [],
     message: "",
   });
+  console.log(formData);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -109,8 +110,8 @@ export default function LongDistanceRouteForm({
     const parts = formData.firstname.trim().split(/\s+/); // split by any whitespace
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
-
-    let formattedDate = dayjs(formData.datePicker).valueOf();
+    console.log(formData.date);
+    let formattedDate = isoToNZDateOnly(formData.date);
     let movingCardDate;
     // date formatting logic for card date
     if (data?.attributes?.date_type === "fixed") {
@@ -424,4 +425,14 @@ export default function LongDistanceRouteForm({
       </Container>
     </>
   );
+}
+
+function isoToNZDateOnly(isoString) {
+  if (!isoString) return ""; // don’t let it fall back to today
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Pacific/Auckland",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(isoString)); // -> "YYYY-MM-DD"
 }
