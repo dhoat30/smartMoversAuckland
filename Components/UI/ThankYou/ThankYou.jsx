@@ -10,9 +10,12 @@ export default function ThankYou({
 }) {
   return (
     <section className={`${styles.section} flex align-center justify-center`}>
-      <Container maxWidth="sm" className={`${styles.container} border-radius-12`}>
+      <Container
+        maxWidth="sm"
+        className={`${styles.container} border-radius-12`}
+      >
         <div className={`${styles.imageContainer}`}>
-          <div className="image-wrapper" style={{paddingBottom: "86%"}}>
+          <div className="image-wrapper" style={{ paddingBottom: "86%" }}>
             <Image src="/congrats.png" alt="Thank you" fill />
           </div>
         </div>
@@ -39,7 +42,6 @@ export default function ThankYou({
                 Go back
               </Button>
             </Link>
-        
           </div>
         </div>
       </Container>
