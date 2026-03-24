@@ -1,3 +1,4 @@
+'use client'
 import { useMemo, useState } from "react";
 
 import useMediaQuery from "@mui/material/useMediaQuery";

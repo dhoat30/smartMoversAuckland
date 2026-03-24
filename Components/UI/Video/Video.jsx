@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from 'react-player';
 import Image from "next/image";
 import PlayIcon from "../Icons/PlayIcon";
 import styles from "./Video.module.scss";
@@ -9,6 +9,7 @@ export default function Video({
   placeholderImage,
   className,
   showCompressedImage,
+  priority=false
 }) {
   const imageURL = showCompressedImage
     ? placeholderImage?.sizes?.large
@@ -25,6 +26,10 @@ export default function Video({
   return (
     <div className={`${styles.container} ${className}`}>
       <div className={`${styles.videoWrapper}`}>
+          
+
+        <div className={`${styles.backgroundGradient}`}></div>
+
         {!videoLoaded && (
           <>
             <div className={`${styles.videoOverlay}`}></div>
@@ -34,11 +39,15 @@ export default function Video({
               fill
               alt={placeholderImage.alt}
               style={{
-                objectFit: "cover", // cover, contain, none
+                objectFit: "cover", 
+                borderRadius: "12px"
+                // cover, contain, none
               }}
-              sizes="(max-width: 1200px) 100vw, 50vw"
+              sizes="(max-width: 1200px) 100vw, 80vw"
+              priority={priority}
+
             />
-            <div  className={`${styles.buttonStyled} flex align-center` }  onClick={handleImageClick}>
+            <div className={`${styles.buttonStyled} flex align-center` }  onClick={handleImageClick}>
               <PlayIcon />
             </div  >
           </>
@@ -46,17 +55,20 @@ export default function Video({
 
         {videoLoaded && (
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoID}`}
+            src={`https://www.youtube.com/watch?v=${videoID}`}
             style={{
               position: "absolute",
               top: 0,
               left: 0,
+              borderRadius: "12px",
+              overflow: "hidden",
             }}
             width="100%"
             height="100%"
             controls={true}
           />
         )}
+        
       </div>
     </div>
   );
