@@ -113,7 +113,7 @@ export default function MobileNavbar() {
     <>
     <section
       className={`${styles.section} ${
-        isNavVisible || open ? styles.visible : styles.hidden
+        isNavVisible || open ? styles.navVisible : styles.navHidden
       }`}
     >
       <AppBar

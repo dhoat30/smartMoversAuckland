@@ -560,3 +560,10 @@ strong {
 }
 
 /* Force move HubSpot chat widget */
+@media (max-width: 899px) {
+  #hubspot-messages-iframe-container,
+  div[data-test-id="chat-widget-launcher"],
+  div[data-test-id="chat-widget-launcher"] iframe {
+    bottom: calc(88px + env(safe-area-inset-bottom)) !important;
+  }
+}

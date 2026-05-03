@@ -19,11 +19,11 @@ z-index:100;
  
 }
 
-.visible {
+.navVisible {
   transform: translateY(0);
 }
 
-.hidden {
+.navHidden {
   transform: translateY(-110%);
 }
 
