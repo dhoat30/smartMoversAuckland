@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Script from "next/script";
 import LoadingIndicator from "@/Components/UI/Loader/LoadingIndicator";
 import TrackingPersistence from "@/Components/TrackingPersistence/TrackingPersistence";
+import HubSpotWidgetOffset from "@/Components/HubSpotWidgetOffset/HubSpotWidgetOffset";
 export default function ClientProvider({ children }) {
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +20,7 @@ export default function ClientProvider({ children }) {
       {/* {isLoading && <Loading />} */}
       {children}
       <TrackingPersistence />
+      <HubSpotWidgetOffset />
     </ThemeProvider>
   );
 }
