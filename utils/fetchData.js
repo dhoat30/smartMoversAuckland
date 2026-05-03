@@ -1,5 +1,7 @@
 import { headers } from "next/headers";
 
+export const THIRTY_DAYS = 2592000;
+
 //get single post with slug
 export const getSinglePostData = async (slug, apiRoute) => {
   console.log("Fetching from API:", slug);
@@ -13,7 +15,7 @@ export const getSinglePostData = async (slug, apiRoute) => {
         "User-Agent": "Mozilla/5.0",
         Accept: "application/json",
       },
-      next: { revalidate: 2592000 },
+      next: { revalidate: THIRTY_DAYS },
     });
 
     if (!response.ok) {
@@ -33,7 +35,7 @@ export const getSinglePostDataWithID = async (id, apiRoute) => {
   let response = await fetch(
     `${process.env.url}/${apiRoute}/${id}?acf_format=standard`,
     {
-      next: { revalidate: 2592000 },
+      next: { revalidate: THIRTY_DAYS },
     },
   );
   let data = await response.json();
@@ -45,7 +47,7 @@ export const getAllPosts = async (apiRoute) => {
   let response = await fetch(
     `${process.env.url}/${apiRoute}?acf_format=standard&per_page=100`,
     {
-      next: { revalidate: 2592000 },
+      next: { revalidate: THIRTY_DAYS },
     },
   );
   let data = await response.json();
@@ -54,7 +56,7 @@ export const getAllPosts = async (apiRoute) => {
 
 export const getOptions = async () => {
   let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {
-    next: { revalidate: 2592000 },
+    next: { revalidate: THIRTY_DAYS },
   });
   let data = await fetchData.json();
   return data;
@@ -63,7 +65,7 @@ export const getLongDistanceRoutes = async () => {
   let fetchData = await fetch(
     `${process.env.url}/wp-json/smart/v1/long-distance-moves`,
     {
-      next: { revalidate: 2592000 },
+      next: { revalidate: THIRTY_DAYS },
     },
   );
   let data = await fetchData.json();
@@ -78,7 +80,7 @@ export const getGoogleReviews = async () => {
 
   const url = `${protocol}://${host}/api/google-reviews`;
 
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: THIRTY_DAYS } });
   const data = await res.json();
 
   return data;

@@ -47,13 +47,16 @@
 }
 
 // google snippet 
-
-.reviewWrapper {
-  background: var(--light-surface-container-lowest);
-  border-radius: 50px;
-  max-width: 324px;
+.reviewWrapper.withBorder{ 
  border: 1px solid var(--light-outline-variant);
   padding: 8px 8px; 
+  border-radius: 50px;
+    background: var(--light-surface-container-lowest);
+
+
+}
+.reviewWrapper {
+  max-width: 324px;
   @media(max-width: 365px){ 
     justify-content: center;
   }
@@ -84,6 +87,10 @@
      
   }
   .starsWrapper{ 
+    position: relative; 
+    top: 1px; 
+  }
+  .reivewRating{ 
     position: relative; 
     top: 1px; 
   }

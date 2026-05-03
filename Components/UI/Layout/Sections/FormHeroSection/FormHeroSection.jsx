@@ -138,13 +138,16 @@ export default function FormHeroSection({
           <Typography variant="h5" component="div" className="mb-8">
             {subtitle}
           </Typography>
-          <Typography variant="h2" component="h1">
-            {title}
-          </Typography>
+         
+ <div className={`${styles.title} mb-16 heading-1`} dangerouslySetInnerHTML={{ __html: title }}>
 
-          <Typography variant="body1" component="p" sx={{ marginTop: "16px" }}>
-            {description}
-          </Typography>
+            </div>
+          
+<div className={`${styles.description} mt-24`} dangerouslySetInnerHTML={{ __html: description }}>
+
+            </div>
+
+
           {cta && (
             <div className={`${styles.formWrapper} mt-16 `} variant="outlined">
               <Link href={cta.url}>

@@ -1,6 +1,9 @@
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
+import nextEnv from "@next/env";
+
+nextEnv.loadEnvConfig(process.cwd());
 
 const PLACE_ID = process.env.GOOGLE_PLACE_ID;
 const API_KEY = process.env.SERPAPI_API_KEY;

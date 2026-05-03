@@ -1,0 +1,10 @@
+.trustRow {
+  background: var(--light-surface-container-lowest);
+  border: 1px solid var(--light-outline-variant);
+  border-radius: 8px;
+  padding: 16px;
+  width: fit-content;
+  @media(max-width: 600px){ 
+    gap: 16px;
+  }
+}

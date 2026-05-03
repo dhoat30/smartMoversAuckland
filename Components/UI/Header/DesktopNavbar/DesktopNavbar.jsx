@@ -13,9 +13,11 @@ import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownR
 import Paper from "@mui/material/Paper";
 import { usePathname } from "next/navigation";
 import styles from "./DesktopNavbar.module.scss";
+import { useScrollRevealState } from "@/hooks/useScrollReveal";
 function DesktopNavbar() {
   const [showMenu, setShowMenu] = useState(-1);
   const menuRef = useRef(null);
+  const { isVisible: isNavVisible, isAtTop } = useScrollRevealState();
   // router
   const pathname = usePathname();
   const isActive = (path) => {
@@ -113,9 +115,16 @@ function DesktopNavbar() {
   return (
     <>
       <AppBar
-      className={`${styles.section}`}
-        position="static"
+      className={`${styles.section} ${
+        isAtTop ? styles.inFlow : styles.floating
+      } ${
+        isNavVisible || showMenu !== -1 ? styles.visible : styles.hidden
+      }`}
+        elevation={0}
+        position={isAtTop ? "static" : "fixed"}
         sx={{
+          position: isAtTop ? "static" : "fixed",
+          boxShadow: "none",
           display: { xs: "none", lg: "block" },
           background: pathname.includes("blogs")
             ? "var(--light-surface-container-lowest)"

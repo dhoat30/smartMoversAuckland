@@ -115,6 +115,49 @@
                               max-width: 900px
 
                      }
+
+                 .title {
+          h1 {
+            font-size: 3rem;
+            font-weight: 900 !important;
+            font-family: var(--font-barlow);
+            line-height: 100%;
+            color: var(--light-primary);
+            strong {
+              font-weight: 700;
+              color: var(--teal); 
+              position: relative;
+              z-index: 1; 
+              &::after {
+               content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--dark-tertiary-container);
+    z-index: -1;
+    opacity: 0.5;
+              }
+            }
+            @media(max-width: 600px ){ 
+              font-size: 2.25rem;
+            }
+          }
+        }
+        .description {
+          font-size: 1.125rem;
+          line-height: 160%;
+          color: var(--light-on-surface-variant);
+          letter-spacing: -0.02rem;
+           @media(max-width: 600px ){ 
+            margin-top: 0px !important; 
+            }
+          strong{ 
+            font-weight: 600;
+            color: var(--light-on-surface);
+          }
+        }
         .formWrapper {
             background: var(--light-surface-container-low);
             padding: 24px 16px;

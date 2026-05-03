@@ -7,7 +7,7 @@ import BeforeAfter from "../../../BeforeAfterSlider/BeforeAfter";
 import GetQuoteForm from "@/Components/UI/Forms/GetQuoteForm";
 import Video from "@/Components/UI/Video/Video";
 import styles from "./FormSection.module.scss";
-import GoogleReviewSnippet from "@/Components/UI/GoogleReviews/GoogleReviewCard/GoogleReviewSnippet";
+import TrustSnippetRow from "@/Components/UI/TrustSnippet/TrustSnippetRow";
 export default function FormSection({
   title,
   description,
@@ -72,51 +72,45 @@ export default function FormSection({
       <Container maxWidth="lg" className={`${styles.container}`}>
         <div className={`${styles.grid} grid gap-24`}>
           <div className={`${styles.contentWrapper}`}>
-            <GoogleReviewSnippet
-              reviewTitle={googleReviewSnippetText}
-              reviewerPics={reviewerPics}
-              leftAligned={true}
-            />
+         
             <div
               className={`${styles.guaranteeBadgeWrapper} flex gap-8 mt-16 mb-16`}
             >
               <div className={styles.dot}></div>
               <Typography
-                variant="subtitle1"
+                variant="subtitle2"
                 component="span"
                 className={styles.badge}
               >
                 Price Beat Guarantee — We'll Beat Any Quote by 10%
               </Typography>
             </div>
-            <Typography
-              component={"h1"}
-              variant={"h3"}
-              className="title"
-              color="var(--light-primary)"
-            >
-              {title}
-            </Typography>
-            <Typography
-              component={"div"}
-              variant={"h6"}
-              className="description mt-8 medium"
-              color={"var(--light-on-surface-variant)"}
-            >
-              {description}
-            </Typography>
+          
+            <div className={`${styles.title} mb-16 heading-1`} dangerouslySetInnerHTML={{ __html: title }}>
 
-            <HeroUSP data={usp} className="mb-16" />
+            </div>
+          
+<div className={`${styles.description} mt-24`} dangerouslySetInnerHTML={{ __html: description }}>
 
-            {graphicComponent}
+            </div>
+            <HeroUSP data={usp} className="mt-24" />
+          {/* turst snippet row */}
+            <TrustSnippetRow
+              googleReviewSnippetText={googleReviewSnippetText}
+              reviewerPics={reviewerPics}
+              className="mt-24"
+              priority
+            />
+          
+            {/* {graphicComponent} */}
           </div>
           <Paper
-            className={`${styles.formWrapper} border-radius-12`}
+            className={`${styles.formWrapper} border-radius-16`}
             variant="outlined"
           >
             <div className={`${styles.titleWrapper}`}>
               <Typography
-                variant="h4"
+                variant="h5"
                 component={"h2"}
                 color={"var(--dark-on-surface)"}
                 className="center-align"
@@ -124,7 +118,7 @@ export default function FormSection({
                 Get Your Free Quote
               </Typography>
               <Typography
-                variant="body1"
+                variant="body2"
                 component="p"
                 color={"var(--dark-on-surface-variant)"}
                 className="center-align"

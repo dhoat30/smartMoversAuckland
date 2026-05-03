@@ -54,6 +54,7 @@ export default async function Home({ params }) {
   // const googleReviews = await getGoogleReviews()
   if (!data) return { notFound: true };
   const sections = data[0]?.acf?.sections;
+  console.log("sections", sections);
   return (
     <>
       <Header />

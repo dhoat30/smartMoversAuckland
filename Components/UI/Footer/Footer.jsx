@@ -9,6 +9,7 @@ import ContactInfo from "./ContactInfo";
 import FooterCta from "../CTA/FooterCta";
 import styles from "./Footer.module.scss";
 import SocialWrapper from "./SocialWrapper";
+import MobileBottomCta from "./MobileBottomCta";
 export default function Footer({
   footerCtaData,
   showFooterCta = true,
@@ -161,6 +162,7 @@ export default function Footer({
       </div>
       {/* copyright container */}
       <Copyright />
+      <MobileBottomCta />
     </>
   );
 }

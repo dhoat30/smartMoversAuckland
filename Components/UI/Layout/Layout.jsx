@@ -30,7 +30,9 @@ export default function Layout({
   routeId,
   reviewerPics,
 }) {
+   console.log("section", sections)
   if (!sections) return null;
+ 
   const sectionsJSX = sections.map((section, index) => {
     if (section.acf_fc_layout === "row") {
       let remappedAccordion;
@@ -116,6 +118,7 @@ export default function Layout({
     }
 
     if (section.acf_fc_layout === "form_section") {
+      console.log(section)
       return (
         <FormSection
           key={index}

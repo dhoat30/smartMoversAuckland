@@ -15,6 +15,7 @@ export default function GoogleAutocomplete({
   className,
   autoComplete,
   inputTitle,
+  onFocus,
 }) {
   const inputRef = useRef(null);
   const autocompleteRef = useRef(null);
@@ -103,6 +104,7 @@ export default function GoogleAutocomplete({
         label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onFocus={onFocus}
         inputRef={inputRef}
         color="secondary"
         fullWidth

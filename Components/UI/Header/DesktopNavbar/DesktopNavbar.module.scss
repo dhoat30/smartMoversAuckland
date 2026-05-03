@@ -1,9 +1,12 @@
 .section{ 
     z-index: 100;
-    top: 0;
-    position: fixed;
+    left: 0;
+    width: 100%;
     box-shadow: none;
-    border-bottom: 1px solid var(--light-outline-variant);
+    border-bottom: 1px solid transparent;
+    transform: translateY(0);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    will-change: transform;
       .link {
         color: var(--light-on-surface);
         padding: 4px 16px;
@@ -51,4 +54,24 @@
           font-weight: 400;
         }
       }
+}
+
+.inFlow {
+  position: static;
+  box-shadow: none;
+  border-bottom-color: transparent;
+}
+
+.floating {
+  position: fixed;
+  top: 0;
+  border-bottom-color: var(--light-outline-variant);
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-110%);
 }

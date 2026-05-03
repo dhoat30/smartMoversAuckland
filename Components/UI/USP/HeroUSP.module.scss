@@ -10,8 +10,13 @@
         }
         .textUSP{ 
             align-items: start ;
-            color: var(--light-primary); 
+            color: var(--light-on-surface); 
             text-align: left;
+           
+            .icon{ 
+                position: relative; 
+                bottom: 1px; 
+            }
         }
     }
 }

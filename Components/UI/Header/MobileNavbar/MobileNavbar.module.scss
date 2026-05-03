@@ -5,6 +5,9 @@
 width: 100%; 
 z-index:100; 
     backdrop-filter: blur(7.6px);
+    transform: translateY(0);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    will-change: transform;
    .list{ 
     margin: 0;
     padding: 0;
@@ -14,6 +17,14 @@ z-index:100;
    
 
  
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.hidden {
+  transform: translateY(-110%);
 }
 
 .parentListItem {

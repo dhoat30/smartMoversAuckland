@@ -17,6 +17,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Button from "@mui/material/Button";
 import dynamic from "next/dynamic";
 import styles from "./MobileNavbar.module.scss";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 const Drawer = dynamic(() => import("@mui/material/Drawer"));
 
 const drawerWidth = 300;
@@ -33,6 +34,7 @@ export default function MobileNavbar() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(-1); // To track which submenu is open
+  const isNavVisible = useScrollReveal();
   const pathname = usePathname();
   const router = useRouter(); // To programmatically navigate
 
@@ -109,10 +111,14 @@ export default function MobileNavbar() {
 
   return (
     <>
-    <section className={`${styles.section}`}>
+    <section
+      className={`${styles.section} ${
+        isNavVisible || open ? styles.visible : styles.hidden
+      }`}
+    >
       <AppBar
     
-        position="fixed"
+        position="static"
         sx={{
           display: {
             xs: "block",
@@ -210,4 +216,3 @@ export default function MobileNavbar() {
     </>
   );
 }
-

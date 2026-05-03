@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import { useClickIds } from "@/hooks/useClickIds";
+import Script from "next/script";
 
 export default function ContactForm({
   className,
@@ -38,7 +39,7 @@ export default function ContactForm({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
-  const [mapsLoaded, setMapsLoaded] = useState(false);
+  const [shouldLoadMaps, setShouldLoadMaps] = useState(false);
   // click id
   const { clickIds } = useClickIds();
   const handleChange = (id, value, isSelectMultiple) => {
@@ -194,9 +195,8 @@ export default function ContactForm({
     return [];
   };
 
-  // Initialize Google Maps script
-  const handleLoad = () => {
-    setMapsLoaded(true);
+  const loadGoogleMaps = () => {
+    setShouldLoadMaps(true);
   };
   // is address field
   const isAddressField = (id) => {
@@ -234,6 +234,7 @@ export default function ContactForm({
             className="mt-16"
             label={field.label}
             value={formData[field.id]} // pickUpAddress / dropOffAddress / address
+            onFocus={loadGoogleMaps}
             onChange={(value) => handleChange(field.id, value, false)}
             onSelect={(selectedAddress) => {
               // When user selects an address from suggestions
@@ -286,6 +287,16 @@ export default function ContactForm({
 
   return (
     <>
+      {shouldLoadMaps && (
+        <Script
+          id="google-maps"
+          strategy="afterInteractive"
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&libraries=places`}
+          onLoad={() => {
+            window.dispatchEvent(new Event("gmaps-ready"));
+          }}
+        />
+      )}
       <Container
         variant="div"
         className={`${className} ${styles.container}`}

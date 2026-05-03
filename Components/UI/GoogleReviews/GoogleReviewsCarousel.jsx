@@ -73,7 +73,7 @@ export default function GoogleReviewsCarousel({ data }) {
         <GoogleReviewCard
           name={item?.user?.name}
           description={item?.snippet}
-          customerPic={item?.user?.thumbnail}
+          customerPic={item?.user?.thumbnail_remote || item?.user?.thumbnail}
           characterLimit={80}
         />
       </div>
@@ -89,8 +89,10 @@ export default function GoogleReviewsCarousel({ data }) {
             component="h2"
             className="title"
             align="center"
+            
           >
-            Google Reviews
+            Trusted by 1,200+ Families
+
           </Typography>
           <Typography
             variant="body1"
@@ -98,9 +100,9 @@ export default function GoogleReviewsCarousel({ data }) {
             className="description mt-16"
             align="center"
           >
-            Explore authentic customer feedback and see why people trust us.
-            Each review reflects the quality and dedication we bring to every
-            service we provide.
+           Don't just take our word for it. Here's what our customers say after their move.
+
+
           </Typography>
         </div>
       </Container>

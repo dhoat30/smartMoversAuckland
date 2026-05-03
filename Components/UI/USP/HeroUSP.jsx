@@ -7,24 +7,25 @@ export default function HeroUSP({ data, className }) {
   return (
     <div className={`${className} ${styles.textUspContainer} mt-16`}>
       {data.text_usp && data?.text_usp?.length > 0 && (
-        <div className={`${styles.textUspWrapper} usp-wrapper mb-16 grid`}>
+        <div className={`${styles.textUspWrapper} usp-wrapper grid gap-16`}>
           {data.text_usp.map((item, index) => {
             return (
               <Typography
                 variant="subtitle2"
                 component="div"
-                className={`flex mb-8 gap-4 ${styles.textUSP}`}
+                className={`flex gap-4 ${styles.textUSP}`}
                 key={index}
               >
-                <CheckCircleIcon />
+                <CheckCircleIcon className={`${styles.icon}`} sx={{color: "var(--teal)"}}/>
                 <span> {item.value}</span>
               </Typography>
             );
           })}
         </div>
       )}
-
-      <div className="image-usp-wrapper flex gap-8 align-center flex-wrap">
+  {data.image_usp && 
+ 
+      <div className="image-usp-wrapper mt-16 flex gap-8 align-center flex-wrap">
         {data.image_usp &&
           data.image_usp.map((item, index) => {
             return (
@@ -38,6 +39,7 @@ export default function HeroUSP({ data, className }) {
             );
           })}
       </div>
+       }
     </div>
   );
 }

@@ -34,7 +34,7 @@ export const lightTheme = createTheme({
       fontWeight: 800,
       fontSize: "3rem",
       lineHeight: "100%",
-      color: "var(--light-secondary)",
+      color: "var(--light-primary)",
 
       "@media (max-width:600px)": {
         fontSize: "2rem",

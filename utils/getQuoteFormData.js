@@ -22,7 +22,18 @@ export const servicePropertyMap = {
 // utils/getQuoteFormData.js
 
 export const getQuoteFormData = [
-
+    {
+        id: 'pickUpAddress',
+        label: 'Moving from',
+        type: 'text',
+        required: false,
+    },
+    {
+        id: 'dropOffAddress',
+        label: 'Moving to',
+        type: 'text',
+        required: false,
+    },
     {
         id: 'firstname',
         label: 'First name',
@@ -59,49 +70,38 @@ export const getQuoteFormData = [
         },
         errorMessage: 'Please enter a valid New Zealand phone number'
     },
-    {
-        id: 'pickUpAddress',
-        label: 'Moving from',
-        type: 'text',
-        required: false,
-    },
-    {
-        id: 'dropOffAddress',
-        label: 'Moving to',
-        type: 'text',
-        required: false,
-    },
+
   
-    {
-        id: 'propertyType',
-        label: 'Property type',
-        type: 'select', // or 'radio' for single selection
-        options: [
-            { value: 'Residential', label: 'Residential' },
-            { value: 'Commercial', label: 'Commercial' },
-        ],
-        required: false,
-        multiple: false
-    },
-    {
-        id: 'service',
-        label: 'Service required',
-        type: 'chip', // or 'radio' for single selection
-        multiple: true,
-        priceType: "fixed",
-        options: [], // Will be populated dynamically
-        required: false, // Make it required if necessary
-    },
+    // {
+    //     id: 'propertyType',
+    //     label: 'Property type',
+    //     type: 'select', // or 'radio' for single selection
+    //     options: [
+    //         { value: 'Residential', label: 'Residential' },
+    //         { value: 'Commercial', label: 'Commercial' },
+    //     ],
+    //     required: false,
+    //     multiple: false
+    // },
+    // {
+    //     id: 'service',
+    //     label: 'Service required',
+    //     type: 'chip', // or 'radio' for single selection
+    //     multiple: true,
+    //     priceType: "fixed",
+    //     options: [], // Will be populated dynamically
+    //     required: false, // Make it required if necessary
+    // },
     // {
     //     id: 'date',
     //     label: 'Select Date',
     //     type: 'datePicker',
     //     required: false,
     // },
-    {
-        id: 'message',
-        label: 'Message',
-        type: 'textarea',
-        required: false,
-    },
+    // {
+    //     id: 'message',
+    //     label: 'Message',
+    //     type: 'textarea',
+    //     required: false,
+    // },
 ];

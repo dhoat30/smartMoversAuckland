@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
@@ -17,12 +17,24 @@ import dayjs from "dayjs";
 import { useClickIds } from "@/hooks/useClickIds";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Script from "next/script";
+import {
+  getPhoneLinkForCity,
+  getQuoteCitySlugFromPathname,
+} from "@/utils/phoneNumbers";
+
+
 export default function GetQuoteForm({
   className,
   formName = "Get a Quote Form",
   title = "Please fill out a form",
   hideTitle = false,
 }) {
+  // get phone number based on city in pathname
+  const pathname = usePathname();
+  const citySlug = getQuoteCitySlugFromPathname(pathname);
+  const { phoneNumber, phoneHref } = getPhoneLinkForCity(citySlug);
+
+  
   const router = useRouter();
   const [formData, setFormData] = useState({
     firstname: "", // Default empty string to make it controlled
@@ -41,7 +53,7 @@ export default function GetQuoteForm({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
-  const [mapsLoaded, setMapsLoaded] = useState(false);
+  const [shouldLoadMaps, setShouldLoadMaps] = useState(false);
   const [googleAdsAddress, setGoogleAdsAddress] = useState({
     pickUpAddress: {},
     dropOffAddress: {},
@@ -244,15 +256,54 @@ export default function GetQuoteForm({
     return [];
   };
 
-  // Initialize Google Maps script
-  const handleLoad = () => {
-    setMapsLoaded(true);
+  const loadGoogleMaps = () => {
+    setShouldLoadMaps(true);
   };
   // is address field
   const isAddressField = (id) => {
     return ["address", "pickUpAddress", "dropOffAddress"].includes(id);
   };
+
+  const renderAddressField = (field) => {
+    return (
+      <GoogleAutocomplete
+        className="mt-16"
+        label={field.label}
+        value={formData[field.id]} // pickUpAddress / dropOffAddress / address
+        onFocus={loadGoogleMaps}
+        onChange={(value) => handleChange(field.id, value, false)}
+        onSelect={(selectedAddress) => {
+          // When user selects an address from suggestions
+          setFormData((prevData) => ({
+            ...prevData,
+            [field.id]: selectedAddress.formattedAddress,
+          }));
+          setGoogleAdsAddress((prevData) => ({
+            ...prevData,
+            [field.id]: selectedAddress.unformattedAddress,
+          })); // Set the address for Google Ads conversion tracking
+          // Reset errors if any
+          if (errors[field.id]) {
+            setErrors({ ...errors, [field.id]: false });
+          }
+        }}
+        required={field.required}
+        autoComplete={field.autoComplete}
+        error={errors[field.id]}
+        helperText={errors[field.id] ? "Please enter a valid address" : ""}
+      />
+    );
+  };
+
+  const addressFields = getQuoteFormData.filter((field) =>
+    ["pickUpAddress", "dropOffAddress"].includes(field.id),
+  );
+
   const formInputs = getQuoteFormData.map((field, index) => {
+    if (["pickUpAddress", "dropOffAddress"].includes(field.id)) {
+      return null;
+    }
+
     if (field.id === "service") {
       const filteredOptions = getFilteredServiceOptions();
       return (
@@ -277,35 +328,7 @@ export default function GetQuoteForm({
         />
       );
     } else if (isAddressField(field.id)) {
-      return (
-        <React.Fragment key={field.id}>
-          <GoogleAutocomplete
-            className="mt-16"
-            label={field.label}
-            value={formData[field.id]} // pickUpAddress / dropOffAddress / address
-            onChange={(value) => handleChange(field.id, value, false)}
-            onSelect={(selectedAddress) => {
-              // When user selects an address from suggestions
-              setFormData((prevData) => ({
-                ...prevData,
-                [field.id]: selectedAddress.formattedAddress,
-              }));
-              setGoogleAdsAddress((prevData) => ({
-                ...prevData,
-                [field.id]: selectedAddress.unformattedAddress,
-              })); // Set the address for Google Ads conversion tracking
-              // Reset errors if any
-              if (errors[field.id]) {
-                setErrors({ ...errors, [field.id]: false });
-              }
-            }}
-            required={field.required}
-            autoComplete={field.autoComplete}
-            error={errors[field.id]}
-            helperText={errors[field.id] ? "Please enter a valid address" : ""}
-          />
-        </React.Fragment>
-      );
+      return <React.Fragment key={field.id}>{renderAddressField(field)}</React.Fragment>;
     } else {
       return (
         <Input
@@ -339,15 +362,16 @@ export default function GetQuoteForm({
 
   return (
     <>
-      <Script
-        id="google-maps"
-        strategy="afterInteractive"
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&libraries=places`}
-        onLoad={() => {
-          // signal to the app that maps is ready
-          window.dispatchEvent(new Event("gmaps-ready"));
-        }}
-      />
+      {shouldLoadMaps && (
+        <Script
+          id="google-maps"
+          strategy="afterInteractive"
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&libraries=places`}
+          onLoad={() => {
+            window.dispatchEvent(new Event("gmaps-ready"));
+          }}
+        />
+      )}
       <Container
         variant="div"
         className={`${className} ${styles.container}`}
@@ -364,6 +388,16 @@ export default function GetQuoteForm({
                 >
                   {title}
                 </Typography>
+              )}
+
+              {addressFields.length > 0 && (
+                <div className={styles.addressRow}>
+                  {addressFields.map((field) => (
+                    <div key={field.id} className={styles.addressField}>
+                      {renderAddressField(field)}
+                    </div>
+                  ))}
+                </div>
               )}
 
               {formInputs}
@@ -388,10 +422,10 @@ export default function GetQuoteForm({
                   display: "flex",
                   justifyContent: "center",
                 }}
-                href={`tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
+                href={phoneHref}
                 startIcon={<LocalPhoneIcon />}
               >
-                Prefer to talk?
+                Prefer to talk? {phoneNumber}
               </Button>
 
               <Typography
@@ -402,6 +436,17 @@ export default function GetQuoteForm({
                 style={{ borderTop: "1px solid var(--light-outline-variant)" }}
               >
                 Honest advice • Free Quote • No obligation
+
+              </Typography>
+                 <Typography
+                variant="body2"
+                component="div"
+                className="center-align pt-16"
+                color="var(--light-on-surface-variant)"
+              
+              >
+                🔒 Your details are safe & never shared
+
               </Typography>
               {error && (
                 <Alert sx={{ margin: "8px 0" }} severity="error">
