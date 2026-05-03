@@ -8,7 +8,6 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 export default function ContactInfo({ contactInfo, className }) {
-  
   if (contactInfo?.info?.length === 0) return null;
   const infoComponent = contactInfo?.info?.map((info, index) => {
   return (

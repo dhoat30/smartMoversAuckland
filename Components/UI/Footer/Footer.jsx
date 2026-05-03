@@ -16,6 +16,7 @@ export default function Footer({
   certifications,
   contactInfo,
   socialData,
+  hideBotttomCta = false,
 }) {
   return (
     <>
@@ -162,7 +163,8 @@ export default function Footer({
       </div>
       {/* copyright container */}
       <Copyright />
-      <MobileBottomCta />
+      {!hideBotttomCta && <MobileBottomCta />}
+   
     </>
   );
 }

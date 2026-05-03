@@ -83,6 +83,7 @@ export default async function Home() {
         footerCtaData={options.footer_cta}
         contactInfo={options.contact_info}
         socialData={options.social_links}
+         hideBotttomCta={true}
       />
     </>
   );

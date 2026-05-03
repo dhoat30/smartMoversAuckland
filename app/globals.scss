@@ -534,11 +534,13 @@ strong {
 .footer-contact-wrapper{ 
   
  a { 
+   cursor: pointer;
   .footer-contact-label{ 
-    color: var(--light-on-surface); 
-   font-size: 1rem; 
+    color: var(--light-on-surface-variant); 
+   font-size: 0.9rem; 
   }
   &:hover{ 
+   
     .footer-contact-label{ 
 
     color: var(--light-primary);
