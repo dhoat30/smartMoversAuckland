@@ -115,21 +115,28 @@ export default function GetQuoteForm({
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
 
-    let formattedDate = dayjs(formData.datePicker).valueOf();
+    const formattedDate = formData.date
+      ? dayjs(formData.date).format("DD MMM YYYY")
+      : "Not provided";
+    const servicesRequired = formData.service.length
+      ? formData.service.join(", ")
+      : "Not provided";
+    const quoteMessage = [
+      `First Name: ${formData.firstname}`,
+      `Email: ${formData.email}`,
+      `Phone Number: ${formData.phone || "Not provided"}`,
+      `Pick Up Address: ${formData.pickUpAddress || "Not provided"}`,
+      `Drop Off Address: ${formData.dropOffAddress || "Not provided"}`,
+      `Property Type: ${formData.propertyType || "Not provided"}`,
+      `Move Date: ${formattedDate}`,
+      `Services Required: ${servicesRequired}`,
+      `Message: ${formData.message || "Not provided"}`,
+    ].join("\n");
 
     const dataPayload = {
       email: formData.email,
       formName: formName,
-      message: `First Name: ${formData.firstname} \nEmail: ${
-        formData.email
-      } \nPhone Number: ${formData.phone} \n Pick Up Address: ${
-        formData.pickUpAddress
-      }\n Drop Off Address: ${formData.dropOffAddress}
-      \nProperty Type: ${formData.propertyType}
-       \nMove Date: ${formattedDate}
-       \nServices Required: ${formData["service"].join(", ")} \n Message: ${
-         formData.message
-       } `,
+      message: quoteMessage,
       hubspotFormID: process.env.NEXT_PUBLIC_HUBSPOT_GET_QUOTE_FORM_ID,
       body: {
         // { name: "hs_google_click_id", value: clickIds.gclid || "" },
