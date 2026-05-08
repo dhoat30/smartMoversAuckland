@@ -23,6 +23,16 @@ function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function buildSubmissionSubject(formName, email) {
+  const submittedAt = new Intl.DateTimeFormat("en-NZ", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Pacific/Auckland",
+  }).format(new Date());
+
+  return `${formName || "Smart Movers form submission"} - ${email} - ${submittedAt}`;
+}
+
 export async function POST(req) {
   const { email, message, formName } = await req.json();
 
@@ -40,7 +50,7 @@ export async function POST(req) {
     );
   }
 
-  const subject = formName || "Smart Movers form submission";
+  const subject = buildSubmissionSubject(formName, email);
   const safeMessage = String(message || "");
   const htmlMessage = escapeHtml(safeMessage).replaceAll("\n", "<br>");
   const url = `https://api.mailgun.net/v3/${DOMAIN}/messages`;
