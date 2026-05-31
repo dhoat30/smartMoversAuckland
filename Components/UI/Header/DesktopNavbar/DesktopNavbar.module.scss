@@ -7,6 +7,7 @@
     transform: translateY(0);
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
     will-change: transform;
+     
       .link {
         color: var(--light-on-surface);
         padding: 4px 16px;
@@ -46,7 +47,7 @@
         border-radius: 12px;
         padding: 8px 0;
         width: 250px;
-        z-index: 1000; 
+        z-index: 1000000; 
         
         .subLink {
           display: block;
@@ -57,7 +58,7 @@
 }
 
 .inFlow {
-  position: static;
+  position: relative;
   box-shadow: none;
   border-bottom-color: transparent;
 }
@@ -75,3 +76,63 @@
 .hidden {
   transform: translateY(-110%);
 }
+
+
+ .trustBar {
+          background: var(--light-primary);
+
+  .trustBarContainer { 
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+     
+        color: var(--light-on-primary);
+
+        @media (max-width: 1199px) {
+          display: none;
+        }
+
+        .trustItems {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          min-width: 0;
+                    margin-left: 8px; 
+
+        }
+
+        .trustItem {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          white-space: nowrap;
+
+          svg {
+          
+            color: currentColor;
+          }
+        }
+
+        .trustEmail {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: inherit;
+          white-space: nowrap;
+          margin-right: 8px; 
+          svg {
+            color: currentColor;
+          }
+        }
+
+        .trustDivider {
+          display: block;
+          width: 1px;
+          height: 20px;
+          margin-left: 16px;
+          background: rgba(255, 255, 255, 0.35);
+        }
+      }
+        }

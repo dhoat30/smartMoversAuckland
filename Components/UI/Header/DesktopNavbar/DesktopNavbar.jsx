@@ -10,10 +10,31 @@ import Link from "next/link";
 import Image from "next/image";
 import { headerLinks } from "@/utils/headerLinks";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import Paper from "@mui/material/Paper";
 import { usePathname } from "next/navigation";
 import styles from "./DesktopNavbar.module.scss";
 import { useScrollRevealState } from "@/hooks/useScrollReveal";
+
+const trustItems = [
+  {
+    icon: <StarBorderOutlinedIcon fontSize="small" />,
+    label: "4.9 · 300+ Google Reviews",
+  },
+  {
+    icon: <VerifiedUserOutlinedIcon fontSize="small" />,
+    label: "WINZ Approved",
+  },
+  {
+    icon: <LocalShippingOutlinedIcon fontSize="small" />,
+    label: "Full Transit Insurance",
+  },
+ 
+];
+
 function DesktopNavbar() {
   const [showMenu, setShowMenu] = useState(-1);
   const menuRef = useRef(null);
@@ -114,6 +135,34 @@ function DesktopNavbar() {
   });
   return (
     <>
+  
+
+      <div className={styles.trustBar}>
+          <Container maxWidth="xl" className={`${styles.trustBarContainer} `}> 
+        <div className={styles.trustItems}>
+            {trustItems.map((item, index) => (
+              <div className={styles.trustItem} key={item.label}>
+                {item.icon}
+                <Typography component="span" variant="body2">
+                  {item.label}
+                </Typography>
+                {index < trustItems.length - 1 && (
+                  <span className={styles.trustDivider} aria-hidden="true" />
+                )}
+              </div>
+            ))}
+        </div>
+
+        <Link href="mailto:info@smartmovers.co.nz" className={styles.trustEmail}>
+          <EmailOutlinedIcon fontSize="small" />
+          <Typography component="span" variant="body2">
+            info@smartmovers.co.nz
+          </Typography>
+        </Link>
+       </Container>
+      </div>
+   
+
       <AppBar
       className={`${styles.section} ${
         isAtTop ? styles.inFlow : styles.floating
@@ -121,9 +170,9 @@ function DesktopNavbar() {
         isNavVisible || showMenu !== -1 ? styles.visible : styles.hidden
       }`}
         elevation={0}
-        position={isAtTop ? "static" : "fixed"}
+        position={isAtTop ? "relative" : "fixed"}
         sx={{
-          position: isAtTop ? "static" : "fixed",
+          position: isAtTop ? "relative" : "fixed",
           boxShadow: "none",
           display: { xs: "none", lg: "block" },
           background: pathname.includes("blogs")
@@ -131,6 +180,7 @@ function DesktopNavbar() {
             : "var(--light-surface-container-lowest)",
         }}
       >
+       
         <Container maxWidth="xl">
           <Toolbar disableGutters className={`${styles.gridLinksWrapper} flex space-between`}>
             {/* logo  */}
