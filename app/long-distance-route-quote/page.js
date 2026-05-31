@@ -1,6 +1,8 @@
 
 export const revalidate = 2592000; // applies to both page and metadata
 
+import { notFound } from "next/navigation";
+
 import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
@@ -35,7 +37,7 @@ export async function generateMetadata(props, parent) {
 
     const data = await getSinglePostData( 'intercity-move-routes-cta', '/wp-json/wp/v2/pages')
     const options= await getOptions()
-    if(!data) return {notFound: true}
+    if (!data?.length) notFound()
     const sections = data[0]?.acf?.sections
 
     return (

@@ -1,6 +1,8 @@
 
 
 export const revalidate = 2592000; // applies to both page and metadata
+
+import { notFound } from "next/navigation";
 import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
@@ -18,7 +20,7 @@ export async function generateMetadata(props, parent) {
 
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
-    if (data.length > 0) {
+    if (data?.length > 0) {
         const seoData = data[0].yoast_head_json
         return {
             title: seoData?.title,
@@ -52,7 +54,7 @@ export async function generateMetadata(props, parent) {
     const intercityArchiveData = await getSinglePostData( '', '/wp-json/wp/v2/intercity-movers')
 
     let intercityLocationData
-    if(intercityArchiveData.length > 0 ) { 
+    if(intercityArchiveData?.length > 0 ) { 
 
         intercityLocationData =   intercityArchiveData.map((item)=> { 
             const movePrice = item.acf?.sections.find(
@@ -72,7 +74,7 @@ export async function generateMetadata(props, parent) {
     }
     const options= await getOptions()
     // const googleReviews = await getGoogleReviews()
-    if(!data) return {notFound: true}
+    if (!data?.length) notFound()
     const sections = data[0]?.acf?.sections
     return (
         <>

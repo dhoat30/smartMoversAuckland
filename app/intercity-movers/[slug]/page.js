@@ -1,5 +1,7 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
+import { notFound } from "next/navigation";
+
 import Header from "@/Components/UI/Header/Header";
 import {
   getSinglePostData,
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }, parent) {
 
   const previousImages = (await parent).openGraph?.images || [];
 
-  if (data.length > 0) {
+  if (data?.length > 0) {
     const seoData = data[0].yoast_head_json;
     return {
       title: seoData?.title,
@@ -53,7 +55,7 @@ export default async function Home({ params }) {
   const data = await getSinglePostData(slug, "/wp-json/wp/v2/intercity-movers");
   const options = await getOptions();
   // const googleReviews = await getGoogleReviews()
-  if (!data) return { notFound: true };
+  if (!data?.length) notFound();
   const sections = data[0]?.acf?.sections;
   return (
     <>

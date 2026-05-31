@@ -1,5 +1,7 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
+import { notFound } from "next/navigation";
+
 import { getOptions, getSinglePostData } from '@/utils/fetchData'
 
 import Header from '@/Components/UI/Header/Header'
@@ -15,7 +17,7 @@ export async function generateMetadata(props, parent) {
 
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
-    if (data.length > 0) {
+    if (data?.length > 0) {
         const seoData = data[0].yoast_head_json
         return {
             title: seoData?.title,
@@ -48,11 +50,7 @@ export default async function Contact() {
 
     const postData = await getSinglePostData("privacy-policy", "/wp-json/wp/v2/pages")
     const options = await getOptions()
-    if (!postData) {
-        return {
-            notFound: true,
-        }
-    }
+    if (!postData?.length) notFound()
 
     return (
         <>

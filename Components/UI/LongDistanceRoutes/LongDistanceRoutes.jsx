@@ -18,7 +18,6 @@ function matchesCityObj(cardCityObj, selectedCityObj) {
 
 // main function 
 export default function LongDistanceRoutes({longDistanceRoutesData = [], initialFilters, nzCitiesData }) {
-  console.log(longDistanceRoutesData)
  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams(); // keeps up with back/forward

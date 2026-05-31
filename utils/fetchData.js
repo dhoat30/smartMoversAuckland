@@ -4,11 +4,10 @@ export const THIRTY_DAYS = 2592000;
 
 //get single post with slug
 export const getSinglePostData = async (slug, apiRoute) => {
-  console.log("Fetching from API:", slug);
 
   try {
-    const url = `${process.env.url}/${apiRoute}?slug=${slug}&acf_format=standard`;
-    console.log("Fetching:", url);
+    const route = apiRoute.replace(/^\/+/, "");
+    const url = `${process.env.url}/${route}?slug=${slug}&acf_format=standard`;
 
     const response = await fetch(url, {
       headers: {
@@ -20,6 +19,14 @@ export const getSinglePostData = async (slug, apiRoute) => {
 
     if (!response.ok) {
       throw new Error(`Fetch failed with status: ${response.status}`);
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      const body = await response.text();
+      throw new Error(
+        `Expected JSON but received ${contentType || "unknown content type"} from ${url}: ${body.slice(0, 120)}`,
+      );
     }
 
     const data = await response.json();
