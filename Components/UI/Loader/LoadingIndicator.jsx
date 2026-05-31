@@ -9,9 +9,9 @@ export default function LoadingIndicator() {
   return (
     <>
       <div
+        className="loadingIndicator"
         style={{
           position: 'fixed',
-          top: "64px",
           left: 0,
           height: '8px',
           width: '100%',
@@ -21,6 +21,16 @@ export default function LoadingIndicator() {
         }}
       />
       <style jsx>{`
+        .loadingIndicator {
+          top: 56px;
+        }
+
+        @media (min-width: 1200px) {
+          .loadingIndicator {
+            top: 104px;
+          }
+        }
+
         @keyframes loadingBar {
           0% {
             transform: translateX(-100%);

@@ -28,7 +28,8 @@ export default function HeroUSP({ data, className }) {
       <div className="image-usp-wrapper mt-16 flex gap-8 align-center flex-wrap">
         {data.image_usp &&
           data.image_usp.map((item, index) => {
-            if(index===1) return
+            console.log("item", item)
+            if(item.image.title=== "trustpilot") return
             return (
               <Image
                 key={index}
