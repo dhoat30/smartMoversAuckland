@@ -49,6 +49,9 @@ const [movingFrom, setMovingFrom]   = useState(pickCityByValue(initialFilters?.f
     setOrDel("date", next.selectedDate ? next.selectedDate.format("YYYY-MM-DD") : null);
 
     const qs = params.toString();
+    const currentQs = searchParams?.toString() || "";
+    if (qs === currentQs) return;
+
     startTransition(() => {
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
     });

@@ -30,7 +30,6 @@ export default function Layout({
   routeId,
   reviewerPics,
 }) {
-   console.log("section", sections)
   if (!sections) return null;
  
   const sectionsJSX = sections.map((section, index) => {
