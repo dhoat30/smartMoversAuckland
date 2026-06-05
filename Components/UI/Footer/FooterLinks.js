@@ -26,6 +26,7 @@ export const informationLinks = [
         label: "Shared Load Moving",
         url: "/services/shared-load-moving",
         },
+    { label: "Blog", url: "/blog" },
     { label: "Get a free quote", url: "/get-free-quote" },
     { label: "Get intercity quote", url: "/get-intercity-quote" },
     { label: "Privacy policy", url: "/privacy-policy" },

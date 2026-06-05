@@ -1,0 +1,29 @@
+.main {
+  background: var(--light-surface-container-low);
+  min-height: 100vh;
+}
+
+.hero {
+  background: var(--light-surface-container-lowest);
+  padding: clamp(48px, 7vw, 88px) 0 clamp(28px, 5vw, 52px);
+}
+
+.title {
+  color: var(--light-on-surface);
+  margin-bottom: 12px;
+}
+
+.copy {
+  color: var(--light-on-surface-variant);
+  max-width: 620px;
+}
+
+.blogContainer {
+  padding-top: clamp(32px, 5vw, 56px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.embed {
+  min-height: 520px;
+  width: 100%;
+}

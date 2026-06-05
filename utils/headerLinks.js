@@ -32,5 +32,6 @@ export const headerLinks = [
     url: "/last-minute-movers",
   },
 
+  { label: "Blog", url: "/blog" },
   { label: "Contact us", url: "/contact-us" },
 ];
