@@ -61,6 +61,46 @@ export const getAllPosts = async (apiRoute) => {
   return data;
 };
 
+export const getAllPostSlugs = async (apiRoute) => {
+  const route = apiRoute.replace(/^\/+/, "");
+  const fetchPage = async (page) => {
+    const response = await fetch(
+      `${process.env.url}/${route}?_fields=slug&per_page=100&page=${page}`,
+      {
+        next: { revalidate: THIRTY_DAYS },
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch slugs from ${route} page ${page}: ${response.status}`,
+      );
+    }
+
+    return {
+      posts: await response.json(),
+      totalPages: Number(response.headers.get("x-wp-totalpages")) || 1,
+    };
+  };
+
+  try {
+    const firstPage = await fetchPage(1);
+    const remainingPages = await Promise.all(
+      Array.from({ length: firstPage.totalPages - 1 }, (_, index) =>
+        fetchPage(index + 2),
+      ),
+    );
+
+    return [firstPage, ...remainingPages]
+      .flatMap(({ posts }) => posts)
+      .filter(({ slug }) => slug)
+      .map(({ slug }) => ({ slug }));
+  } catch (err) {
+    console.error("Error in getAllPostSlugs:", err);
+    return [];
+  }
+};
+
 export const getOptions = async () => {
   let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {
     next: { revalidate: THIRTY_DAYS },

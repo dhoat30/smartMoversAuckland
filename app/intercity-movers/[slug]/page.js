@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import Header from "@/Components/UI/Header/Header";
 import {
+  getAllPostSlugs,
   getSinglePostData,
   getGoogleReviews,
   getOptions,
@@ -12,6 +13,10 @@ import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
 import reviewsData from "@/data/google-reviews.json";
+
+export function generateStaticParams() {
+  return getAllPostSlugs("wp-json/wp/v2/intercity-movers");
+}
 
 export async function generateMetadata({ params }, parent) {
   const param = await params;
