@@ -1,7 +1,7 @@
 const cityPhoneNumbers = {
-  auckland: process.env.NEXT_PUBLIC_PHONE_NUMBER,
-  hamilton: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON,
+  wellington: process.env.NEXT_PUBLIC_PHONE_NUMBER_WELLINGTON,
   christchurch: process.env.NEXT_PUBLIC_PHONE_NUMBER_CHRISTCHURCH,
+  auckland: process.env.NEXT_PUBLIC_PHONE_NUMBER,
 };
 
 export function getPhoneNumberForCity(citySlug) {
@@ -28,11 +28,12 @@ export function getPhoneLinkForCity(citySlug) {
   };
 }
 
-export function getQuoteCitySlugFromPathname(pathname) {
-  const segments = pathname?.split("/").filter(Boolean) || [];
-  const getQuoteIndex = segments.indexOf("get-free-quote");
+export function getCitySlugFromPathname(pathname) {
+  const normalizedPathname = pathname?.toLowerCase?.() || "";
 
-  if (getQuoteIndex === -1) return "auckland";
-
-  return segments[getQuoteIndex + 1] || "auckland";
+  return (
+    Object.keys(cityPhoneNumbers).find((city) =>
+      normalizedPathname.includes(city)
+    ) || "auckland"
+  );
 }

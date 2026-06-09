@@ -9,17 +9,21 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import Link from "next/link";
 import formatDate from "@/utils/formatDate";
 import { useRouteCard } from "@/hooks/useRouteCard";
 import { useClickIds } from "@/hooks/useClickIds";
 import Script from "next/script";
+import {
+  getCitySlugFromPathname,
+  getPhoneLinkForCity,
+} from "@/utils/phoneNumbers";
+
 export default function LongDistanceRouteForm({
   className,
   formName = "Get a Quote Form",
@@ -27,6 +31,9 @@ export default function LongDistanceRouteForm({
   hideTitle = false,
   routeId,
 }) {
+  const pathname = usePathname();
+  const citySlug = getCitySlugFromPathname(pathname);
+  const { phoneNumber, phoneHref } = getPhoneLinkForCity(citySlug);
   const { data, fromLabel, toLabel } = useRouteCard(routeId);
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -41,7 +48,6 @@ export default function LongDistanceRouteForm({
     moveType: [],
     message: "",
   });
-  console.log(formData);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -110,7 +116,6 @@ export default function LongDistanceRouteForm({
     const parts = formData.firstname.trim().split(/\s+/); // split by any whitespace
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
-    console.log(formData.date);
     let formattedDate = isoToNZDateOnly(formData.date);
     let movingCardDate;
     // date formatting logic for card date
@@ -212,7 +217,6 @@ export default function LongDistanceRouteForm({
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (response) {
-        console.log(response);
         if (response[0].status === 200) {
           setIsLoading(false);
           setIsSuccess(true);
@@ -409,10 +413,10 @@ export default function LongDistanceRouteForm({
                   display: "flex",
                   justifyContent: "center",
                 }}
-                href="tel:020 4086 7643"
+                href={phoneHref}
                 startIcon={<LocalPhoneIcon />}
               >
-                Prefer to talk? 020 4086 7643
+                Prefer to talk? {phoneNumber}
               </Button>
 
               {error && (

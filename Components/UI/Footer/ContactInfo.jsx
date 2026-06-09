@@ -24,7 +24,7 @@ export default function ContactInfo({ contactInfo, className }) {
   return (
     <>
     <div className={`${className} ${styles.contactInfoWrapper} footer-contact-wrapper flex flex-column gap-8`}>
-      <Typography variant="h6" component="div" sx={{ marginBottom: "8px" }}>
+      <Typography variant="h6" component="div" className="mb-8">
         Contact
       </Typography>
       {infoComponent}

@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function SocialWrapper({socialData}) {
   return (
     <div className={`${styles.socialWrapper}`}>
-    <Typography variant="h6" component="div">
+    <Typography variant="h6" component="h2">
       Follow Us
     </Typography>
     <div className={`${styles.socialLinks} mt-8 flex gap-8 flex-wrap`}>

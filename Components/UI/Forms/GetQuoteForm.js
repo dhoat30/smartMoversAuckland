@@ -18,8 +18,8 @@ import { useClickIds } from "@/hooks/useClickIds";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Script from "next/script";
 import {
+  getCitySlugFromPathname,
   getPhoneLinkForCity,
-  getQuoteCitySlugFromPathname,
 } from "@/utils/phoneNumbers";
 
 
@@ -31,7 +31,7 @@ export default function GetQuoteForm({
 }) {
   // get phone number based on city in pathname
   const pathname = usePathname();
-  const citySlug = getQuoteCitySlugFromPathname(pathname);
+  const citySlug = getCitySlugFromPathname(pathname);
   const { phoneNumber, phoneHref } = getPhoneLinkForCity(citySlug);
 
   
@@ -175,7 +175,6 @@ export default function GetQuoteForm({
       },
     };
     setIsLoading(true);
-    console.log(dataPayload);
     // Hubspot config
     var configHubspot = {
       method: "post",
