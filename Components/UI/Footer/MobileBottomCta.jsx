@@ -9,16 +9,14 @@ import {
   getCitySlugFromPathname,
   getPhoneLinkForCity,
 } from "@/utils/phoneNumbers";
+import { getQuoteLinkFromPathname } from "@/utils/quoteLinks";
 import styles from "./Footer.module.scss";
 
 export default function MobileBottomCta() {
   const pathname = usePathname();
   const citySlug = getCitySlugFromPathname(pathname);
   const { phoneHref } = getPhoneLinkForCity(citySlug);
-  const quoteHref =
-    citySlug && citySlug !== "auckland"
-      ? `/get-free-quote/${citySlug}`
-      : "/get-free-quote";
+  const quoteHref = getQuoteLinkFromPathname(pathname);
 
   return (
     <>

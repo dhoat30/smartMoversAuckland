@@ -8,6 +8,8 @@ export const headerLinks = [
       { label: "Hamilton Movers", url: "/movers/hamilton" },
 
       { label: "Northland Movers", url: "/movers/northland" },
+            { label: "Whangarei Movers", url: "/movers/whangarei" },
+
       { label: "Christchurch Movers", url: "/movers/christchurch" },
       { label: "Wellington Movers", url: "/movers/wellington" },
       { label: "Palmerston North Movers", url: "/movers/palmerston-north" },
