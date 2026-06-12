@@ -13,8 +13,23 @@ const getData = async (endpoint, urlPrefix) => {
     }
 };
 
+const getHierarchicalData = async (endpoint, urlPrefix) => {
+    try {
+        const fetchData = await fetch(endpoint);
+        const data = await fetchData.json();
+        const slugsById = new Map(data.map(post => [post.id, post.slug]));
+
+        return data.map(post => post.parent && slugsById.has(post.parent)
+            ? `/${urlPrefix}/${slugsById.get(post.parent)}/${post.slug}`
+            : `/${urlPrefix}/${post.slug}`);
+    } catch (error) {
+        console.error(`Failed to fetch hierarchical data from ${endpoint}:`, error);
+        return [];
+    }
+};
+
 // const getBlogsData = () => getData('https://cms.liftandshiftmovers.com.au/wp-json/wp/v2/posts?acf_format=standard&per_page=100', "blogs");
-const getLocalRemovalists = () => getData('https://cms.smartmovers.co.nz/wp-json/wp/v2/removalists?acf_format=standard&per_page=100', "movers");
+const getLocalRemovalists = () => getHierarchicalData('https://cms.smartmovers.co.nz/wp-json/wp/v2/removalists?_fields=id,slug,parent&per_page=100', "movers");
 const getInterstateRemovalists = () => getData('https://cms.smartmovers.co.nz/wp-json/wp/v2/intercity-movers?acf_format=standard&per_page=100', "intercity-movers");
 
 module.exports = {

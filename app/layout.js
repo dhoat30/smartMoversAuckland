@@ -4,7 +4,7 @@ import "./tokens.css";
 // Import slick css files
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import { Barlow, Work_Sans } from "next/font/google";
+import { Barlow, Inter } from "next/font/google";
 // import {AppRouterCacheProvider} from "@mui/material-nextjs/v15-appRouter"
 import ClientProvider from "@/Providers/ClientProvider";
 import Script from "next/script";
@@ -18,7 +18,7 @@ const fonts = Barlow({
   weight: ["300", "400", "500", "600", "700", "800"],
   preload: true,
 });
-const workSans = Work_Sans({
+const workSans = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-work-sans",

@@ -101,6 +101,55 @@ export const getAllPostSlugs = async (apiRoute) => {
   }
 };
 
+export const getHierarchicalPostSlugs = async (apiRoute) => {
+  const route = apiRoute.replace(/^\/+/, "");
+  const fetchPage = async (page) => {
+    const response = await fetch(
+      `${process.env.url}/${route}?_fields=id,slug,parent&per_page=100&page=${page}`,
+      {
+        next: { revalidate: THIRTY_DAYS },
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch hierarchical slugs from ${route} page ${page}: ${response.status}`,
+      );
+    }
+
+    return {
+      posts: await response.json(),
+      totalPages: Number(response.headers.get("x-wp-totalpages")) || 1,
+    };
+  };
+
+  try {
+    const firstPage = await fetchPage(1);
+    const remainingPages = await Promise.all(
+      Array.from({ length: firstPage.totalPages - 1 }, (_, index) =>
+        fetchPage(index + 2),
+      ),
+    );
+    const posts = [firstPage, ...remainingPages].flatMap(({ posts }) => posts);
+    const slugsById = new Map(posts.map(({ id, slug }) => [id, slug]));
+
+    return {
+      parents: posts
+        .filter(({ parent, slug }) => !parent && slug)
+        .map(({ slug }) => ({ slug })),
+      children: posts
+        .filter(({ parent, slug }) => parent && slug && slugsById.has(parent))
+        .map(({ parent, slug }) => ({
+          slug: slugsById.get(parent),
+          childSlug: slug,
+        })),
+    };
+  } catch (err) {
+    console.error("Error in getHierarchicalPostSlugs:", err);
+    return { parents: [], children: [] };
+  }
+};
+
 export const getOptions = async () => {
   let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {
     next: { revalidate: THIRTY_DAYS },

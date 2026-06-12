@@ -117,7 +117,6 @@ export default function Layout({
     }
 
     if (section.acf_fc_layout === "form_section") {
-      console.log(section)
       return (
         <FormSection
           key={index}

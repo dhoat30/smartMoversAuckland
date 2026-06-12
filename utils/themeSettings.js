@@ -76,6 +76,7 @@ export const lightTheme = createTheme({
     body1: {
       color: "var( --light-on-surface-variant)",
       fontWeight: 400,
+      letterSpacing: "-0.02rem",
     },
     body2: {},
     subtitle1: {

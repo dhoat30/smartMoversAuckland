@@ -1,31 +1,45 @@
-export const revalidate = 2592000; // applies to both page and metadata
+export const revalidate = 2592000;
 
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
+import ChildRemovalistPage from "../../ChildRemovalistPage";
 import {
   getHierarchicalPostSlugs,
-  getSinglePostData,
-  getSinglePostDataWithID,
   getOptions,
+  getSinglePostData,
 } from "@/utils/fetchData";
-import RemovalistPage from "../RemovalistPage";
+
+const getRemovalistData = async (parentSlug, childSlug) => {
+  const [parentData, childData] = await Promise.all([
+    getSinglePostData(parentSlug, "/wp-json/wp/v2/removalists"),
+    getSinglePostData(childSlug, "/wp-json/wp/v2/removalists"),
+  ]);
+  const parent = parentData?.[0];
+  const child = childData?.[0];
+
+  if (!parent || parent.parent || !child || child.parent !== parent.id) {
+    return null;
+  }
+
+  return child;
+};
 
 export async function generateStaticParams() {
-  const { parents } = await getHierarchicalPostSlugs(
+  const { children } = await getHierarchicalPostSlugs(
     "wp-json/wp/v2/removalists",
   );
-  return parents;
+  return children;
 }
 
 export async function generateMetadata({ params }) {
-  const param = await params;
-  const slug = param.slug;
-  const data = await getSinglePostData(slug, "/wp-json/wp/v2/removalists");
+  const { slug, childSlug } = await params;
+  const data = await getRemovalistData(slug, childSlug);
 
-  if (data?.[0] && !data[0].parent) {
-    const seoData = data[0].yoast_head_json;
-    const openGraphImage = data[0].acf?.image || seoData?.og_image?.[0];
-    const pageUrl = `${process.env.siteUrl}/movers/${slug}`;
+  if (data) {
+    const seoData = data.yoast_head_json;
+    // Prefer the landscape hero image over Yoast's og_image (often a portrait map).
+    const openGraphImage = data.acf?.image || seoData?.og_image?.[0];
+    const pageUrl = `${process.env.siteUrl}/movers/${slug}/${childSlug}`;
     const yoastRobots = seoData?.robots || {};
     const images = openGraphImage?.url
       ? [
@@ -70,24 +84,14 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function Home({ params }) {
-  const param = await params;
-  const slug = param.slug;
-  const data = await getSinglePostData(slug, "/wp-json/wp/v2/removalists");
-  const post = data?.[0];
+export default async function Page({ params }) {
+  const { slug, childSlug } = await params;
+  const [post, options] = await Promise.all([
+    getRemovalistData(slug, childSlug),
+    getOptions(),
+  ]);
 
   if (!post) notFound();
-  if (post.parent) {
-    const parent = await getSinglePostDataWithID(
-      post.parent,
-      "wp-json/wp/v2/removalists",
-    );
 
-    if (!parent?.slug) notFound();
-    permanentRedirect(`/movers/${parent.slug}/${post.slug}`);
-  }
-
-  const options = await getOptions();
-
-  return <RemovalistPage post={post} options={options} />;
+  return <ChildRemovalistPage post={post} options={options} parentSlug={slug} />;
 }
