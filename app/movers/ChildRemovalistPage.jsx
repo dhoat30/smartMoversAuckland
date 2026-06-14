@@ -9,7 +9,7 @@ import Layout from "@/Components/UI/Layout/Layout";
 import JsonLd from "@/Components/SEO/JsonLd";
 import LocationQuoteForm from "@/Components/UI/Layout/Sections/LocationQuoteForm/LocationQuoteForm";
 import reviewsData from "@/data/google-reviews.json";
-import { buildLocationSchema, summariseReviews } from "@/utils/buildLocationSchema";
+import { buildLocationSchema, summariseReviews } from "@/utils/schema";
 import { deriveSuburbName } from "@/utils/locationBusinessData";
 import styles from "./ChildRemovalistPage.module.scss";
 

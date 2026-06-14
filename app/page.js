@@ -12,6 +12,7 @@ import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
 import { buildPageMetadata } from "@/utils/buildPageMetadata";
+import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
 // run to get reviews GOOGLE_PLACE_ID="..." SERPAPI_API_KEY="..." npm run sync:reviews
 
@@ -34,6 +35,11 @@ export default async function Home() {
   const sections = data[0]?.acf?.sections;
   return (
     <>
+      <PageSchema
+        path=""
+        name={data?.[0]?.title?.rendered || "Smart Movers NZ"}
+        businessCity="auckland"
+      />
       <Header />
       <main>
         <Layout

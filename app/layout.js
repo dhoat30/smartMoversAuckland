@@ -8,6 +8,8 @@ import { Barlow, Inter } from "next/font/google";
 // import {AppRouterCacheProvider} from "@mui/material-nextjs/v15-appRouter"
 import ClientProvider from "@/Providers/ClientProvider";
 import Script from "next/script";
+import JsonLd from "@/Components/SEO/JsonLd";
+import { buildRootSchema } from "@/utils/schema";
 
 // fonts settings
 
@@ -72,6 +74,12 @@ export default function RootLayout({ children }) {
         }}
       />
       <body className={`${fonts.variable} ${workSans.variable}`}>
+        <JsonLd
+          data={buildRootSchema({
+            siteUrl: process.env.siteUrl,
+            siteName: process.env.siteName,
+          })}
+        />
         {/* 3) GTM noscript fallback */}
         <noscript>
           <iframe

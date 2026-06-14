@@ -9,6 +9,7 @@ import Footer from '@/Components/UI/Footer/Footer'
 import HtmlPageTemplate from '@/Components/Pages/HtmlPageTemplate/HtmlPageTemplate/HtmlPageTemplate'
 import BreadcrumbHero from '@/Components/UI/Hero/BreadcrumbHero'
 import { buildPageMetadata } from '@/utils/buildPageMetadata'
+import PageSchema from '@/Components/SEO/PageSchema'
 
 export async function generateMetadata(props, parent) {
     // read route params
@@ -32,6 +33,14 @@ export default async function Contact() {
 
     return (
         <>
+            <PageSchema
+                path="/terms-and-conditions"
+                name={postData[0]?.title?.rendered || "Terms and Conditions"}
+                breadcrumbs={[
+                    { name: "Home", path: "" },
+                    { name: "Terms and Conditions", path: "/terms-and-conditions" },
+                ]}
+            />
             <Header />
             <main>
                 <BreadcrumbHero title={postData[0].title.rendered}/> 

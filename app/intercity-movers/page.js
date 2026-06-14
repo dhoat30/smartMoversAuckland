@@ -9,6 +9,7 @@ import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 import LocationCarouselSection from '@/Components/UI/Layout/Sections/LocationCarousel/LocationCarouselSection'
 import { buildPageMetadata } from '@/utils/buildPageMetadata'
+import PageSchema from '@/Components/SEO/PageSchema'
 
 import reviewsData from "@/data/google-reviews.json";
 
@@ -54,6 +55,22 @@ export async function generateMetadata(props, parent) {
     const sections = data[0]?.acf?.sections
     return (
         <>
+            <PageSchema
+                path="/intercity-movers"
+                name={data?.[0]?.title?.rendered || "Intercity & Long-Distance Movers"}
+                businessCity="auckland"
+                breadcrumbs={[
+                    { name: "Home", path: "" },
+                    { name: "Intercity Movers", path: "/intercity-movers" },
+                ]}
+                services={[
+                    {
+                        name: "Intercity & long-distance moving",
+                        serviceType: "Long distance moving service",
+                        areaServed: { "@type": "Country", name: "New Zealand" },
+                    },
+                ]}
+            />
             <Header />
             <main>
             <Layout sections={sections} uspData={options.usp} statsData={options.status} locationsCovered={options.locations_covered} hoursCalculatorData={options.hours_calculator} servicesData={options.services}/>

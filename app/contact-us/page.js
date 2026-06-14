@@ -11,6 +11,7 @@ import {
 import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import { buildPageMetadata } from "@/utils/buildPageMetadata";
+import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
 
 export async function generateMetadata(props, parent) {
@@ -35,6 +36,15 @@ export default async function Home() {
   const sections = data[0]?.acf?.sections;
   return (
     <>
+      <PageSchema
+        path="/contact-us"
+        name={data?.[0]?.title?.rendered || "Contact Us"}
+        businessCity="auckland"
+        breadcrumbs={[
+          { name: "Home", path: "" },
+          { name: "Contact Us", path: "/contact-us" },
+        ]}
+      />
       <Header />
       <main style={{ background: "var(--light-surface-container-low)" }}>
         <Layout

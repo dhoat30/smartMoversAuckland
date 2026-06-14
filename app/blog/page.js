@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Header from "@/Components/UI/Header/Header";
 import Footer from "@/Components/UI/Footer/Footer";
 import { getOptions } from "@/utils/fetchData";
+import PageSchema from "@/Components/SEO/PageSchema";
 import styles from "./page.module.scss";
 
 export const metadata = {
@@ -32,6 +33,14 @@ export default async function BlogPage() {
 
   return (
     <>
+      <PageSchema
+        path="/blog"
+        name="Blog"
+        breadcrumbs={[
+          { name: "Home", path: "" },
+          { name: "Blog", path: "/blog" },
+        ]}
+      />
       <Header />
       <main className={styles.main}>
         <section className={styles.hero}>

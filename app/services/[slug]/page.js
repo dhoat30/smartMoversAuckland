@@ -12,6 +12,7 @@ import {
 import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import { buildPageMetadata } from "@/utils/buildPageMetadata";
+import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
 
 export function generateStaticParams() {
@@ -42,6 +43,18 @@ export default async function Home({ params }) {
   const sections = data[0]?.acf?.sections;
   return (
     <>
+      <PageSchema
+        path={`/services/${slug}`}
+        name={data?.[0]?.title?.rendered}
+        businessCity="auckland"
+        breadcrumbs={[
+          { name: "Home", path: "" },
+          { name: data?.[0]?.title?.rendered, path: `/services/${slug}` },
+        ]}
+        services={[
+          { name: data?.[0]?.title?.rendered, serviceType: "Moving service" },
+        ]}
+      />
       <Header />
       <main>
         <Layout

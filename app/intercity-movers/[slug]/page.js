@@ -13,6 +13,7 @@ import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
 import { buildPageMetadata } from "@/utils/buildPageMetadata";
+import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
 
 export function generateStaticParams() {
@@ -42,6 +43,22 @@ export default async function Home({ params }) {
   const sections = data[0]?.acf?.sections;
   return (
     <>
+      <PageSchema
+        path={`/intercity-movers/${slug}`}
+        name={data?.[0]?.title?.rendered}
+        businessCity="auckland"
+        breadcrumbs={[
+          { name: "Home", path: "" },
+          { name: "Intercity Movers", path: "/intercity-movers" },
+          { name: data?.[0]?.title?.rendered, path: `/intercity-movers/${slug}` },
+        ]}
+        services={[
+          {
+            name: data?.[0]?.title?.rendered,
+            serviceType: "Long distance moving service",
+          },
+        ]}
+      />
       <Header />
       <main>
         <Layout
