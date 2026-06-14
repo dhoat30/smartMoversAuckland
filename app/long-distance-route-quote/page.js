@@ -7,27 +7,21 @@ import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews, getOptions} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
+import { buildPageMetadata } from '@/utils/buildPageMetadata'
 
 import reviewsData from "@/data/google-reviews.json";
 
 
-export async function generateMetadata(props, parent) {
-
-    // optionally access and extend (rather than replace) parent metadata
-
-        return {
+export async function generateMetadata() {
+    return buildPageMetadata({
+        seoData: {
             title: "Intercity Moving Routes Across NZ | Smart Movers",
-            description: "Compare available long-distance moving routes across New Zealand. Find shared loads, save up to 40%, and book affordable Auckland–Christchurch moves and more.",
-            metadataBase: new URL(process.env.siteUrl),
-            openGraph: {
-                title: "Intercity Moving Routes Across NZ | Smart Movers",
-                description: "Compare available long-distance moving routes across New Zealand. Find shared loads, save up to 40%, and book affordable Auckland–Christchurch moves and more.",
-                url: process.env.siteUrl,
-                siteName: process.env.siteName,
-               
-                type: 'website',
-            },
-        }
+            description:
+                "Compare available long-distance moving routes across New Zealand. Find shared loads, save up to 40%, and book affordable Auckland–Christchurch moves and more.",
+        },
+        path: "/long-distance-route-quote",
+        noindex: true,
+    })
 }
 
   export default async function Home({searchParams }) {

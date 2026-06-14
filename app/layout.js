@@ -26,6 +26,32 @@ const workSans = Inter({
   preload: true,
 });
 
+export const metadata = {
+  metadataBase: new URL(process.env.siteUrl),
+  title: {
+    default: "Smart Movers NZ — Trusted House, Office & Furniture Movers",
+  },
+  description:
+    "Smart Movers NZ provides reliable local and nationwide house, office and furniture removals across New Zealand. WINZ approved, fully insured — get a fast free quote.",
+  applicationName: process.env.siteName,
+  openGraph: {
+    siteName: process.env.siteName,
+    locale: "en_NZ",
+    type: "website",
+    url: process.env.siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
+  },
+};
+
 export default function RootLayout({ children }) {
   const GTM_ID = "GTM-P7XCJ3DP";
 

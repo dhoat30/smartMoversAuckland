@@ -13,6 +13,18 @@ export const metadata = {
   title: "Blog | Smart Movers",
   description:
     "Read the latest moving tips, guides, and updates from Smart Movers.",
+  alternates: {
+    canonical: `${process.env.siteUrl}/blog`,
+  },
+  openGraph: {
+    title: "Blog | Smart Movers",
+    description:
+      "Read the latest moving tips, guides, and updates from Smart Movers.",
+    url: `${process.env.siteUrl}/blog`,
+    siteName: process.env.siteName,
+    locale: "en_NZ",
+    type: "website",
+  },
 };
 
 export default async function BlogPage() {

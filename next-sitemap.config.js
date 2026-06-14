@@ -33,10 +33,20 @@ const getLocalRemovalists = () => getHierarchicalData('https://cms.smartmovers.c
 const getInterstateRemovalists = () => getData('https://cms.smartmovers.co.nz/wp-json/wp/v2/intercity-movers?acf_format=standard&per_page=100', "intercity-movers");
 
 module.exports = {
-    siteUrl: isProd ? 'https://smartmovers.co.nz' : 'http://localhost:3000',
+    siteUrl: isProd ? 'https://www.smartmovers.co.nz' : 'http://localhost:3000',
     generateRobotsTxt: true,
     sitemapSize: 1000,
-    exclude: [ '/thank-you', '/order-received', '/checkout', '/form-submitted/thank-you'],
+    exclude: [
+        '/thank-you',
+        '/order-received',
+        '/checkout',
+        '/form-submitted/thank-you',
+        // Lead-gen / quote pages are noindex — city & intercity pages are the canonical pages
+        '/get-free-quote',
+        '/get-free-quote/*',
+        '/get-intercity-quote',
+        '/long-distance-route-quote',
+    ],
     additionalPaths: async (config) => {
         // const blogUrls = await getBlogsData();
         const localRemovalists = await getLocalRemovalists();

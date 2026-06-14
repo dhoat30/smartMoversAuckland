@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://smartmovers.co.nz
+Host: https://www.smartmovers.co.nz
 
 # Sitemaps
-Sitemap: https://smartmovers.co.nz/sitemap.xml
+Sitemap: https://www.smartmovers.co.nz/sitemap.xml

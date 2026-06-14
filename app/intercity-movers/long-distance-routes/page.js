@@ -8,6 +8,7 @@ import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 import LocationCarouselSection from '@/Components/UI/Layout/Sections/LocationCarousel/LocationCarouselSection'
 import LongDistanceRoutes from '@/Components/UI/LongDistanceRoutes/LongDistanceRoutes';
+import { buildPageMetadata } from '@/utils/buildPageMetadata';
 import { nzCitiesData } from '@/utils/staticData/nzCitiesData';
 import dayjs from "@/utils/dayjs-setup"; // with customParseFormat extended
 import reviewsData from "@/data/google-reviews.json";
@@ -19,35 +20,10 @@ export async function generateMetadata(props, parent) {
     // fetch data
     const data = await getSinglePostData('long-distance-movers', '/wp-json/wp/v2/intercity-movers')
 
-    // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent).openGraph?.images || []
-    if (data?.length > 0) {
-        const seoData = data[0].yoast_head_json
-        return {
-            title: seoData?.title,
-            description: seoData?.description,
-            metadataBase: new URL(process.env.siteUrl),
-            openGraph: {
-                title: seoData?.title,
-                description: seoData?.description,
-                url: process.env.siteUrl,
-                siteName: process.env.siteName,
-                images: [
-                    {
-                        url: seoData?.og_image && seoData?.og_image[0]?.url,
-                        width: 800,
-                        height: 600,
-                    }, {
-                        url: seoData?.og_image && seoData?.og_image[0].url,
-                        width: 1800,
-                        height: 1600,
-                    },
-
-                ],
-                type: 'website',
-            },
-        }
-    }
+    return buildPageMetadata({
+        seoData: data?.[0]?.yoast_head_json,
+        path: "/intercity-movers/long-distance-routes",
+    })
 }
 
 export default async function Page({ searchParams }) {

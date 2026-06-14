@@ -1,7 +1,7 @@
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.NODE_ENV === "production"
-    ? "https://smartmovers.co.nz"
+    ? "https://www.smartmovers.co.nz"
     : "http://localhost:3000");
 const siteName = "Smart Movers";
 
@@ -36,6 +36,17 @@ const nextConfig = {
     url: "https://cms.smartmovers.co.nz",
     siteUrl: baseUrl,
     siteName: siteName,
+  },
+  async redirects() {
+    return [
+      // Force the apex (non-www) host to the canonical www host.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "smartmovers.co.nz" }],
+        destination: "https://www.smartmovers.co.nz/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 

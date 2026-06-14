@@ -12,6 +12,7 @@ import {
 import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
 import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
+import { buildPageMetadata } from "@/utils/buildPageMetadata";
 import reviewsData from "@/data/google-reviews.json";
 
 export function generateStaticParams() {
@@ -23,34 +24,11 @@ export async function generateMetadata({ params }, parent) {
   const slug = param.slug;
   const data = await getSinglePostData(slug, "/wp-json/wp/v2/intercity-movers");
 
-  const previousImages = (await parent).openGraph?.images || [];
-
   if (data?.length > 0) {
-    const seoData = data[0].yoast_head_json;
-    return {
-      title: seoData?.title,
-      description: seoData?.description,
-      metadataBase: new URL(process.env.siteUrl),
-      openGraph: {
-        title: seoData?.title,
-        description: seoData?.description,
-        url: process.env.siteUrl,
-        siteName: process.env.siteName,
-        images: [
-          {
-            url: seoData?.og_image?.[0]?.url,
-            width: 800,
-            height: 600,
-          },
-          {
-            url: seoData?.og_image?.[0]?.url,
-            width: 1800,
-            height: 1600,
-          },
-        ],
-        type: "website",
-      },
-    };
+    return buildPageMetadata({
+      seoData: data[0].yoast_head_json,
+      path: `/intercity-movers/${slug}`,
+    });
   }
 }
 
