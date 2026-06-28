@@ -31,10 +31,10 @@ const workSans = Inter({
 export const metadata = {
   metadataBase: new URL(process.env.siteUrl),
   title: {
-    default: "Smart Movers NZ — Trusted House, Office & Furniture Movers",
+    default: "Smart Movers — Trusted House, Office & Furniture Movers",
   },
   description:
-    "Smart Movers NZ provides reliable local and nationwide house, office and furniture removals across New Zealand. WINZ approved, fully insured — get a fast free quote.",
+    "Smart Movers provides reliable local and nationwide house, office and furniture removals across New Zealand. WINZ approved, fully insured — get a fast free quote.",
   applicationName: process.env.siteName,
   openGraph: {
     siteName: process.env.siteName,

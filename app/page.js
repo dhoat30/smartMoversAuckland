@@ -37,7 +37,7 @@ export default async function Home() {
     <>
       <PageSchema
         path=""
-        name={data?.[0]?.title?.rendered || "Smart Movers NZ"}
+        name={data?.[0]?.title?.rendered || "Smart Movers"}
         businessCity="auckland"
       />
       <Header />
