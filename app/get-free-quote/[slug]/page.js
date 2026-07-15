@@ -50,6 +50,7 @@ export default async function Home({ params }) {
         <Layout
           sections={sections}
           googleReviewsData={reviewsData}
+          ugcVideos={options.ugc_videos}
           uspData={options.usp}
           statsData={options.status}
           locationsCovered={options.locations_covered}

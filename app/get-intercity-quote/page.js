@@ -46,6 +46,7 @@ export default async function Home() {
       <main style={{ background: "var(--light-surface-container-low)" }}>
         <Layout
           googleReviewsData={reviewsData}
+          ugcVideos={options.ugc_videos}
           sections={sections}
           uspData={options.usp}
           statsData={options.status}

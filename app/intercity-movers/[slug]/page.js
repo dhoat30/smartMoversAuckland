@@ -63,6 +63,7 @@ export default async function Home({ params }) {
       <main>
         <Layout
           googleReviewsData={reviewsData}
+          ugcVideos={options.ugc_videos}
           sections={sections}
           uspData={options.usp}
           statsData={options.status}

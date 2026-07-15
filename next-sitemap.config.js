@@ -28,7 +28,6 @@ const getHierarchicalData = async (endpoint, urlPrefix) => {
     }
 };
 
-// const getBlogsData = () => getData('https://cms.liftandshiftmovers.com.au/wp-json/wp/v2/posts?acf_format=standard&per_page=100', "blogs");
 const getLocalRemovalists = () => getHierarchicalData('https://cms.smartmovers.co.nz/wp-json/wp/v2/removalists?_fields=id,slug,parent&per_page=100', "movers");
 const getInterstateRemovalists = () => getData('https://cms.smartmovers.co.nz/wp-json/wp/v2/intercity-movers?acf_format=standard&per_page=100', "intercity-movers");
 

@@ -83,6 +83,7 @@ export default function ChildRemovalistPage({ post, options, parentSlug }) {
         <Layout
           sections={post?.acf?.sections}
           googleReviewsData={reviewsData}
+          ugcVideos={options.ugc_videos}
           uspData={options.usp}
           statsData={options.status}
           locationsCovered={options.locations_covered}

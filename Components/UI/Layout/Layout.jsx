@@ -27,6 +27,7 @@ export default function Layout({
   socialData,
   servicesData,
   googleReviewsData,
+  ugcVideos,
   routeId,
   reviewerPics,
 }) {
@@ -265,7 +266,13 @@ export default function Layout({
       section.show_reviews &&
       googleReviewsData
     ) {
-      return <GoogleReviewsCarousel key={index} data={googleReviewsData} />;
+      return (
+        <GoogleReviewsCarousel
+          key={index}
+          data={googleReviewsData}
+          ugcVideos={ugcVideos}
+        />
+      );
     }
 
     if (section.acf_fc_layout === "show_usp_table") {

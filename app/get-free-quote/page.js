@@ -52,6 +52,7 @@ export default async function Home() {
           locationsCovered={options.locations_covered}
           hoursCalculatorData={options.hours_calculator}
           googleReviewsData={reviewsData}
+          ugcVideos={options.ugc_videos}
         />
         {/* <Layout sections={postData[0]?.acf?.sections} /> */}
         {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}

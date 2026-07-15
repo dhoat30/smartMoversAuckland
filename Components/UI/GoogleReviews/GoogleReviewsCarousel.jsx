@@ -9,10 +9,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 import GoogleReviewCard from "./GoogleReviewCard/GoogleReviewCard";
-import PrevIcon from "@/Components/UI/Icons/PrevIcon";
-import NextIcon from "@/Components/UI/Icons/NextIcon";
+import UGCVideoCarousel from "./UGCVideoCarousel";
 
-export default function GoogleReviewsCarousel({ data }) {
+export default function GoogleReviewsCarousel({ data, ugcVideos }) {
   // ✅ proper empty check
   if (!data?.reviews?.length) return null;
 
@@ -83,6 +82,7 @@ export default function GoogleReviewsCarousel({ data }) {
   return (
     <section className={styles.section}>
       <Container maxWidth="xl" className={styles.container}>
+        <UGCVideoCarousel videos={ugcVideos} />
         <div className={styles.titleRow}>
           <Typography
             variant="h2"

@@ -17,14 +17,14 @@ const fonts = Barlow({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-barlow",
-  weight: ["300", "400", "500", "600", "700", "800"],
-  preload: true,
+  weight: ["600", "700", "800"],
+  preload: false,
 });
 const workSans = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-work-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
   preload: true,
 });
 
