@@ -45,7 +45,18 @@ module.exports = {
         '/get-free-quote/*',
         '/get-intercity-quote',
         '/long-distance-route-quote',
+        '/internal',
+        '/internal/*',
     ],
+    robotsTxtOptions: {
+        policies: [
+            {
+                userAgent: '*',
+                allow: '/',
+                disallow: '/internal/',
+            },
+        ],
+    },
     additionalPaths: async (config) => {
         // const blogUrls = await getBlogsData();
         const localRemovalists = await getLocalRemovalists();

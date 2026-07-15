@@ -15,6 +15,10 @@ import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
 import { useClickIds } from "@/hooks/useClickIds";
+import {
+  buildMoverMateMetadata,
+  getMoverMateLeadSource,
+} from "@/utils/clickIds";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import Script from "next/script";
 import {
@@ -170,6 +174,8 @@ export default function GetQuoteForm({
         dropoff: formData.dropOffAddress,
         propertyType: formData.propertyType,
         sendInventoryLink: true,
+        source: getMoverMateLeadSource(clickIds),
+        metadata: buildMoverMateMetadata(clickIds),
         // name: "services_required", value: formData["service"].join(", ") ,
         note: formData.message,
       },

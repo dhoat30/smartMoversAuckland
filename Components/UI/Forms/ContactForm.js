@@ -13,6 +13,10 @@ import Typography from "@mui/material/Typography";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import { useClickIds } from "@/hooks/useClickIds";
+import {
+  buildMoverMateMetadata,
+  getMoverMateLeadSource,
+} from "@/utils/clickIds";
 import Script from "next/script";
 
 export default function ContactForm({
@@ -104,6 +108,8 @@ export default function ContactForm({
         firstName: formData.firstname,
         email: formData.email,
         phone: formData.phone,
+        source: getMoverMateLeadSource(clickIds),
+        metadata: buildMoverMateMetadata(clickIds),
         // name: "services_required", value: formData["service"].join(", ") ,
         note: formData.message,
       },

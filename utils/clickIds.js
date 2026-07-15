@@ -101,6 +101,31 @@ export function persist(ids) {
   localStorage.setItem(STORE_KEY, JSON.stringify(clean));
 }
 
+// MoverMate's documented lead metadata fields for Google Ads attribution.
+export function buildMoverMateMetadata(clickIds = {}) {
+  const metadata = {
+    gclid: clickIds.gclid,
+    gbraid: clickIds.gbraid,
+    utm_source: clickIds.utm_source,
+    utm_medium: clickIds.utm_medium,
+    utm_campaign: clickIds.utm_campaign,
+    utm_term: clickIds.utm_term,
+    utm_content: clickIds.utm_content,
+  };
+
+  return Object.fromEntries(
+    Object.entries(metadata).filter(
+      ([, value]) => typeof value === "string" && value.trim() !== "",
+    ),
+  );
+}
+
+export function getMoverMateLeadSource(clickIds = {}) {
+  return clickIds.gclid || clickIds.gbraid || clickIds.wbraid
+    ? "Google Ads"
+    : "Website";
+}
+
 // Merge precedence: URL → Cookie → Storage
 export function initClickIdsOnce() {
   const fromUrl = readFromUrl();

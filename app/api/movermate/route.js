@@ -13,6 +13,24 @@ function pruneEmpty(obj) {
   );
 }
 
+function sanitizeMetadata(metadata) {
+  if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) {
+    return undefined;
+  }
+
+  const cleanMetadata = pruneEmpty({
+    gclid: metadata.gclid,
+    gbraid: metadata.gbraid,
+    utm_source: metadata.utm_source,
+    utm_medium: metadata.utm_medium,
+    utm_campaign: metadata.utm_campaign,
+    utm_term: metadata.utm_term,
+    utm_content: metadata.utm_content,
+  });
+
+  return Object.keys(cleanMetadata).length ? cleanMetadata : undefined;
+}
+
 export async function POST(req) {
   try {
     if (!MOVERMATE_TOKEN) {
@@ -51,9 +69,9 @@ export async function POST(req) {
       pickup: body.pickup,
       dropoff: body.dropoff,
       date: body.date ? body.date : null,
-      Source: body.source ?? body.Source, // accept either casing from frontend
+      source: body.source ?? body.Source,
       note: body.note,
-      // if their API supports extra keys you can keep adding here
+      metadata: sanitizeMetadata(body.metadata),
     });
 
     const url = new URL(`${MOVERMATE_BASE_URL}/webhook/leads`);

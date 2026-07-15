@@ -18,6 +18,10 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import formatDate from "@/utils/formatDate";
 import { useRouteCard } from "@/hooks/useRouteCard";
 import { useClickIds } from "@/hooks/useClickIds";
+import {
+  buildMoverMateMetadata,
+  getMoverMateLeadSource,
+} from "@/utils/clickIds";
 import Script from "next/script";
 import {
   getCitySlugFromPathname,
@@ -176,6 +180,8 @@ export default function LongDistanceRouteForm({
         dropoff: data?.movingTo?.label,
         propertyType: formData.propertyType,
         sendInventoryLink: true,
+        source: getMoverMateLeadSource(clickIds),
+        metadata: buildMoverMateMetadata(clickIds),
         // name: "services_required", value: formData["service"].join(", ") ,
         note: formData.message,
         date: formattedDate,

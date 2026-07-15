@@ -43,6 +43,19 @@ const nextConfig = {
     siteUrl: baseUrl,
     siteName: siteName,
   },
+  async headers() {
+    return [
+      {
+        source: "/internal/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       // Force the apex (non-www) host to the canonical www host.
