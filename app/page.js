@@ -27,6 +27,7 @@ export async function generateMetadata(props, parent) {
   }
 }
 
+
 export default async function Home() {
   const data = await getSinglePostData("home", "wp-json/wp/v2/pages");
   const options = await getOptions();
