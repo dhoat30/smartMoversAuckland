@@ -6,12 +6,10 @@ import Header from "@/Components/UI/Header/Header";
 import {
   getAllPostSlugs,
   getSinglePostData,
-  getGoogleReviews,
   getOptions,
 } from "@/utils/fetchData";
 import Footer from "@/Components/UI/Footer/Footer";
 import Layout from "@/Components/UI/Layout/Layout";
-import GoogleReviewsCarousel from "@/Components/UI/GoogleReviews/GoogleReviewsCarousel";
 import { buildPageMetadata } from "@/utils/buildPageMetadata";
 import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
@@ -38,7 +36,6 @@ export default async function Home({ params }) {
   const slug = param.slug;
   const data = await getSinglePostData(slug, "/wp-json/wp/v2/intercity-movers");
   const options = await getOptions();
-  // const googleReviews = await getGoogleReviews()
   if (!data?.length) notFound();
   const sections = data[0]?.acf?.sections;
   return (

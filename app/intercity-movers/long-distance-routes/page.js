@@ -3,7 +3,7 @@ export const revalidate = 2592000; // applies to both page and metadata
 import { notFound } from "next/navigation";
 
 import Header from '@/Components/UI/Header/Header'
-import { getSinglePostData, getGoogleReviews, getOptions, getLongDistanceRoutes } from '@/utils/fetchData'
+import { getSinglePostData, getOptions, getLongDistanceRoutes } from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 import LocationCarouselSection from '@/Components/UI/Layout/Sections/LocationCarousel/LocationCarouselSection'
@@ -40,7 +40,6 @@ export default async function Page({ searchParams }) {
     const longDistanceRoutes = await getLongDistanceRoutes()
     if (!longDistanceRoutes) notFound()
 
-    // const googleReviews = await getGoogleReviews()
     // if (!data?.length) notFound()
     // const sections = data[0]?.acf?.sections
     return (

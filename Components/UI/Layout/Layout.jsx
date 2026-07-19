@@ -32,7 +32,7 @@ export default function Layout({
   reviewerPics,
 }) {
   if (!sections) return null;
- 
+ console.log("Layout sections", ugcVideos);
   const sectionsJSX = sections.map((section, index) => {
     if (section.acf_fc_layout === "row") {
       let remappedAccordion;

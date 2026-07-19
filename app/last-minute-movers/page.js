@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Header from "@/Components/UI/Header/Header";
 import {
   getSinglePostData,
-  getGoogleReviews,
   getOptions,
 } from "@/utils/fetchData";
 import Footer from "@/Components/UI/Footer/Footer";
@@ -35,10 +34,8 @@ export default async function Home() {
     "last-minute-movers",
     "/wp-json/wp/v2/pages",
   );
-  // const googleReviews = await getGoogleReviews()
 
   const options = await getOptions();
-  // const googleReviews = await getGoogleReviews()
   if (!data?.length) notFound();
   const sections = data[0]?.acf?.sections;
   return (

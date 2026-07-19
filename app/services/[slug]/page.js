@@ -6,7 +6,6 @@ import Header from "@/Components/UI/Header/Header";
 import {
   getAllPostSlugs,
   getSinglePostData,
-  getGoogleReviews,
   getOptions,
 } from "@/utils/fetchData";
 import Footer from "@/Components/UI/Footer/Footer";
@@ -38,7 +37,6 @@ export default async function Home({ params }) {
   const data = await getSinglePostData(slug, "wp-json/wp/v2/services");
 
   const options = await getOptions();
-  // const googleReviews = await getGoogleReviews()
   if (!data?.length) notFound();
   const sections = data[0]?.acf?.sections;
   return (

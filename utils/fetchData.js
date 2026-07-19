@@ -1,5 +1,3 @@
-import { headers } from "next/headers";
-
 export const THIRTY_DAYS = 2592000;
 
 //get single post with slug
@@ -165,20 +163,6 @@ export const getLongDistanceRoutes = async () => {
     },
   );
   let data = await fetchData.json();
-  return data;
-};
-
-// get reivews
-export const getGoogleReviews = async () => {
-  const h = await headers();
-  const host = h.get("host");
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-
-  const url = `${protocol}://${host}/api/google-reviews`;
-
-  const res = await fetch(url, { next: { revalidate: THIRTY_DAYS } });
-  const data = await res.json();
-
   return data;
 };
 
