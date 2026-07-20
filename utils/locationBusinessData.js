@@ -43,7 +43,7 @@ export const cityBranches = {
   },
   hamilton: {
     name: "Hamilton",
-    telephone: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON || "0800 001 656",
+    telephone: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON ,
     email: process.env.NEXT_PUBLIC_HAMILTON_EMAIL || "hamilton@smartmovers.co.nz",
     address: {
       streetAddress: "83 Bryant Road",

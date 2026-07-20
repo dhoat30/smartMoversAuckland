@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import styles from "./GoogleReviewsCarousle.module.scss";
@@ -28,6 +28,7 @@ export default function GoogleReviewsCarousel({ data, ugcVideos }) {
       AutoScroll({
         speed: 0.6, // increase for faster
         startDelay: 0,
+        playOnInit: false,
         stopOnInteraction: false, // keep moving after button clicks / drag
         stopOnMouseEnter: false, // IMPORTANT: do NOT pause on carousel hover
         // If your users drag, Embla will stop momentarily then continue
@@ -39,6 +40,29 @@ export default function GoogleReviewsCarousel({ data, ugcVideos }) {
     { align: "start", loop: true },
     [autoScroll],
   );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoScrollPlugin = emblaApi.plugins()?.autoScroll;
+    const rootNode = emblaApi.rootNode();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          autoScrollPlugin?.play?.();
+        } else {
+          autoScrollPlugin?.stop?.();
+        }
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    observer.observe(rootNode);
+    return () => {
+      observer.disconnect();
+      autoScrollPlugin?.stop?.();
+    };
+  }, [emblaApi]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();

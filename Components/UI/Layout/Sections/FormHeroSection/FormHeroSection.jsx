@@ -82,7 +82,6 @@ export default function FormHeroSection({
                   graphicData[1].token.description
               }
               fill
-              priority={true}
               sizes=" (max-width: 550px) 100vw, 50vw"
             />
           </div>

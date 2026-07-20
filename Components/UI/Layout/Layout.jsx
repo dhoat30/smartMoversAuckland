@@ -32,7 +32,30 @@ export default function Layout({
   reviewerPics,
 }) {
   if (!sections) return null;
- console.log("Layout sections", ugcVideos);
+
+  // The carousel renders at most 10 five-star reviews. Trim the much larger
+  // source file before it crosses the server/client boundary and is serialized
+  // into the HTML and RSC payload.
+  const carouselReviewData = googleReviewsData?.reviews?.length
+    ? {
+        reviews: googleReviewsData.reviews
+          .filter(
+            (review) =>
+              review?.rating === 5 && typeof review?.snippet === "string",
+          )
+          .slice(0, 10)
+          .map((review) => ({
+            rating: review.rating,
+            snippet: review.snippet,
+            user: {
+              name: review.user?.name,
+              thumbnail: review.user?.thumbnail,
+              thumbnail_remote: review.user?.thumbnail_remote,
+            },
+          })),
+      }
+    : null;
+
   const sectionsJSX = sections.map((section, index) => {
     if (section.acf_fc_layout === "row") {
       let remappedAccordion;
@@ -264,12 +287,12 @@ export default function Layout({
     if (
       section.acf_fc_layout === "show_reviews" &&
       section.show_reviews &&
-      googleReviewsData
+      carouselReviewData
     ) {
       return (
         <GoogleReviewsCarousel
           key={index}
-          data={googleReviewsData}
+          data={carouselReviewData}
           ugcVideos={ugcVideos}
         />
       );

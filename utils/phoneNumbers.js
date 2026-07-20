@@ -3,11 +3,11 @@ const cityPhoneNumbers = {
   christchurch:
     process.env.NEXT_PUBLIC_PHONE_NUMBER_CHRISTCHURCH || "03 667 2254",
   auckland: process.env.NEXT_PUBLIC_PHONE_NUMBER || "09 873 4212",
-  hamilton: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON || "0800 001 656",
+  hamilton: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON ,
 };
 
 const restOfNewZealandPhoneNumber =
-  process.env.NEXT_PUBLIC_PHONE_NUMBER_REST_OF_NEW_ZEALAND || "0800 001 656";
+  process.env.NEXT_PUBLIC_PHONE_NUMBER_REST_OF_NEW_ZEALAND ;
 
 export function getPhoneNumberForCity(citySlug) {
   const normalizedSlug = citySlug?.toLowerCase?.().trim();

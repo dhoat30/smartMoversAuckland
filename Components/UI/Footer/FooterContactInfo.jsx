@@ -26,7 +26,7 @@ const offices = [
   },
   {
     label: "Hamilton",
-    phone: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON || "0800 001 656",
+    phone: process.env.NEXT_PUBLIC_PHONE_NUMBER_HAMILTON ,
     email: process.env.NEXT_PUBLIC_HAMILTON_EMAIL,
     address: process.env.NEXT_PUBLIC_HAMILTON_ADDRESS,
     addressUrl: process.env.NEXT_PUBLIC_HAMILTON_ADDRESS_URL,
