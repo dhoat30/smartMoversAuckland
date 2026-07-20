@@ -7,6 +7,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
+    "test": "node --no-warnings --test tests/*.test.mjs",
+    "verify:meta-leads": "node scripts/verify-meta-leads.mjs",
     "lint": "next lint",
     "sync:reviews": "node scripts/sync-google-reviews.mjs"
   },
