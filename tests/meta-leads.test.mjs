@@ -167,8 +167,10 @@ test("custom Meta fields map to MoverMate without losing unknown answers", () =>
   assert.equal(mapped.lastName, "Example");
   assert.equal(mapped.pickup, "Auckland");
   assert.equal(mapped.dropoff, "Wellington");
-  assert.equal(mapped.jobCategory, "House move");
+  assert.equal(mapped.jobType, undefined);
+  assert.equal(mapped.jobCategory, "Moving");
   assert.equal(mapped.source, "Meta Instant Form - Long-distance enquiry");
+  assert.match(mapped.note, /Services required: House move/);
   assert.match(mapped.note, /Do You Need Packing: Yes/);
   assert.equal(mapped.metadata.meta_lead_id, "lead-123");
 });
