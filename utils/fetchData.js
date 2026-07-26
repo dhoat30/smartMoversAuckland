@@ -31,7 +31,10 @@ export const getSinglePostData = async (slug, apiRoute) => {
     return data;
   } catch (err) {
     console.error("Error in getSinglePostData:", err);
-    return null;
+    // Do not turn an upstream failure into "content not found". Pages using
+    // ISR can safely keep serving their last successful render when rendering
+    // throws, whereas returning null can cause callers to cache a false 404.
+    throw err;
   }
 };
 

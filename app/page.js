@@ -1,7 +1,5 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
-import { notFound } from "next/navigation";
-
 import Header from "@/Components/UI/Header/Header";
 import {
   getSinglePostData,
@@ -15,22 +13,30 @@ import PageSchema from "@/Components/SEO/PageSchema";
 import reviewsData from "@/data/google-reviews.json";
 // run to get reviews GOOGLE_PLACE_ID="..." SERPAPI_API_KEY="..." npm run sync:reviews
 
+async function getHomePageData() {
+  const data = await getSinglePostData("home", "wp-json/wp/v2/pages");
+
+  // The homepage is a required singleton. Even a successful-but-empty CMS
+  // response should not replace the live homepage with a cached 404.
+  if (!Array.isArray(data) || data.length === 0) {
+    throw new Error('Required CMS page with slug "home" was not found');
+  }
+
+  return data;
+}
+
 export async function generateMetadata(props, parent) {
   // read route params
 
   // fetch data
-  const data = await getSinglePostData("home", "wp-json/wp/v2/pages");
-
-  if (data?.length > 0) {
-    return buildPageMetadata({ seoData: data[0].yoast_head_json, path: "" });
-  }
+  const data = await getHomePageData();
+  return buildPageMetadata({ seoData: data[0].yoast_head_json, path: "" });
 }
 
 
 export default async function Home() {
-  const data = await getSinglePostData("home", "wp-json/wp/v2/pages");
+  const data = await getHomePageData();
   const options = await getOptions();
-  if (!data?.length) notFound();
   const sections = data[0]?.acf?.sections;
   return (
     <>
