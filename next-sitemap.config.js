@@ -2,10 +2,25 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const fetchCmsJson = async (endpoint) => {
+    const response = await fetch(endpoint, {
+        headers: { Accept: 'application/json' },
+    });
+    const contentType = response.headers.get('content-type') || '';
+
+    if (!response.ok) {
+        throw new Error(`CMS request failed with HTTP ${response.status}.`);
+    }
+    if (!/(^|\s|;)application\/(?:[\w.-]+\+)?json(?:\s*;|$)/i.test(contentType)) {
+        throw new Error(`Expected JSON but received ${contentType || 'an unknown content type'}.`);
+    }
+
+    return response.json();
+};
+
 const getData = async (endpoint, urlPrefix) => {
     try {
-        const fetchData = await fetch(endpoint);
-        const data = await fetchData.json();
+        const data = await fetchCmsJson(endpoint);
         return data.map(post => `/${urlPrefix}/${post.slug}`);
     } catch (error) {
         console.error(`Failed to fetch data from ${endpoint}:`, error);
@@ -15,8 +30,7 @@ const getData = async (endpoint, urlPrefix) => {
 
 const getHierarchicalData = async (endpoint, urlPrefix) => {
     try {
-        const fetchData = await fetch(endpoint);
-        const data = await fetchData.json();
+        const data = await fetchCmsJson(endpoint);
         const slugsById = new Map(data.map(post => [post.id, post.slug]));
 
         return data.map(post => post.parent && slugsById.has(post.parent)

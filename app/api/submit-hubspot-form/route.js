@@ -1,6 +1,7 @@
 
 
 import { NextResponse } from 'next/server'
+import { parseJsonResponse } from '@/utils/fetchJson';
 const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 
@@ -40,15 +41,26 @@ export async function POST(req, res) {
 
     try {
         // submit form
-        let response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${HUBSPOT_PORTAL_ID}/${hubspotFormID}`, postOptions)
-        response = await response.json();
+        const url = `https://api.hsforms.com/submissions/v3/integration/secure/submit/${HUBSPOT_PORTAL_ID}/${hubspotFormID}`;
+        const response = await fetch(url, postOptions);
+        const responseData = await parseJsonResponse(response, url, {
+            requireOk: false,
+        });
 
-        return NextResponse.json({ message: "This Worked", success: true, data: response });
+        if (!response.ok) {
+            return NextResponse.json(
+                { message: "HubSpot rejected the submission", success: false, data: responseData },
+                { status: response.status },
+            );
+        }
+
+        return NextResponse.json({ message: "This Worked", success: true, data: responseData });
     } catch (error) {
         console.error(error);
-        // const err = await error.json();
-        return NextResponse.json({ message: error, success: false });
-        // res.status(500).send('Error sending email');
+        return NextResponse.json(
+            { message: "HubSpot submission failed", success: false },
+            { status: 502 },
+        );
 
     }
 }

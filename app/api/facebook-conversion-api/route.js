@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import crypto from 'crypto';
+import { parseJsonResponse } from '@/utils/fetchJson';
 
 const pixelId = process.env.FACEBOOK_PIXEL_ID;
 const accessToken = process.env.FACEBOOK_CONVERSION_TOKEN;
@@ -112,16 +113,20 @@ export async function GET(req, res) {
     body: JSON.stringify(eventData),
   });
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    return NextResponse.json({ message: `Facebook CAPI Error`, success: false, data: errorData }, {status: 400});
+  const responseData = await parseJsonResponse(response, endpoint, {
+    requireOk: false,
+  });
 
+  if (!response.ok) {
+    const error = new Error(`Facebook CAPI rejected the event (${response.status}).`);
+    error.status = response.status;
+    error.details = responseData;
+    throw error;
   }
-  return response.json();
+  return responseData;
 
   }
   
   function hashData(data) {
     return crypto.createHash('sha256').update(data).digest('hex');
   }
-  

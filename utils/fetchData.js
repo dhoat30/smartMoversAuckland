@@ -1,3 +1,5 @@
+import { fetchJson, parseJsonResponse } from "./fetchJson";
+
 export const THIRTY_DAYS = 2592000;
 
 //get single post with slug
@@ -7,28 +9,12 @@ export const getSinglePostData = async (slug, apiRoute) => {
     const route = apiRoute.replace(/^\/+/, "");
     const url = `${process.env.url}/${route}?slug=${slug}&acf_format=standard`;
 
-    const response = await fetch(url, {
+    return await fetchJson(url, {
       headers: {
         "User-Agent": "Mozilla/5.0",
-        Accept: "application/json",
       },
       next: { revalidate: THIRTY_DAYS },
     });
-
-    if (!response.ok) {
-      throw new Error(`Fetch failed with status: ${response.status}`);
-    }
-
-    const contentType = response.headers.get("content-type") || "";
-    if (!contentType.includes("application/json")) {
-      const body = await response.text();
-      throw new Error(
-        `Expected JSON but received ${contentType || "unknown content type"} from ${url}: ${body.slice(0, 120)}`,
-      );
-    }
-
-    const data = await response.json();
-    return data;
   } catch (err) {
     console.error("Error in getSinglePostData:", err);
     // Do not turn an upstream failure into "content not found". Pages using
@@ -40,46 +26,36 @@ export const getSinglePostData = async (slug, apiRoute) => {
 
 // get single post data using post id
 export const getSinglePostDataWithID = async (id, apiRoute) => {
-  let response = await fetch(
+  return fetchJson(
     `${process.env.url}/${apiRoute}/${id}?acf_format=standard`,
     {
       next: { revalidate: THIRTY_DAYS },
     },
   );
-  let data = await response.json();
-  return data;
 };
 
 //get all posts
 export const getAllPosts = async (apiRoute) => {
-  let response = await fetch(
+  return fetchJson(
     `${process.env.url}/${apiRoute}?acf_format=standard&per_page=100`,
     {
       next: { revalidate: THIRTY_DAYS },
     },
   );
-  let data = await response.json();
-  return data;
 };
 
 export const getAllPostSlugs = async (apiRoute) => {
   const route = apiRoute.replace(/^\/+/, "");
   const fetchPage = async (page) => {
-    const response = await fetch(
-      `${process.env.url}/${route}?_fields=slug&per_page=100&page=${page}`,
-      {
-        next: { revalidate: THIRTY_DAYS },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to fetch slugs from ${route} page ${page}: ${response.status}`,
-      );
-    }
+    const url =
+      `${process.env.url}/${route}?_fields=slug&per_page=100&page=${page}`;
+    const response = await fetch(url, {
+      headers: { Accept: "application/json" },
+      next: { revalidate: THIRTY_DAYS },
+    });
 
     return {
-      posts: await response.json(),
+      posts: await parseJsonResponse(response, url),
       totalPages: Number(response.headers.get("x-wp-totalpages")) || 1,
     };
   };
@@ -105,21 +81,15 @@ export const getAllPostSlugs = async (apiRoute) => {
 export const getHierarchicalPostSlugs = async (apiRoute) => {
   const route = apiRoute.replace(/^\/+/, "");
   const fetchPage = async (page) => {
-    const response = await fetch(
-      `${process.env.url}/${route}?_fields=id,slug,parent&per_page=100&page=${page}`,
-      {
-        next: { revalidate: THIRTY_DAYS },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to fetch hierarchical slugs from ${route} page ${page}: ${response.status}`,
-      );
-    }
+    const url =
+      `${process.env.url}/${route}?_fields=id,slug,parent&per_page=100&page=${page}`;
+    const response = await fetch(url, {
+      headers: { Accept: "application/json" },
+      next: { revalidate: THIRTY_DAYS },
+    });
 
     return {
-      posts: await response.json(),
+      posts: await parseJsonResponse(response, url),
       totalPages: Number(response.headers.get("x-wp-totalpages")) || 1,
     };
   };
@@ -152,21 +122,17 @@ export const getHierarchicalPostSlugs = async (apiRoute) => {
 };
 
 export const getOptions = async () => {
-  let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {
+  return fetchJson(`${process.env.url}/wp-json/options/all`, {
     next: { revalidate: THIRTY_DAYS },
   });
-  let data = await fetchData.json();
-  return data;
 };
 export const getLongDistanceRoutes = async () => {
-  let fetchData = await fetch(
+  return fetchJson(
     `${process.env.url}/wp-json/smart/v1/long-distance-moves`,
     {
       next: { revalidate: THIRTY_DAYS },
     },
   );
-  let data = await fetchData.json();
-  return data;
 };
 
 // const axios = require("axios");

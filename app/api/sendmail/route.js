@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { parseJsonResponse } from "@/utils/fetchJson";
 
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 const API_KEY = process.env.MAILGUN_API_KEY;
@@ -80,7 +81,7 @@ export async function POST(req) {
       body: formData,
     });
 
-    const data = await response.json();
+    const data = await parseJsonResponse(response, url, { requireOk: false });
 
     if (!response.ok) {
       return NextResponse.json(
