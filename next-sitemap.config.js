@@ -1,6 +1,11 @@
 /** @type {import('next-sitemap').IConfig} */
 
-const isProd = process.env.NODE_ENV === 'production';
+const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
+    (process.env.NODE_ENV === 'production'
+        ? 'https://www.smartmovers.co.nz'
+        : 'http://localhost:3000');
 
 const fetchCmsJson = async (endpoint) => {
     const response = await fetch(endpoint, {
@@ -46,7 +51,7 @@ const getLocalRemovalists = () => getHierarchicalData('https://cms.smartmovers.c
 const getInterstateRemovalists = () => getData('https://cms.smartmovers.co.nz/wp-json/wp/v2/intercity-movers?acf_format=standard&per_page=100', "intercity-movers");
 
 module.exports = {
-    siteUrl: isProd ? 'https://www.smartmovers.co.nz' : 'http://localhost:3000',
+    siteUrl,
     generateRobotsTxt: true,
     sitemapSize: 1000,
     exclude: [
