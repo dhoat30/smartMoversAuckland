@@ -18,7 +18,7 @@ export async function generateMetadata(props, parent) {
     // read route params
 
     // fetch data
-    const data = await getSinglePostData('long-distance-movers', '/wp-json/wp/v2/intercity-movers')
+    const data = await getSinglePostData('long-distance-movers', '/wp-json/wp/v2/pages')
 
     return buildPageMetadata({
         seoData: data?.[0]?.yoast_head_json,
