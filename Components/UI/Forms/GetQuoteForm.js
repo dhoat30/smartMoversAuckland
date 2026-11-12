@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useId } from "react";
 import Input from "./InputFields/Input";
 import { getQuoteFormData } from "@/utils/getQuoteFormData";
 import { servicePropertyMap } from "@/utils/getQuoteFormData"; // Import the service mapping
@@ -20,6 +20,9 @@ import {
   getMoverMateLeadSource,
 } from "@/utils/clickIds";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import MoveTypeStep from "./MoveTypeStep";
+import { quoteMoveTypes } from "@/utils/quoteMoveTypes";
 import Script from "next/script";
 import {
   getCitySlugFromPathname,
@@ -40,6 +43,27 @@ export default function GetQuoteForm({
 
   
   const router = useRouter();
+  const [step, setStep] = useState(1);
+  const [moveType, setMoveType] = useState("");
+  const selectedMoveType = quoteMoveTypes.find(
+    (option) => option.value === moveType,
+  );
+  const stepHeadingId = useId();
+  const stepHeadingRef = useRef(null);
+  const previousStep = useRef(step);
+  const submissionInFlight = useRef(false);
+
+  useEffect(() => {
+    if (previousStep.current !== step) {
+      stepHeadingRef.current?.focus({ preventScroll: true });
+      previousStep.current = step;
+    }
+  }, [step]);
+
+  const selectMoveType = (value) => {
+    setMoveType(value);
+  };
+
   const [formData, setFormData] = useState({
     firstname: "", // Default empty string to make it controlled
     email: "",
@@ -54,9 +78,7 @@ export default function GetQuoteForm({
   });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const [newSubmission, setNewSubmission] = useState(false);
   const [shouldLoadMaps, setShouldLoadMaps] = useState(false);
   const [googleAdsAddress, setGoogleAdsAddress] = useState({
     pickUpAddress: {},
@@ -86,7 +108,9 @@ export default function GetQuoteForm({
 
   // Submit handler
   const submitHandler = (e) => {
-    e.preventDefault(); // Prevent default form submission if using form tag
+    e.preventDefault();
+
+    if (step !== 2 || !selectedMoveType || submissionInFlight.current) return;
 
     let allFieldsValid = true;
     const newErrors = {};
@@ -117,7 +141,6 @@ export default function GetQuoteForm({
 
     const parts = formData.firstname.trim().split(/\s+/); // split by any whitespace
     const firstName = parts[0] || "";
-    const lastName = parts.slice(1).join(" ") || ""; // everything after firstName
 
     const formattedDate = formData.date
       ? dayjs(formData.date).format("DD MMM YYYY")
@@ -126,6 +149,7 @@ export default function GetQuoteForm({
       ? formData.service.join(", ")
       : "Not provided";
     const quoteMessage = [
+      `Move Type: ${selectedMoveType.label}`,
       `First Name: ${formData.firstname}`,
       `Email: ${formData.email}`,
       `Phone Number: ${formData.phone || "Not provided"}`,
@@ -177,10 +201,14 @@ export default function GetQuoteForm({
         source: getMoverMateLeadSource(clickIds),
         metadata: buildMoverMateMetadata(clickIds),
         // name: "services_required", value: formData["service"].join(", ") ,
-        note: formData.message,
+        note: [`Move Type: ${selectedMoveType.label}`, formData.message]
+          .filter(Boolean)
+          .join("\n"),
       },
     };
+    submissionInFlight.current = true;
     setIsLoading(true);
+    setError(false);
     // Hubspot config
     var configHubspot = {
       method: "post",
@@ -216,16 +244,18 @@ export default function GetQuoteForm({
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (response) {
-        console.log(response);
-        if (response[0].status === 200) {
-          setIsLoading(false);
-          setIsSuccess(true);
-          setNewSubmission(false);
-          setError(false);
-          if (typeof window !== "undefined" && window.dataLayer) {
+        if (
+          response.every(
+            ({ status, data }) => status === 200 && data?.success === true,
+          )
+        ) {
+          if (typeof window !== "undefined") {
+            window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: "quote_form_submission",
               formName: "Moving Quote",
+              moveType: selectedMoveType.value,
+              move_size: selectedMoveType.moveSize,
               formData: {
                 firstName: firstName,
                 email: formData.email,
@@ -245,18 +275,15 @@ export default function GetQuoteForm({
           }
           router.push("/form-submitted/thank-you");
         } else {
+          submissionInFlight.current = false;
           setIsLoading(false);
-          setIsSuccess(false);
           setError(true);
-          setNewSubmission(true);
         }
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function () {
+        submissionInFlight.current = false;
         setIsLoading(false);
-        setIsSuccess(false);
         setError(true);
-        setNewSubmission(true);
       });
   };
 
@@ -402,29 +429,107 @@ export default function GetQuoteForm({
                 </Typography>
               )}
 
-              {addressFields.length > 0 && (
-                <div className={styles.addressRow}>
-                  {addressFields.map((field) => (
-                    <div key={field.id} className={styles.addressField}>
-                      {renderAddressField(field)}
-                    </div>
-                  ))}
-                </div>
-              )}
+              <ol className={styles.progress} aria-label="Quote progress">
+                {["Move type", "Your details"].map((label, index) => (
+                  <li
+                    key={label}
+                    aria-current={step === index + 1 ? "step" : undefined}
+                  >
+                    <span className={styles.stepNumber}>{index + 1}</span>
+                    {label}
+                  </li>
+                ))}
+              </ol>
 
-              {formInputs}
-
-              <Button
-                // newSubmission={newSubmission}
-                onClick={submitHandler}
-                loading={isLoading}
-                // isSuccess={isSuccess}
-                variant="contained"
-                className="mt-16 full-width"
-                size="large"
+              <Typography
+                id={stepHeadingId}
+                ref={stepHeadingRef}
+                tabIndex={-1}
+                component="h3"
+                variant="h5"
+                className={`${styles.stepHeading} ${step === 1 ? styles.moveTypeHeading : ""}`}
               >
-                Get Free Quote
-              </Button>
+                {step === 1 ? "What are you moving?" : "Your moving details"}
+              </Typography>
+
+              {step === 1 ? (
+                <>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    className={styles.moveTypeIntro}
+                  >
+                    Select an option to continue.
+                  </Typography>
+                  <MoveTypeStep value={moveType} onSelect={selectMoveType} />
+                  <Button
+                    type="button"
+                    variant="contained"
+                    size="large"
+                    className="mt-16 full-width"
+                    disabled={!selectedMoveType}
+                    onClick={() => {
+                      if (selectedMoveType) setStep(2);
+                    }}
+                  >
+                    Continue to details
+                  </Button>
+                </>
+              ) : (
+                <form
+                  onSubmit={submitHandler}
+                  noValidate
+                  aria-labelledby={stepHeadingId}
+                  aria-busy={isLoading}
+                >
+                  <div className={styles.selectedMove}>
+                    <span>{selectedMoveType.label}</span>
+                    <Button
+                      type="button"
+                      variant="text"
+                      size="small"
+                      className={styles.backButton}
+                      startIcon={<ArrowBackIcon />}
+                      disabled={isLoading}
+                      onClick={() => setStep(1)}
+                      aria-label="Back to move type"
+                    >
+                      Back
+                    </Button>
+                  </div>
+                  <fieldset
+                    className={styles.detailsFields}
+                    disabled={isLoading}
+                  >
+                    {addressFields.length > 0 && (
+                      <div className={styles.addressRow}>
+                        {addressFields.map((field) => (
+                          <div key={field.id} className={styles.addressField}>
+                            {renderAddressField(field)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {formInputs}
+
+                    <Button
+                      type="submit"
+                      loading={isLoading}
+                      variant="contained"
+                      className="mt-16 full-width"
+                      size="large"
+                    >
+                      Get Free Quote
+                    </Button>
+                  </fieldset>
+                  {error && (
+                    <Alert sx={{ margin: "8px 0" }} severity="error">
+                      Something went wrong. Please try again.
+                    </Alert>
+                  )}
+                </form>
+              )}
 
               <Button
                 variant="text"
@@ -460,11 +565,6 @@ export default function GetQuoteForm({
                 🔒 Your details are safe & never shared
 
               </Typography>
-              {error && (
-                <Alert sx={{ margin: "8px 0" }} severity="error">
-                  Something went wrong. Please Try again
-                </Alert>
-              )}
             </div>
           </React.Fragment>
         </Box>

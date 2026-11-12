@@ -3,7 +3,7 @@
       .inputWrapper {
         background: var(--light--surface-container);
         border-radius: 12px;
-      
+
       }
 
       .addressRow {
@@ -20,5 +20,98 @@
       .addressField {
         min-width: 0;
       }
-    
+
+      .progress {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+        list-style: none;
+        padding: 4px;
+        margin: 0 0 20px;
+        border-radius: 10px;
+        background: var(--light-surface-container-low);
+        font-size: 0.875rem;
+        line-height: 1.25;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          min-width: 0;
+          padding: 8px 6px;
+          border-radius: 7px;
+          text-align: center;
+          color: var(--light-on-surface-variant);
+        }
+
+        li[aria-current="step"] {
+          color: var(--light-primary);
+          background: var(--light-surface-container-lowest);
+          box-shadow: 0 1px 4px rgba(13, 33, 55, 0.12);
+          font-weight: 700;
+
+          .stepNumber {
+            color: var(--light-on-primary);
+            background: var(--light-primary);
+          }
+        }
+      }
+
+      .stepNumber {
+        display: grid;
+        place-items: center;
+        flex: 0 0 22px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--light-surface-container-high);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .stepHeading {
+        margin-bottom: 8px;
+
+        &:focus-visible {
+          outline: 2px solid var(--light-primary);
+          outline-offset: 4px;
+        }
+      }
+
+      .moveTypeHeading {
+        margin-bottom: 6px;
+        color: var(--light-primary);
+        font-size: 1.25rem;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .moveTypeIntro {
+        text-align: center;
+      }
+
+      .selectedMove {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--light-primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+
+        .backButton {
+          display: inline-flex;
+          padding: 4px 8px;
+          font-size: 0.875rem;
+        }
+      }
+
+      .detailsFields {
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+
 }

@@ -161,6 +161,7 @@ export default function ContactForm({
             window.dataLayer.push({
               event: "quote_form_submission",
               formName: "Moving Quote",
+              move_size: null,
               formData: {
                 firstName: formData.firstname,
 

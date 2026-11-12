@@ -232,6 +232,7 @@ export default function LongDistanceRouteForm({
             window.dataLayer.push({
               event: "quote_form_submission",
               formName: "Moving Quote",
+              move_size: null,
               formData: {
                 firstName: firstName,
                 email: formData.email,
