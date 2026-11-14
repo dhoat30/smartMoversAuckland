@@ -1,0 +1,4263 @@
+{
+  "metadata": {
+    "title": "Intercity Movers | Smart Movers",
+    "description": "Smart Movers provides long-distance moving services from Auckland, Christchurch, Hamilton and Wellington to destinations across New Zealand.",
+    "robots": {
+      "index": "index",
+      "follow": "follow",
+      "max-snippet": "max-snippet:-1",
+      "max-image-preview": "max-image-preview:large",
+      "max-video-preview": "max-video-preview:-1"
+    },
+    "og_image": [
+      {
+        "width": 1968,
+        "height": 2220,
+        "url": "https://cms.smartmovers.co.nz/wp-content/uploads/2025/04/map10.png",
+        "type": "image/png"
+      }
+    ]
+  },
+  "socialLinks": [
+    {
+      "social_media_name": "Facebook",
+      "link": "https://www.facebook.com/smartMoversNZ/",
+      "social_media_icon": {
+        "url": "/social/facebook.svg"
+      }
+    },
+    {
+      "social_media_name": "Instagram",
+      "link": "https://www.facebook.com/smartMoversNZ/",
+      "social_media_icon": {
+        "url": "/social/instagram.svg"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "id": "auckland-to-christchurch-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "29/08/2026",
+        "start_date": "06/01/2026",
+        "end_date": "18/01/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Includes loading & unloading. Ideal for 2–3 bedroom moves.",
+      "highlighted_chips": {
+        "spare_capacity": "30",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-whangarei-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "08/08/2026",
+        "end_date": "21/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Discounted backload rate. Suitable for small loads. ",
+      "highlighted_chips": {
+        "spare_capacity": "42",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-dunedin-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "02/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "5",
+        "truck_size": "45"
+      },
+      "description": "Includes loading & unloading. Ideal for 3+ bedroom moves.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-kerikeri-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Perfect for full-house or shared moves travelling north through the North Island.",
+      "highlighted_chips": {
+        "spare_capacity": "28",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-hamilton-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "27/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Regular north-bound route via Wellington and Taupō. Ideal for 2–3 bedroom homes",
+      "highlighted_chips": {
+        "spare_capacity": "33",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-wellington-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Ideal for 3–5 bedroom homes or large shared moves.",
+      "highlighted_chips": {
+        "spare_capacity": "55",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-christchurch-2",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Discounted south-bound shared load service via Wellington. Perfect for partial moves or small apartments.",
+      "highlighted_chips": {
+        "spare_capacity": "25",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "christchurch-to-hamilton-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "09/08/2026",
+        "end_date": "06/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Regular north-bound route via Wellington and Taupō. Ideal for 2–3 bedroom homes or partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "39",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-kerikeri-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "08/08/2026",
+        "end_date": "05/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Perfect for full-house or shared moves travelling north through the North Island. Includes loading and unloading at both ends.",
+      "highlighted_chips": {
+        "spare_capacity": "45",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "auckland-to-christchurch-3",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Shared load heading to Christchurch — ideal for large 3-bedroom moves or part-loads.",
+      "highlighted_chips": {
+        "spare_capacity": "45",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-hamilton-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Perfect for smaller apartments or furniture transport between Auckland and Hamilton.",
+      "highlighted_chips": {
+        "spare_capacity": "12",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-tauranga-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Regular weekly run to Tauranga with space available for partial or full loads.",
+      "highlighted_chips": {
+        "spare_capacity": "25",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "auckland-to-wellington-2",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Affordable long-haul trip to Wellington — combine loads and save big on transport.",
+      "highlighted_chips": {
+        "spare_capacity": "40",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-kerikeri-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "29/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Northland delivery run to Kerikeri — small and medium moves welcome.",
+      "highlighted_chips": {
+        "spare_capacity": "18",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "auckland-to-whangarei-2",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "27/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Quick Northland delivery to Whangarei — ideal for light moves or single-item transport.",
+      "highlighted_chips": {
+        "spare_capacity": "10",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-dunedin-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Long-haul relocation to Dunedin with shared load discount available.",
+      "highlighted_chips": {
+        "spare_capacity": "48",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-auckland-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Return trip to Auckland with shared-load pricing.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "hamilton-to-auckland-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Quick return for light/medium loads.",
+      "highlighted_chips": {
+        "spare_capacity": "10",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "tauranga-to-auckland-1",
+      "moving_from": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Ideal for 2 bedroom house move or single items.",
+      "highlighted_chips": {
+        "spare_capacity": "22",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-auckland-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "3",
+        "truck_size": "55"
+      },
+      "description": "Shared-load backhaul from Wellington.",
+      "highlighted_chips": {
+        "spare_capacity": "42",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "kerikeri-to-auckland-1",
+      "moving_from": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Northland return — small & medium moves.",
+      "highlighted_chips": {
+        "spare_capacity": "14",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "whangarei-to-auckland-1",
+      "moving_from": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Fast turnaround — perfect for 2-3 bedroom house move.",
+      "highlighted_chips": {
+        "spare_capacity": "25",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "dunedin-to-auckland-1",
+      "moving_from": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "08/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Long-haul backload to Auckland or anywhere in between. ",
+      "highlighted_chips": {
+        "spare_capacity": "46",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "queenstown-to-auckland-1",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "3",
+        "truck_size": "45"
+      },
+      "description": "Limited December availability.",
+      "highlighted_chips": {
+        "spare_capacity": "30",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-auckland-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "10/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Great for partial loads & small moves.",
+      "highlighted_chips": {
+        "spare_capacity": "24",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "kerikeri-to-auckland-2",
+      "moving_from": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "14/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Discounted northbound backhaul.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-dunedin-2",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Great option for small households and part-load transport.",
+      "highlighted_chips": {
+        "spare_capacity": "35",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-invercargill-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Reliable for compact relocations and part loads.",
+      "highlighted_chips": {
+        "spare_capacity": "23",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "invercargill-to-auckland-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Well matched for small households and partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "30",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "auckland-to-queenstown-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Efficient choice for light moves and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "39",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "queenstown-to-auckland-2",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "24/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Designed for compact homes and part-load delivery.",
+      "highlighted_chips": {
+        "spare_capacity": "37",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "auckland-to-christchurch-4",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "03/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Ideal for small relocations and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "42",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "auckland-to-nelson-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Great for light home moves and partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "33",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "nelson-to-auckland-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "09/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Efficient option for light moves and part loads.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-wellington-3",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "03/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Reliable solution for small-scale moves and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "25",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "wellington-to-auckland-2",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "27/06/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Great choice for light household moves and partial transport.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-greymouth-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "26/07/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Reliable solution for small-scale moves and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "26",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "greymouth-to-christchurch-1",
+      "moving_from": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "28/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Great fit for light household relocations and partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "16",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-queenstown-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Efficient solution for small homes and partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "queenstown-to-christchurch-1",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Efficient solution for small homes and partial loads.",
+      "highlighted_chips": {
+        "spare_capacity": "19",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "auckland-to-whangarei-3",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Reliable option for light moves and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "31",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "whangarei-to-auckland-2",
+      "moving_from": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "25/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Well suited for small homes and shared transport.",
+      "highlighted_chips": {
+        "spare_capacity": "19",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "auckland-to-gisborne-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "27/07/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Designed for compact relocations and shared loads.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "gisborne-to-auckland-1",
+      "moving_from": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "25/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Great for light moves and partial-load delivery.",
+      "highlighted_chips": {
+        "spare_capacity": "17",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-wellington-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "29/07/2026",
+        "end_date": "28/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Perfect choice for small homes and flexible moving options.",
+      "highlighted_chips": {
+        "spare_capacity": "17",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "wellington-to-christchurch-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "03/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Efficient for light household moves and partial transport.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-auckland-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "24/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Great for moving a few household items without full relocation services.",
+      "highlighted_chips": {
+        "spare_capacity": "37",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-queenstown-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "08/08/2026",
+        "end_date": "26/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Efficient choice for quick pickups and small deliveries.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-christchurch-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Smart option for partial household transitions.",
+      "highlighted_chips": {
+        "spare_capacity": "43",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-hamilton-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "01/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Great for moving essentials without a full-scale relocation.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-queenstown-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Handy for simple moves with fewer items.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-dunedin-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "26/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Efficient for short trips with light household loads.",
+      "highlighted_chips": {
+        "spare_capacity": "37",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "hamilton-to-rotorua-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "rotorua",
+        "label": "Rotorua"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "26/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Smart solution for limited-item relocations.",
+      "highlighted_chips": {
+        "spare_capacity": "21",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "hamilton-to-nelson-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Practical for shifting a few belongings with ease.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-napier-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "02/09/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Great for light household shifting and short hauls.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-auckland-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Smart solution for limited-item relocations.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-auckland-4",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "20/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Ideal for small spaces and effortless mobility.",
+      "highlighted_chips": {
+        "spare_capacity": "18",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-whangarei-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Compact-friendly and easy to move whenever needed.",
+      "highlighted_chips": {
+        "spare_capacity": "43",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-wellington-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Compact-friendly and easy to move whenever needed.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-hamilton-4",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Efficient for small areas with convenient moving freedom.",
+      "highlighted_chips": {
+        "spare_capacity": "39",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "christchurch-to-napier-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Designed for tight spaces with flexible relocation in mind.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-gisborne-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "27/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "A great match for small spaces and on-the-go lifestyles.",
+      "highlighted_chips": {
+        "spare_capacity": "19",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-palmerston_north-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "08/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Compact, convenient, and ready to relocate anytime.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "christchurch-to-tauranga-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "A practical choice for tight spaces and mobility needs.",
+      "highlighted_chips": {
+        "spare_capacity": "37",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-queenstown-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "24/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Space-saving design with hassle-free portability.",
+      "highlighted_chips": {
+        "spare_capacity": "45",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-invercargill-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Ideal for cozy setups with flexible moving options.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-dunedin-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Ideal for efficient living and flexible transport.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-nelson-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "25/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Fits small spaces while offering great mobility.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-greymouth-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Compact in size, big on moving convenience.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-taupo-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "taupo",
+        "label": "Taupō"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Smart choice for compact homes and easy shifting.",
+      "highlighted_chips": {
+        "spare_capacity": "35",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-wairoa-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "wairoa",
+        "label": "Wairoa"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "26/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Great for smaller living with simple moving options.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-auckland-3",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "28/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Compact design with effortless mobility built in",
+      "highlighted_chips": {
+        "spare_capacity": "35",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-whangarei-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Small footprint, big flexibility.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-wellington-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Fits where you need it and moves when you want it.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-wellington-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Easy to fit, easier to move.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-napier-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "A seamless fit for tight spaces and quick moves.",
+      "highlighted_chips": {
+        "spare_capacity": "44",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-gisborne-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Live light, move easy",
+      "highlighted_chips": {
+        "spare_capacity": "28",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-palmerston_north-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "1",
+        "truck_size": "35"
+      },
+      "description": "Freedom to rearrange, without the hassle.",
+      "highlighted_chips": {
+        "spare_capacity": "26",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-tauranga-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Flexible living starts here.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-queenstown-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Minimal space, maximum freedom.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-invercargill-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Built for change, ready for anything.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "hamilton-to-dunedin-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Ready when you are—easy to move, easy to live with.",
+      "highlighted_chips": {
+        "spare_capacity": "31",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-nelson-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "From room to room, no stress involved.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-greymouth-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Move it your way, anytime.",
+      "highlighted_chips": {
+        "spare_capacity": "42",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-invercargill-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Shift spaces without slowing down.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "dunedin-to-auckland-2",
+      "moving_from": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Designed to keep up with changing spaces.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "invercargill-to-auckland-2",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Small in size, easy in motion.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "queenstown-to-auckland-3",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Your space, redefined anytime.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "oamaru-to-auckland-1",
+      "moving_from": {
+        "value": "oamaru",
+        "label": "Oamaru"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "25/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Built for everyday flexibility.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "nelson-to-auckland-2",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Compact living, reimagined for movement.",
+      "highlighted_chips": {
+        "spare_capacity": "43",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "nelson-to-auckland-3",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Where compact meets comfort.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "nelson-to-christchurch-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "25/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Effortless living in every square metre",
+      "highlighted_chips": {
+        "spare_capacity": "43",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "nelson-to-wellington-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Contemporary living, compact by design.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "nelson-to-invercargill-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "28/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "More freedom. Less hassle.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "nelson-to-dunedin-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "25/08/2026",
+        "end_date": "02/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Live simple. Live local.",
+      "highlighted_chips": {
+        "spare_capacity": "36",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "nelson-to-queenstown-1",
+      "moving_from": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "28/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Built for freedom and flexibility",
+      "highlighted_chips": {
+        "spare_capacity": "26",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "invercargill-to-queenstown-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "28/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Clever spaces, Kiwi pace.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "invercargill-to-christchurch-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "04/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Easy living, wherever life takes you",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "invercargill-to-wellington-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Live freer with less",
+      "highlighted_chips": {
+        "spare_capacity": "24",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "invercargill-to-auckland-3",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "11/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Made for Kiwi roads and wide-open spaces.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "invercargill-to-napier-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "14/08/2026",
+        "end_date": "04/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Downsized space, upgraded lifestyle.",
+      "highlighted_chips": {
+        "spare_capacity": "39",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "invercargill-to-blenheim-1",
+      "moving_from": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "moving_to": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "14/08/2026",
+        "end_date": "29/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Cleverly compact, genuinely comfortable",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "queenstown-to-christchurch-2",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "25/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Cleverly compact, genuinely comfortable",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "queenstown-to-invercargill-1",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "08/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Flexible living for changing times.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "queenstown-to-wellington-1",
+      "moving_from": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "20/09/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "New Zealand living, made simpler.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "blenheim-to-auckland-1",
+      "moving_from": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "12/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Smaller space, bigger horizons",
+      "highlighted_chips": {
+        "spare_capacity": "39",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "blenheim-to-christchurch-1",
+      "moving_from": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "11/08/2026",
+        "end_date": "05/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "The easy way to live well.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "blenheim-to-invercargill-1",
+      "moving_from": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Compact comfort for Kiwi lifestyles.\r\n\r\n",
+      "highlighted_chips": {
+        "spare_capacity": "24",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "blenheim-to-gisborne-1",
+      "moving_from": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "11/08/2026",
+        "end_date": "12/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "More adventure, less maintenance.",
+      "highlighted_chips": {
+        "spare_capacity": "22",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "blenheim-to-napier-1",
+      "moving_from": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "21/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Flexible living for changing times.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-auckland-5",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Where practical design meets everyday freedom",
+      "highlighted_chips": {
+        "spare_capacity": "25",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-hamilton-5",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "10/09/2026",
+        "start_date": "15/06/2026",
+        "end_date": "05/07/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Minimal upkeep. Maximum flexibility",
+      "highlighted_chips": {
+        "spare_capacity": "26",
+        "status": "Backload"
+      }
+    },
+    {
+      "id": "christchurch-to-wellington-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "15/08/2026",
+        "end_date": "05/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Rethinking home for modern lifestyles.",
+      "highlighted_chips": {
+        "spare_capacity": "29",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-tauranga-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "07/08/2026",
+        "end_date": "05/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Minimal upkeep. Maximum flexibility.",
+      "highlighted_chips": {
+        "spare_capacity": "28",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-dunedin-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Own less, experience more — modern living made simple",
+      "highlighted_chips": {
+        "spare_capacity": "35",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-nelson-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "25/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Light on maintenance, big on lifestyle.",
+      "highlighted_chips": {
+        "spare_capacity": "22",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-rotorua-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "rotorua",
+        "label": "Rotorua"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "26/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Smart living that moves with you.",
+      "highlighted_chips": {
+        "spare_capacity": "38",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-greymouth-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "06/08/2026",
+        "end_date": "27/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Because life changes — your space should too.",
+      "highlighted_chips": {
+        "spare_capacity": "18",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-hastings-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "hastings",
+        "label": "Hastings"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "30/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Light on maintenance, big on lifestyle.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-blenheim-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "reedom begins with less to manage",
+      "highlighted_chips": {
+        "spare_capacity": "22",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-gisborne-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "A smarter way to live, work, and explore.",
+      "highlighted_chips": {
+        "spare_capacity": "33",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-helensville-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "helensville",
+        "label": "Helensville"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "26/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Flexible spaces for changing lifestyles.",
+      "highlighted_chips": {
+        "spare_capacity": "46",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-napier-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "24/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Where practical design meets everyday freedom.",
+      "highlighted_chips": {
+        "spare_capacity": "21",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-palmerston_north-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "01/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Live simply. Wander often.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-wanganui-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "wanganui",
+        "label": "Wanganui"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Smarter spaces for freer living.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-whangarei-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "24/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Practical living with a sense of freedom.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-invercargill-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "28/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "1",
+        "truck_size": "45"
+      },
+      "description": "Less stress at home, more life beyond it.",
+      "highlighted_chips": {
+        "spare_capacity": "34",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "christchurch-to-taupo-2",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "taupo",
+        "label": "Taupō"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "28/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Designed for movement, freedom, and modern living.",
+      "highlighted_chips": {
+        "spare_capacity": "21",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-opaliti-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "opaliti",
+        "label": "Opotiki"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "29/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Built for the way people live today.",
+      "highlighted_chips": {
+        "spare_capacity": "22",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "christchurch-to-kerikeri-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "04/08/2026",
+        "end_date": "30/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Less stress at home, more life beyond it.",
+      "highlighted_chips": {
+        "spare_capacity": "31",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "christchurch-to-gisborne-3",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Spend less time managing life, more time enjoying it.",
+      "highlighted_chips": {
+        "spare_capacity": "19",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "hamilton-to-dunedin-3",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "27/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "More living, less managing.",
+      "highlighted_chips": {
+        "spare_capacity": "23",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-dannevirke-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "dannevirke",
+        "label": "Dannevirke"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "15/08/2026",
+        "end_date": "30/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Make room for what matters most.",
+      "highlighted_chips": {
+        "spare_capacity": "50",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-auckland-4",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "09/08/2026",
+        "end_date": "03/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "    Clear the clutter. Keep the peace.",
+      "highlighted_chips": {
+        "spare_capacity": "26",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-dunedin-4",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "fixed",
+        "fixed_date": "17/08/2026",
+        "start_date": null,
+        "end_date": null,
+        "number_of_movers": "1",
+        "truck_size": "35"
+      },
+      "description": "    Space for dreams,Space for growth",
+      "highlighted_chips": {
+        "spare_capacity": "18",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-invercargill-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "22/08/2026",
+        "end_date": "12/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Building futures, nurturing potential.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-palmerston_north-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "30/08/2026",
+        "end_date": "24/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Inspiring minds, shaping futures",
+      "highlighted_chips": {
+        "spare_capacity": "19",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-blenheim-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "30/08/2026",
+        "end_date": "18/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "Where goals become reality.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-greymouth-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "29/08/2026",
+        "end_date": "25/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Growing minds, building futures.",
+      "highlighted_chips": {
+        "spare_capacity": "21",
+        "status": "New Route"
+      }
+    },
+    {
+      "id": "hamilton-to-whangarei-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "23/08/2026",
+        "end_date": "26/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "55"
+      },
+      "description": "A place to learn, grow, and succeed.",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-christchurch-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "29/08/2026",
+        "end_date": "30/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Room for ambition, opportunity for success.",
+      "highlighted_chips": {
+        "spare_capacity": "31",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "hamilton-to-kerikeri-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "23/08/2026",
+        "end_date": "26/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "35"
+      },
+      "description": "Empowering ideas, creating opportunities.",
+      "highlighted_chips": {
+        "spare_capacity": "21",
+        "status": "Save up to 40%"
+      }
+    },
+    {
+      "id": "hamilton-to-gisborne-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "28/08/2026",
+        "end_date": "25/09/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Where aspirations flourish and futures grow.",
+      "highlighted_chips": {
+        "spare_capacity": "27",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-tauranga-2",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "11/08/2026",
+        "end_date": "27/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Where goals become reality",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-greymouth-4",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "greymouth",
+        "label": "Greymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "05/08/2026",
+        "end_date": "24/08/2026",
+        "number_of_movers": "2",
+        "truck_size": "45"
+      },
+      "description": "Crafting Homes, Creating Futures",
+      "highlighted_chips": {
+        "spare_capacity": "32",
+        "status": "Filling Fast"
+      }
+    },
+    {
+      "id": "auckland-to-blenheim-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Blenheim. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-hastings-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "hastings",
+        "label": "Hastings"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Hastings. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-napier-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Napier. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-new_plymouth-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "new_plymouth",
+        "label": "New Plymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to New Plymouth. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-palmerston_north-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Palmerston North. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-rotorua-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "rotorua",
+        "label": "Rotorua"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Rotorua. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-taupo-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "taupo",
+        "label": "Taupō"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Taupō. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "auckland-to-whakatane-1",
+      "moving_from": {
+        "value": "auckland",
+        "label": "Auckland"
+      },
+      "moving_to": {
+        "value": "whakatane",
+        "label": "Whakatāne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Auckland to Whakatāne. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-new_plymouth-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "new_plymouth",
+        "label": "New Plymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Christchurch to New Plymouth. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "christchurch-to-whakatane-1",
+      "moving_from": {
+        "value": "christchurch",
+        "label": "Christchurch"
+      },
+      "moving_to": {
+        "value": "whakatane",
+        "label": "Whakatāne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Christchurch to Whakatāne. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-hastings-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "hastings",
+        "label": "Hastings"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Hamilton to Hastings. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-new_plymouth-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "new_plymouth",
+        "label": "New Plymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Hamilton to New Plymouth. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-taupo-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "taupo",
+        "label": "Taupō"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Hamilton to Taupō. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "hamilton-to-whakatane-1",
+      "moving_from": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "moving_to": {
+        "value": "whakatane",
+        "label": "Whakatāne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Hamilton to Whakatāne. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-blenheim-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "blenheim",
+        "label": "Blenheim"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Blenheim. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-dunedin-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "dunedin",
+        "label": "Dunedin"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Dunedin. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-gisborne-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "gisborne",
+        "label": "Gisborne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Gisborne. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-hamilton-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "hamilton",
+        "label": "Hamilton"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Hamilton. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-hastings-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "hastings",
+        "label": "Hastings"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Hastings. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-invercargill-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "invercargill",
+        "label": "Invercargill"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Invercargill. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-kerikeri-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "kerikeri",
+        "label": "Kerikeri"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Kerikeri. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-napier-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "napier",
+        "label": "Napier"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Napier. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-nelson-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "nelson",
+        "label": "Nelson"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Nelson. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-new_plymouth-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "new_plymouth",
+        "label": "New Plymouth"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to New Plymouth. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-palmerston_north-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "palmerston_north",
+        "label": "Palmerston North"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Palmerston North. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-queenstown-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "queenstown",
+        "label": "Queenstown"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Queenstown. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-rotorua-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "rotorua",
+        "label": "Rotorua"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Rotorua. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-taupo-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "taupo",
+        "label": "Taupō"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Taupō. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-tauranga-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "tauranga",
+        "label": "Tauranga"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Tauranga. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-whakatane-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "whakatane",
+        "label": "Whakatāne"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Whakatāne. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    },
+    {
+      "id": "wellington-to-whangarei-1",
+      "moving_from": {
+        "value": "wellington",
+        "label": "Wellington"
+      },
+      "moving_to": {
+        "value": "whangarei",
+        "label": "Whangārei"
+      },
+      "attributes": {
+        "date_type": "date_range",
+        "fixed_date": null,
+        "start_date": "01/08/2026",
+        "end_date": "31/08/2026",
+        "number_of_movers": null,
+        "truck_size": null
+      },
+      "description": "Move your apartment, flat or house from Wellington to Whangārei. Request a quote for your preferred date.",
+      "highlighted_chips": {
+        "spare_capacity": null,
+        "status": "Flexible"
+      }
+    }
+  ]
+}

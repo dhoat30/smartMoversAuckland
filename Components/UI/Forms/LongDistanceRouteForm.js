@@ -138,10 +138,10 @@ export default function LongDistanceRouteForm({
        \nMove Date: ${formattedDate}
       \nMove Type: ${formData["moveType"].join(", ")}
        \nRoute: ${data?.movingFrom?.label} to ${data?.movingTo?.label}
-        \nTruck Space Left: ${data?.spareCapacity}
+        \nTruck Space Left: ${data?.spareCapacity ?? "To be confirmed"}
          \nDate Listed on Move Card: ${movingCardDate}
-                \nTruck Size: ${data?.attributes?.truck_size}
-       \nNumber of Movers: ${data?.attributes?.number_of_movers}
+                \nTruck Size: ${data?.attributes?.truck_size ?? "To be confirmed"}
+       \nNumber of Movers: ${data?.attributes?.number_of_movers ?? "To be confirmed"}
        \nDescription: ${data?.description}
        \nStatus: ${data?.status}
 

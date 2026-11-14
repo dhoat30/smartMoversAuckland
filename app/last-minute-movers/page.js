@@ -20,7 +20,7 @@ export async function generateMetadata(props, parent) {
   // fetch data
   const data = await getSinglePostData(
     "last-minute-movers",
-    "/wp-json/wp/v2/intercity-movers",
+    "/wp-json/wp/v2/pages",
   );
 
   return buildPageMetadata({

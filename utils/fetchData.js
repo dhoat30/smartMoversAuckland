@@ -126,14 +126,6 @@ export const getOptions = async () => {
     next: { revalidate: THIRTY_DAYS },
   });
 };
-export const getLongDistanceRoutes = async () => {
-  return fetchJson(
-    `${process.env.url}/wp-json/smart/v1/long-distance-moves`,
-    {
-      next: { revalidate: THIRTY_DAYS },
-    },
-  );
-};
 
 // const axios = require("axios");
 

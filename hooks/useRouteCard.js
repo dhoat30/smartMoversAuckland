@@ -1,29 +1,50 @@
-// hooks/useRouteCard.ts
 "use client";
-import { useEffect, useState } from "react";
+
+import { useEffect, useMemo, useState } from "react";
+import { useNewZealandDate } from "@/hooks/useNewZealandDate";
+import { rollRouteSchedule } from "@/utils/routeSchedule";
 
 export function useRouteCard(routeId) {
-  const [data, setData] = useState(null);
+  const [storedData, setStoredData] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [fromLabel, setFromLabel] = useState("");
-  const [toLabel, setToLabel] = useState("");
+  const today = useNewZealandDate();
 
   useEffect(() => {
+    setStoredData(null);
+    setLoaded(false);
     try {
-      if (!routeId) { setLoaded(true); return; }
-      const raw = sessionStorage.getItem(`routeCard:${routeId}`);
-      if (!raw) { setLoaded(true); return; }
-
-      const parsed = JSON.parse(raw);
-      setData(parsed);
-      setFromLabel(typeof parsed.movingFrom === "string" ? parsed.movingFrom : parsed.movingFrom?.label || "");
-      setToLabel(typeof parsed.movingTo === "string" ? parsed.movingTo : parsed.movingTo?.label || "");
-    } catch (e) {
-      setData(null);
+      const raw = routeId && sessionStorage.getItem(`routeCard:${routeId}`);
+      if (raw) setStoredData(JSON.parse(raw));
+    } catch {
+      setStoredData(null);
     } finally {
       setLoaded(true);
     }
   }, [routeId]);
+
+  const data = useMemo(() => {
+    if (!storedData || !today) return null;
+    try {
+      return {
+        ...storedData,
+        // Older session cards only have attributes. New cards retain the
+        // original schedule to avoid drift after month-end rollovers.
+        attributes: rollRouteSchedule(
+          storedData.scheduleAttributes || storedData.attributes,
+          today,
+        ),
+      };
+    } catch {
+      return null;
+    }
+  }, [storedData, today]);
+
+  const fromLabel = typeof data?.movingFrom === "string"
+    ? data.movingFrom
+    : data?.movingFrom?.label || "";
+  const toLabel = typeof data?.movingTo === "string"
+    ? data.movingTo
+    : data?.movingTo?.label || "";
 
   return { data, loaded, fromLabel, toLabel };
 }

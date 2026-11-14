@@ -8,6 +8,8 @@ import MovingCard from './MovingCard/MovingCard';
 import dayjs from '@/utils/dayjs-setup'
 import FiltersBar from "./FiltersBar";
 import EmptyStateNoRoutes from "./EmptyStateNoRoutes/EmptyStateNoRoutes";
+import { useNewZealandDate } from "@/hooks/useNewZealandDate";
+import { getUpcomingRoutes } from "@/utils/routeSchedule";
 // match city object 
 function matchesCityObj(cardCityObj, selectedCityObj) {
   if (!selectedCityObj) return true; // no filter applied
@@ -17,7 +19,12 @@ function matchesCityObj(cardCityObj, selectedCityObj) {
 
 
 // main function 
-export default function LongDistanceRoutes({longDistanceRoutesData = [], initialFilters, nzCitiesData }) {
+export default function LongDistanceRoutes({longDistanceRoutesData = [], initialFilters, initialToday, nzCitiesData }) {
+ const today = useNewZealandDate(initialToday);
+ const upcomingRoutes = useMemo(
+   () => getUpcomingRoutes(longDistanceRoutesData, today),
+   [longDistanceRoutesData, today],
+ );
  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams(); // keeps up with back/forward
@@ -76,13 +83,13 @@ const handleShowAll = () => {
 
 //   filter data 
   const filteredData = useMemo(() => {
-    return longDistanceRoutesData.filter(
+    return upcomingRoutes.filter(
       (item) =>
         matchesCityObj(item.moving_from, movingFrom) &&
         matchesCityObj(item.moving_to, movingTo) &&
     matchesDate(item.attributes, selectedDate)
     );
-  }, [longDistanceRoutesData, movingFrom, movingTo, selectedDate]);
+  }, [upcomingRoutes, movingFrom, movingTo, selectedDate]);
 
   return (
  <section className={styles.section}> 
@@ -101,15 +108,16 @@ const handleShowAll = () => {
         </div>
         <div className={`${styles.movingCardsWrapper} grid gap-16 mt-32`}>
             { filteredData.length > 0 && (
-                  filteredData.map((item, index) => (
+                  filteredData.map((item) => (
             <MovingCard
-              key={index}
+              key={item.id}
               movingFrom={item.moving_from}
               movingTo={item.moving_to}
               spareCapacity={item.highlighted_chips?.spare_capacity}
               status={item.highlighted_chips?.status}
               description={item.description}
               attributes={item.attributes}
+              scheduleAttributes={item.scheduleAttributes}
             />
           ))
             ) 

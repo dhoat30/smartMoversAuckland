@@ -15,6 +15,7 @@ import Truck55 from "../../Icons/Truck55";
 import CalendarIcon from "../../Icons/CalendarIcon";
 import { useRouter, useSearchParams } from "next/navigation";
 import formatDate from "@/utils/formatDate";
+import { rollRouteSchedule } from "@/utils/routeSchedule";
 export default function MovingCard({
   movingFrom,
   movingTo,
@@ -22,6 +23,7 @@ export default function MovingCard({
   status,
   description,
   attributes,
+  scheduleAttributes,
   disableHoverEffect, 
   disableLinkBehavior
 }) {
@@ -41,7 +43,8 @@ const cardClickHandler = () => {
   spareCapacity,
   status,
   description,
-  attributes,
+  attributes: rollRouteSchedule(scheduleAttributes || attributes),
+  scheduleAttributes: scheduleAttributes || attributes,
   }));
 
   // Keep UTMs/gclid, add only lightweight params for prefill
@@ -96,6 +99,7 @@ if (attributes?.truck_size === "55") {
         >
           {status}
         </Typography>
+        {spareCapacity != null && spareCapacity !== "" && (
         <Typography
           variant="subtitle2"
           component="div"
@@ -103,6 +107,7 @@ if (attributes?.truck_size === "55") {
         >
           {spareCapacity} m³ left
         </Typography>
+        )}
       </div>
       <Typography
         color="#003671"
@@ -129,6 +134,7 @@ if (attributes?.truck_size === "55") {
           </Typography>
         </div>
 
+        {attributes.number_of_movers && (
         <div className={`${styles.moversWrapper} flex gap-4 align-center`}>
           {numberOfMoversIcon}
           <Typography
@@ -141,7 +147,9 @@ if (attributes?.truck_size === "55") {
             {attributes.number_of_movers} Movers
           </Typography>
         </div>
+        )}
 
+        {attributes.truck_size && (
           <div className={`${styles.truckSizeWrapper} flex gap-4 align-center`}>
           {truckSizeIcon}
           <Typography
@@ -154,6 +162,7 @@ if (attributes?.truck_size === "55") {
             {attributes.truck_size} m³
           </Typography>
         </div>
+        )}
       
       </div>
 
