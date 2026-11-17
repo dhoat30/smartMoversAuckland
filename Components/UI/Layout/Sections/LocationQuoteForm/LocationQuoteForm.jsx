@@ -16,7 +16,7 @@ const TEXT_USP = [
   { value: "Packing & unpacking available" },
   { value: "We can beat any quote by 10%" },
   { value: "WINZ Quotes" },
-  { value: "Full transit insurance" },
+  { value: "Careful furniture handling" },
 ];
 
 export default function LocationQuoteForm({

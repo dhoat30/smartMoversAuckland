@@ -30,7 +30,7 @@ const trustItems = [
   },
   {
     icon: <LocalShippingOutlinedIcon fontSize="small" />,
-    label: "Full Transit Insurance",
+    label: "Careful Furniture Handling",
   },
  
 ];

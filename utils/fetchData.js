@@ -1,4 +1,5 @@
 import { fetchJson, parseJsonResponse } from "./fetchJson";
+import { updateMarketingCopy } from "./marketingCopy";
 
 export const THIRTY_DAYS = 2592000;
 
@@ -9,12 +10,13 @@ export const getSinglePostData = async (slug, apiRoute) => {
     const route = apiRoute.replace(/^\/+/, "");
     const url = `${process.env.url}/${route}?slug=${slug}&acf_format=standard`;
 
-    return await fetchJson(url, {
+    const data = await fetchJson(url, {
       headers: {
         "User-Agent": "Mozilla/5.0",
       },
       next: { revalidate: THIRTY_DAYS },
     });
+    return updateMarketingCopy(data);
   } catch (err) {
     console.error("Error in getSinglePostData:", err);
     // Do not turn an upstream failure into "content not found". Pages using
@@ -26,22 +28,24 @@ export const getSinglePostData = async (slug, apiRoute) => {
 
 // get single post data using post id
 export const getSinglePostDataWithID = async (id, apiRoute) => {
-  return fetchJson(
+  const data = await fetchJson(
     `${process.env.url}/${apiRoute}/${id}?acf_format=standard`,
     {
       next: { revalidate: THIRTY_DAYS },
     },
   );
+  return updateMarketingCopy(data);
 };
 
 //get all posts
 export const getAllPosts = async (apiRoute) => {
-  return fetchJson(
+  const data = await fetchJson(
     `${process.env.url}/${apiRoute}?acf_format=standard&per_page=100`,
     {
       next: { revalidate: THIRTY_DAYS },
     },
   );
+  return updateMarketingCopy(data);
 };
 
 export const getAllPostSlugs = async (apiRoute) => {
@@ -122,9 +126,10 @@ export const getHierarchicalPostSlugs = async (apiRoute) => {
 };
 
 export const getOptions = async () => {
-  return fetchJson(`${process.env.url}/wp-json/options/all`, {
+  const data = await fetchJson(`${process.env.url}/wp-json/options/all`, {
     next: { revalidate: THIRTY_DAYS },
   });
+  return updateMarketingCopy(data);
 };
 
 // const axios = require("axios");
